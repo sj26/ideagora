@@ -4,6 +4,10 @@ class Camp < ActiveRecord::Base
   has_many :users, :through => :attendees
   has_many :notices
   
+  def to_s
+    name
+  end
+  
   def current?
     !! current
   end

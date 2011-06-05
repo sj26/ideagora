@@ -33,7 +33,7 @@ rc9.talk_days.each do |day|
     speaker = users[hour % users.length]
 
     start_at = day + hour.hours
-    talk = rc9.talks.create!(
+    talk = Talk.create!(
       :venue_id => venue.id,
       :user_id => speaker.id,
       :name => Faker::Company.catch_phrase,

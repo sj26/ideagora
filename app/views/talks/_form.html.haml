@@ -1,7 +1,6 @@
 = render :partial => 'where_and_when', :locals => { :talk => @talk }
 
 = simple_form_for @talk do |f|
-<<<<<<< HEAD
   = f.input :name, :label => 'Talk Title'
   = f.input :user_id, :label => 'Speaker',  :collection => @users, :label_method => :full_name, :value_method => :id
   = f.input :description, :hint => 'Textile supported'

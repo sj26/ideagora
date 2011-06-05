@@ -12,6 +12,7 @@ gem 'rake', '0.8.7'
 gem 'simple_form'
 gem 'ruby-debug19'
 gem 'simple-navigation'
+gem 'thumbs_up'
 
 group :development, :test do
   gem 'autotest'

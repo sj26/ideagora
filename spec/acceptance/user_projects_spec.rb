@@ -4,19 +4,18 @@ describe 'User\'s projects', :type => :request do
   before do
     clear_db
     @c = Camp.make!
-    @u = @c.users.make!
+    @u = User.make!
+    @c.users << @u
     @p = Project.make!(:owner => @u)
   end
   
   context 'when not logged in' do
     it 'can see /projects' do
-      pending
       visit projects_path
       page.should have_content(@p.name)
     end
     
     it 'can see /users/1/projects' do
-      pending
       visit user_projects_path(@u)
       page.should have_content(@p.name)
     end

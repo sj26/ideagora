@@ -28,7 +28,7 @@ Notice.blueprint do
 end
 
 Project.blueprint do
-  name          { Faker::Lorem.words(1) }
+  name          { Faker::Company.name }
   owner         { User.make! }
 end
 

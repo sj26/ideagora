@@ -1,13 +1,22 @@
 class Camp < ActiveRecord::Base
   has_many :attendees, :class_name => 'Attendance'
   has_many :users, :through => :attendees
+  has_many :notices
   has_many :venues
   has_many :talks, :through => :venues
 
   validates_presence_of :name, :current, :time_zone, :start_at, :end_at
   validate :start_at_is_less_than_end_at
-
+  
   # TODO if one camp is enabled, all others should be disabled
+
+  def to_s
+    name
+  end
+  
+  def current?
+    !! current
+  end
   
   def self.current
     where(:current => true).take(1).first

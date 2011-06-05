@@ -8,8 +8,9 @@ describe Camp do
   it { should validate_presence_of(:end_at) }
 
   it { should have_many(:attendees) }
-  it { should have_many(:venues) }
+  it { should have_many(:notices) }
   it { should have_many(:talks) }
+  it { should have_many(:venues) }
 
   describe '#talks_by_time_and_venue_for_day(day)' do
     before do

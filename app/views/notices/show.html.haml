@@ -1,0 +1,4 @@
+%h2= @notice.title
+%p.meta #{@notice.created_at.strftime("Created on %b %d, %Y")} for #{@notice.camp}
+
+= textilize(@notice.content).try(:html_safe)

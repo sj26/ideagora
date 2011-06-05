@@ -1,10 +1,12 @@
 require 'spec_helper'
+require 'ruby-debug'
 
 describe User do
   it { should validate_presence_of(:first_name) }
   it { should validate_presence_of(:email) }
   it { should have_many(:projects).dependent(:destroy) }
   it { should have_many(:camps) }
+  it { should have_many(:notices) }
   
   it { should be_invalid }  
 
@@ -53,11 +55,33 @@ describe User do
   
   context 'full_name' do
     before { @user = User.make!(:first_name => 'elmo', :last_name => nil) }
+    specify { @user.full_name.should == 'elmo' }
     
     it "should concat first and last name" do
-      @user.full_name.should == 'elmo'
       @user.update_attribute(:last_name, 'smith')
       @user.full_name.should == 'elmo smith'
+    end
+  end
+  
+  context 'organiser' do
+    before do
+      Camp.delete_all
+      Attendance.delete_all
+      User.delete_all
+    end
+    
+    it "should be organiser?" do
+      pending
+      a = Attendance.make!
+      u = a.user
+      User.organisers.count == 0
+      u.organiser?.should be_false
+      
+      a.update_attribute(:organiser, true)
+      User.organisers(true).count == 1
+      puts User.organisers(true)
+      puts User.first.organiser?
+      u.organiser?.should be_true
     end
   end
 end

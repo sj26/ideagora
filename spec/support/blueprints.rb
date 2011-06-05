@@ -1,6 +1,12 @@
 require 'machinist/active_record'
 require 'faker'
 
+Attendance.blueprint do
+  user          { User.make! }
+  camp          { Camp.make! }
+  organiser     { false }
+end
+
 Camp.blueprint do
   name          { 'Railscamp 9' }
   current       { true }
@@ -14,9 +20,28 @@ Camp.blueprint(:previous) do
   current       { false }
 end
 
+Notice.blueprint do
+  title         { Faker::Name.name }
+  content       { Faker::Lorem.sentences }
+  user          { User.make! }
+  camp          { Camp.make! }
+end
+
 Project.blueprint do
   name          { Faker::Lorem.words(1) }
   owner         { User.make! }
+end
+
+Talk.blueprint do
+  name     { 'Introduction to Coffeescript' }
+  venue    { Venue.make! }
+  user     { User.make! }
+  start_at { 1.day.ago }
+  end_at   { 1.day.from_now }
+end
+
+Venue.blueprint do
+  name          { Faker::Lorem.words(1) }
 end
 
 User.blueprint do
@@ -29,14 +54,3 @@ User.blueprint do
   interest_list    { 'interest_a, interest_b' }
 end
 
-Venue.blueprint do
-  name          { Faker::Lorem.words(1) }
-end
-
-Talk.blueprint do
-  name     { 'Introduction to Coffeescript' }
-  venue    { Venue.make! }
-  user     { User.make! }
-  start_at { 1.day.ago }
-  end_at   { 1.day.from_now }
-end

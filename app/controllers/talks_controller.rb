@@ -1,5 +1,5 @@
 class TalksController < InheritedResources::Base
-  before_filter :requires_login
+  before_filter :requires_login, :except => [:index, :show]
 
   def index
     @day = params[:day] ? Date.parse(params[:day]) : Camp.current.talks.order(:start_at).first.day

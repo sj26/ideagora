@@ -1,0 +1,6 @@
+%li[notice]
+  %h3= link_to notice.title, notice
+  = textilize(notice.content).try(:html_safe)
+  - if organiser?
+    = link_to 'Edit,', edit_notice_path(notice)
+    = link_to 'Delete', notice_path(notice), :confirm => 'Are you sure you want to delete this notice?', :method => :delete

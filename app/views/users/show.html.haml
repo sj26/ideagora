@@ -11,17 +11,24 @@
 
 %p IRC nick: #{@user.irc}
 
-%p= @user.try(:bio)
+- if @user.bio
+  %p= textilize(@user.bio)
 
 %p Skills: #{@user.skill_list.join(', ')}
 
 %p Interests: #{@user.interest_list.join(', ')}
 
-- if @user.projects.any?
+%section.projects
   %h2 My projects
-  %ol
-    - for project in @user.projects
-      %li
-        %h3= link_to project.name, project_path(project)
-        %p= truncate(project.try(:description))
-      
+  %p= link_to 'Add new project', new_user_project_path(@user)
+  
+  - if @user.projects.any?
+    %ol
+      - for project in @user.projects
+        = render 'projects/project', :project => project
+        
+  - else
+    %p
+      Tell us what you are working on&#8212;
+      = link_to 'create a new project', new_user_project_path(@user)
+    

@@ -10,8 +10,8 @@
   %section.talks
     %p.view_all= link_to 'view all talks', talks_path
     %h1= link_to "Today's talks", talks_path, :title => 'view all talks'
-    %ol
-      %li.location
+    %ol.location
+      %li
         %h2 Location: Library
         %ul
           = render :partial => 'talk_li', :collection => @todays_talks, :as => :talk

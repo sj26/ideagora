@@ -14,20 +14,7 @@
       %li.location
         %h2 Location: Library
         %ul
-          %li.talk
-            %p
-              %span.talk_name Coffeescript
-              at
-              %span.time 10am&#8211;11am
-              by
-              %span.presenter John Smith
-          %li.talk
-            %p
-              %span.talk_name Haml and Sass
-              at
-              %span.time 11am&#8211;12pm
-              by
-              %span.presenter John Smith
+          = render :partial => 'talk_li', :collection => @todays_talks, :as => :talk
             
   %section.projects
     %p.view_all= link_to 'view all projects', projects_path

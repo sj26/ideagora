@@ -13,6 +13,10 @@ class Talk < ActiveRecord::Base
     where('start_at >= ? and start_at < ?', day, day + 1.day).order(:start_at)
   end
 
+  def self.for_venue(venue)
+    where(:venue => venue)
+  end
+
   def day
     start_at.to_date
   end

@@ -24,9 +24,14 @@
           %p
             - if current_user
               Logged in as #{current_user.email}
+              - if organiser?
+                &lowast;
+                = link_to 'New notice', new_notice_path
+              &lowast;
               = link_to "Log out", log_out_path
             - else
               = link_to "Sign in", sign_in_path
+              
         %h1=link_to 'Railscamp 9', root_path
       %nav#main_nav
         %ul

@@ -21,7 +21,6 @@
       %th Bonjour
       %th Twitter
       %th IRC
-      %th Bio
       %th Skills
       %th Interests
       %th 
@@ -29,11 +28,10 @@
     - @users.each_with_index do |user, index|
       - row_class = index.even? ? 'even' : 'odd'
       %tr{:class => row_class}
-        %td= user.full_name
+        %td= link_to user.full_name, user_path(user)
         %td= user.bonjour
         %td= user.twitter
         %td= user.irc
-        %td= user.bio
         %td= user.skill_list.join(', ')
         %td= user.interest_list.join(', ')
         %td= link_to('View', user_path(user))

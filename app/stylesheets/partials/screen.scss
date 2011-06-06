@@ -1,13 +1,13 @@
 /* -----------------------------------------------------------------------
 colours, backgrounds, borders, text-shaddows, box-shaddows, gradients.....
 ----------------------------------------------------------------------- */
-body {color: $dark_grey; background: #fefefe;}
-h1,h1 a {color: $dark_green; text-shadow: 1px 1px #bbb;}
+body {color: $dark_grey; background: $bkg;}
+h1,h1 a {color: $dark_green; @include text-shadow;}
 h2,h2 a,h3,h3 a,h4,h4 a,h5,h5 a,h6,h6 a {color: #555;}
 
 // = links
 a {color: $default;}
-a:focus,a:hover {color: #ae1515;}
+a:focus,a:hover {color: $red_base;}
 
 // = tables
 th {@include gradient(#fbfbfb, $feint_grey); text-align:left; border-bottom:1px solid #fff;}
@@ -18,7 +18,7 @@ abbr,acronym {border-bottom: 1px dotted $default;}
 caption {background: #dedede;}
 
 /* flashes */
-p.error, p.warning, p.notice, p.message, p.alert {border:2px solid #ddd;}
+p.error, p.warning, p.notice, p.message, p.alert {border:2px solid $feint_grey;}
 p.error, p.warning, p.alert {background:#fbe3e4; color:#8a1f11; border-color:#fbc2c4;
   a {color:#8a1f11;}
 }
@@ -31,19 +31,26 @@ p.message {background:#e6efc2; color:#264409; border-color:#c6d880;
 
 
 
-body {background: url(/images/design/bkg.jpg); border-top: 2px solid #ccc;}
+// Website specific
+body {background: url(/images/design/bkg.jpg); border-top: 2px solid $light_grey;}
 
-#header h1 {color: #ae1515;}
-
-#main_nav li {background: #ccc;}
-#main_nav li a {color: #fafafa; text-shadow: 1px 1px #aaa;}
+#header h1 a {color: $red_base;}
+// Main navigation
+#main_nav li {background: $light_grey;}
+#main_nav li a {color: #fafafa; @include text-shadow;}
 
 
 // = home page
-section.notices {background: #fff url(/images/design/ribbon.png) 95% -2% no-repeat; box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;}
-.drop-shadow:before,.drop-shadow:after {box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);}
+body#welcome {
+  section.notices {
+    background: #fff url(/images/design/ribbon.png) 95% -2% no-repeat;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    &:before, &:after {box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);}
+  }
+  div.main ol.location {color:$default;}
+  div.main ol.location ul li {border-bottom: 1px dotted $light_grey;}
+  div.main p.details {color: #aaa;}
+  div.main p.view_all a {color: $feint; @include text-shadow(0 0 1px $default); background: $dark_grey; border-radius: 6px;}
+}
 
-div.main li {border-bottom: 1px dotted #ccc;}
-div.main p.details {color: #aaa;}
-div.main p.view_all a { color: #eee; text-shadow: 0 0 #777; background: #444; border-radius: 6px;}
-div.main p.help {padding:3px 0 0 22px; background: url(/images/design/icon_star_red_18.png) top left no-repeat; color: #881515;}
+p.help {padding:3px 0 0 22px; background: url(/images/design/icon_star_red_18.png) top left no-repeat; color: $red_dark;}

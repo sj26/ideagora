@@ -13,14 +13,17 @@ html {font-size:100.01%;}
 body {font-size:13px; line-height: 16px; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;}
 
 // = headings
-h1,h2,h3,h4,h5,h6 {font: 60px/1em 'ChunkFiveRegular', Arial, sans-serif; letter-spacing: 0; font-weight: normal;}
+h1,h2,h3,h4,h5,h6 {font: 56px/1em 'ChunkFiveRegular', Arial, sans-serif; letter-spacing: 0; font-weight: normal;}
 h1 {margin-bottom: 3px}
 h2 {font-size: 2.4em}
 h3 {font-size: 1.8em}
 h4 {font-size: 1.3em}
 h5,h6 {font-size: 1em}
-section h1 { font-size: 46px; }
-section.notices h1 { font-size: 60px;  }
+
+#header h1 {font-size:66px;}
+section h1 {font-size: 40px;}
+section.notices h1 {font-size: 60px;}
+
 h1 img,h2 img,h3 img,h4 img,h5 img,h6 img {margin: 0}
 
 p,li {margin: 0 0 1em}
@@ -38,7 +41,6 @@ th,td,caption {padding: 5px}
 
 // = links
 a {text-decoration: none;}
-
 
 div.main p.help {font-style: italic;}
 

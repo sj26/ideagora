@@ -1,11 +1,10 @@
 %li[talk]
-  %p
-    %span.talk_name= talk.name
-    at
-    %span.time
-      = talk.start_at.strftime("%H%P")
-      &#8211;
-      = talk.end_at.strftime("%H%P")
-    by
-    %span.presenter= talk.user.full_name
+  %span.talk_name= link_to talk.name, talk
+  at
+  %span.time
+    = talk.start_at.strftime("%H%P")
+    &#8211;
+    = talk.end_at.strftime("%H%P")
+  by
+  %span.presenter= talk.user.full_name
 

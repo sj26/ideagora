@@ -23,7 +23,6 @@
       %th IRC
       %th Skills
       %th Interests
-      %th 
   %tbody
     - @users.each_with_index do |user, index|
       - row_class = index.even? ? 'even' : 'odd'
@@ -34,5 +33,4 @@
         %td= user.irc
         %td= user.skill_list.join(', ')
         %td= user.interest_list.join(', ')
-        %td= link_to('View', user_path(user))
 

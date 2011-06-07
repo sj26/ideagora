@@ -23,7 +23,8 @@
         #user_nav
           %p
             - if current_user
-              Logged in as #{current_user.email}
+              Logged in as
+              = link_to current_user.email, user_path(current_user)
               - if organiser?
                 &lowast;
                 = link_to 'New notice', new_notice_path

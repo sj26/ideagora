@@ -34,8 +34,8 @@ describe 'User\'s projects', :type => :request do
     context 'when new project' do
       it "should not create a project without a name" do
         visit user_path(@u)
-        page.should have_content('Add new project')
-        click_link 'Add new project'
+        page.should have_content('Add a project')
+        click_link 'Add a project'
       
         page.should have_content('Create a new project')
         

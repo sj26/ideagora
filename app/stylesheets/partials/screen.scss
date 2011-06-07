@@ -17,8 +17,8 @@ tbody tr:nth-child(even) td, tbody tr.even td {background: #f7f7f7;}
 abbr,acronym {border-bottom: 1px dotted $default;}
 caption {background: #dedede;}
 
-/* flashes */
-p.error, p.warning, p.notice, p.message, p.alert {border:2px solid $feint_grey;}
+// = flashes
+p.error, p.warning, p.notice, p.message, p.alert {border:2px solid $feint_grey; padding:5px; margin-bottom: 5px;}
 p.error, p.warning, p.alert {background:#fbe3e4; color:#8a1f11; border-color:#fbc2c4;
   a {color:#8a1f11;}
 }
@@ -35,6 +35,7 @@ p.message {background:#e6efc2; color:#264409; border-color:#c6d880;
 body {background: url(/images/design/bkg.jpg); border-top: 2px solid $light_grey;}
 
 #header h1 a {color: $red_base;}
+#user_nav {color:$default;}
 // Main navigation
 #main_nav li {background: $light_grey;}
 #main_nav li a {color: #fafafa; @include text-shadow;}

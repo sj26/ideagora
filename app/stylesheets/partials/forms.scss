@@ -3,17 +3,21 @@ $label_margin: 20px;
 $input_margin: $label_width+$label_margin;
 
 // = general form styling
+form {width: 60%;}
 label {font-weight:bold; float: left; width: $label_width; margin-top:5px; margin-right:$label_margin; line-height:30px; text-align:right;}
 fieldset {padding:1em; margin:1em 0; border:0;}
 legend {white-space:normal; color:#000; font-weight:bold; font-size:1.2em; margin-bottom: 10px;}
-input, textarea {border:1px solid $feint_grey; width: 50%; padding: 4px;}
+input, textarea {width:77%; border:1px solid $feint_grey; padding: 4px;}
 input, textarea, select {margin:10px 0 0 0;}
 textarea {height: 100px;}
 
 p.input {margin-bottom: 10px; clear:both;}
-p.boolean, p.submits {margin-left: $input_margin;}
-input[type=radio], input[type=checkbox] {margin-right: 3px;}
-input[type=submit] {width: auto; @include green_button;}
+p.boolean {clear:both; overflow:hidden;
+  input[type=checkbox] {float:left; width:auto; margin-left: $input_margin;}
+  label {float:left; width:auto; margin: 0;}
+}
+input[type=radio], input[type=checkbox] {margin-right: 5px;}
+input[type=submit] {width: auto; @include green_button; float:right;}
 
 // = errors
 #error_explanation h2 {color: #8a1f11; font-size: 1.4em;}

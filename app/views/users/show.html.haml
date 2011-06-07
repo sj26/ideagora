@@ -20,7 +20,7 @@
 
 %section.projects
   %h2 My projects
-  %p= link_to 'Add new project', new_user_project_path(@user)
+  %p= link_to 'Add a project', new_user_project_path(@user)
   
   - if @user.projects.any?
     %ol
@@ -29,6 +29,6 @@
         
   - else
     %p
-      Tell us what you are working on&#8212;
+      Tell us what you are working on &#8212;
       = link_to 'create a new project', new_user_project_path(@user)
     

@@ -4,8 +4,9 @@
     %p
       by
       = link_to project.owner.full_name, user_path(project.owner)
-  %p= truncate(project.try(:description), :length => 100)
-  - if project.help
+  - if project.description
+    %p= truncate(textilize(project.description.try(:html_safe)), :length => 100)
+  - if project.needs_help?
     %p.help Could use help with this one
   - if project.owner == current_user
     %p.actions

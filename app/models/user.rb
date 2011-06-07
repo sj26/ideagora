@@ -12,6 +12,10 @@ class User < ActiveRecord::Base
   acts_as_taggable
   acts_as_taggable_on :skills, :interests
   
+  def to_s
+    full_name
+  end
+  
   def full_name
     if last_name
       first_name + ' ' + last_name

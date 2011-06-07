@@ -16,10 +16,4 @@
   %section.projects
     %p.view_all= link_to 'view all projects', projects_path
     %h1= link_to 'Random projects', projects_path, :title => 'view all projects'
-    %ol
-      %li.project#project_1
-        %h3= link_to 'happy campers', '#'
-        %p
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod ut aliquip ex ea commodo consequat
-          = link_to 'more&#8230;', '#', :class => 'more'
-        %p.help Could use help with this one
+    = render :partial => 'projects/projects', :locals => { :projects => @projects }

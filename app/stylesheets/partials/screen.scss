@@ -62,6 +62,13 @@ body#users.index {
   div.dataTables_filter {color: $dark_green;
     input {background: rgba(255, 255, 255, 0.35); border: 1px solid $med_green; width:40%;}
   }
-  
   div.dataTables_info {color: $dark_green;}
+}
+
+
+// = talks index
+body#talks {
+  &.index {
+    div.change_day {color: $dark_green;}
+  }
 }

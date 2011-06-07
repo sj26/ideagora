@@ -22,7 +22,9 @@ h5,h6 {font-size: 1em}
 
 #header h1 {font-size:66px;}
 section h1 {font-size: 40px;}
-section.notices h1 {font-size: 60px;}
+section.notices h1 {font-size: 60px;} // home page
+
+#content h2 {margin-bottom: 5px;}
 
 h1 img,h2 img,h3 img,h4 img,h5 img,h6 img {margin: 0}
 
@@ -48,6 +50,15 @@ div.main p.help {font-style: italic;}
 // = users index
 body#users.index {
   div.dataTables_filter, div.dataTables_info {text-transform: uppercase; font-weight:bold; letter-spacing:1px;}
+}
+
+// = talks section
+body#talks {
+  &.new {
+    .details {
+      p span {font-weight:bold; text-align: right;}
+    }
+  }
 }
 
 

@@ -1,17 +1,20 @@
-%h2== Talks for #{casual_day_description(@day)}
-%h3 Change Day
-- @days_with_talks.each do |day|
-  = day == @day ? day.strftime("%A") : link_to(day.strftime("%A"), talks_path(:day => day))
+%h1 Talks for #{casual_day_description(@day)}
+
+.change_day
+  %p
+    %span Change Day:
+    - @days_with_talks.each do |day|
+      = day == @day ? day.strftime("%A") : link_to(day.strftime("%A"), talks_path(:day => day))
 %table.talks
   %thead
     %tr
       %th Time
       -  @venues.each do |venue|
-        %th= venue.name
+        %th.venue= venue.name
   %tbody
     - Camp.current.talk_hours.each_with_index do |hour, index|
       - time = @day + hour.hours
-      %tr{:class => index.even? ? 'even' : 'odd'}
+      %tr
         %td
           = time.strftime "%H:%M"
           - @venues.each do |venue|
@@ -20,4 +23,4 @@
               - if talk
                 = link_to talk_description(talk), talk_path(talk)
               - else
-                = link_to "Add Talk", new_talk_path(:start_at => time, :venue_id => venue.id)
+                = link_to "[+] Add Talk", new_talk_path(:start_at => time, :venue_id => venue.id)

@@ -19,9 +19,10 @@ To-Do:
 ---------------
 
 - styling
-- home page talks grouped by venue
 - random projects
 - def organisers_for_camp(camp) in user.rb
+- create a new talk: only for myself (current user)
+
 
 
 

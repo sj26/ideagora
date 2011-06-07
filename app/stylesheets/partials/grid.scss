@@ -40,3 +40,19 @@ body#users.index {
   
   div.dataTables_info {margin-top:15px;}
 }
+
+body#talks {
+  &.index {
+    table th.venue {width:30%;}
+  }
+  
+  &.new {
+    .details {
+      p span {display:inline-block; width:100px; margin-right:20px;}
+    }
+  }
+  
+  &.show {
+    .details {margin:10px 0;}
+  }
+}

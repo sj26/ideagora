@@ -12,6 +12,7 @@ Done:
 - view / edit talks
 - view / add own project
 - message board for organisers
+- gravatar integration
 
 
 
@@ -22,29 +23,21 @@ To-Do:
 - random projects
 - def organisers_for_camp(camp) in user.rb
 - create a new talk: only for myself (current user)
+- Select someone's project to work on (collaborators)
 
-
-
-
-Questions:
----------------
-
-- What if someone wanted to select someone else's project as one they are working on?
 
 
 Someday Maybe:
 ---------------
 
-- collect audio/video/notes taken from talks and expose for viewing by others later (at camp or post-camp)
+- input talk proposals or requests for talks and let people upvote the ones they'd like to hear the most
+  - notify users who upvoted if proposal or wanted-talk becomes a talk
 
-- gravatar integration
+- collect audio/video/notes taken from talks and expose for viewing by others later (at camp or post-camp)
 
 - profile picture (not gravatar) with paperclip or carrierwave
 
 - mobile interface
-
-- input talk proposals or requests for talks and let people upvote the ones they'd like to hear the most
-  - notify users who upvoted if proposal or wanted-talk becomes a talk
 
 - a bonjour chat bot could do some neat things:
   - when browsing users, could show live 'online/offline' info next to each name for users with bonjour chat names in their profile
@@ -52,3 +45,10 @@ Someday Maybe:
 
 - tag projects with keywords that map to skills and interests from users so we can show people projects that match their skills/interests
 
+
+
+Credits
+---------------
+
+* Written by Elle Meredith and Gabe Hollombe
+* Additional contributions from Ganesh Shankar

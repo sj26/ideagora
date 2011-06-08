@@ -3,4 +3,4 @@
 %h3= link_to @project.owner.full_name, user_path(@project.owner)
 
 -if @project.description
-  = textilize(@project.description)
+  = textilize(@project.description).try(:html_safe)

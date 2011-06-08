@@ -12,7 +12,7 @@
 %p IRC nick: #{@user.irc}
 
 - if @user.bio
-  %p= textilize(@user.bio)
+  %p= textilize(@user.bio).try(:html_safe)
 
 %p Skills: #{@user.skill_list.join(', ')}
 

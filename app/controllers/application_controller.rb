@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :current_user, :requires_login, :organiser?
-  before_filter :set_time_zone
+  before_filter :set_time_zone, :load_discussion_for_path
   
   private  
   def current_user  
@@ -26,5 +26,9 @@ class ApplicationController < ActionController::Base
 
   def set_time_zone
     Time.zone = Camp.current.time_zone
+  end
+
+  def load_discussion_for_path
+    @discussion = Discussion.for_camp_and_path(Camp.current, request.path)
   end
 end

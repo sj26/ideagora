@@ -35,12 +35,22 @@
               = link_to "Sign in", sign_in_path
               
         %h1=link_to 'Railscamp 9', root_path
+
       %nav#main_nav
         %ul
           %li= link_to 'Welcome', root_path
           %li= link_to 'Campers', users_path
           %li= link_to 'Projects', projects_path
           %li= link_to 'Talks', talks_path
+
       #content
         = flash_helper.html_safe
         = yield
+        - if @discussion
+          #discussion
+            %h3= @discussion.title || "Discuss this page"
+            %p Anyone can edit this text.  Please do so with care.
+
+            = simple_form_for(@discussion) do |f|
+              = f.input :text, :label => false
+              = f.button :submit

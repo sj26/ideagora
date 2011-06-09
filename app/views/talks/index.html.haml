@@ -3,7 +3,7 @@
 .change_day
   %p
     %span Change Day:
-    - @days_with_talks.each do |day|
+    - @talk_days.each do |day|
       = day == @day ? day.strftime("%A") : link_to(day.strftime("%A"), talks_path(:day => day))
 %table.talks
   %thead

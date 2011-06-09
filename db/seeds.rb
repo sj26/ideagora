@@ -6,6 +6,9 @@ rc9 = Camp.find_by_name('Railscamp 9') || Camp.create(:name => 'Railscamp 9', :l
 
 ['Library', 'Lake View Conference Room - North', 'Lake View Conference Room - South'].each { |v| rc9.venues.create!(:name => v) unless rc9.venues.find_by_name(v) }
 
+#create discussion for talks page
+Discussion.create :camp_id => rc9.id, :title => 'Share ideas and requests for talks', :path => '/talks'
+
 require 'csv'
 filename = File.join(Rails.root.to_s, 'db', 'seeds', 'rc9_attendees.csv')
 puts "Making sure we have some users for #{rc9.name}..."

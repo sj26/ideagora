@@ -22,6 +22,7 @@ To-Do:
 - styling
 - random projects
 - def organisers_for_camp(camp) in user.rb
+- user.full_name in urls - instead of id
 - create a new talk: only for myself (current user)
 - Select someone's project to work on (collaborators)
 

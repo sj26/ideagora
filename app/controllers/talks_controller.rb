@@ -2,7 +2,7 @@ class TalksController < InheritedResources::Base
   before_filter :requires_login, :except => [:index, :show]
 
   def index
-    @day = params[:day] ? Date.parse(params[:day]) : Camp.current.talks.order(:start_at).first.day
+    @day = params[:day] ? Date.parse(params[:day]) : Camp.current.talk_days.first
     @venues = Camp.current.venues
     @days_with_talks = Camp.current.talks.collect(&:day).uniq.sort
     @talks_by_time_and_venue_for_day = Camp.current.talks_by_time_and_venue_for_day(@day)

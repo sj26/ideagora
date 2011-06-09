@@ -9,7 +9,7 @@
       %th Needs Help
   %tbody
     - @projects.each_with_index do |project, index|
-      - row_class = index.even? ? 'even' : 'odd'
+      - row_class = index.even? ? 'odd' : 'even'
       %tr{:class => row_class}
         %td= link_to project.name, user_project_path(project.owner, project)
         %td= link_to project.owner, user_path(project.owner)

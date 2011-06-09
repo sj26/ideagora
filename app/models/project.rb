@@ -6,4 +6,12 @@ class Project < ActiveRecord::Base
   def needs_help?
     !!help
   end
+  
+  def self.random
+    if count > 0
+      offset = rand(count)
+      first(:offset => offset)
+    end
+  end
+  
 end

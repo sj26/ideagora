@@ -7,6 +7,6 @@ class WelcomeController < ApplicationController
     end
 
     @latest_notice = Camp.current.notices.last
-    @projects = Project.limit(3)
+    @project = Project.random
   end
 end

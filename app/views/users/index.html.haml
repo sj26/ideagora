@@ -13,9 +13,9 @@
     });
 
 %h1 All the campers
-
-%p
-  Make sure to <strong>#{link_to "populate your profile", edit_user_path(current_user)}</strong> so others can learn about you.
+- if current_user
+  %p
+    Make sure to <strong>#{link_to "populate your profile", edit_user_path(current_user)}</strong> so others can learn about you.
 
 %table.users
   %thead

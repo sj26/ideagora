@@ -1,7 +1,17 @@
 class ProjectsController < InheritedResources::Base
-  before_filter :requires_login, :except => [:index, :show]
-  before_filter :requires_owner, :except => [:index, :show, :new, :create]
+  before_filter :requires_login, :except => [:all, :index, :show]
+  before_filter :requires_owner, :except => [:all, :index, :show, :new, :create]
   
+  belongs_to :user
+  
+  def all
+    @projects = Project.all
+    render :index
+  end
+  
+  def index
+    @projects = parent.projects
+  end
   
   def create
     @project = Project.new(params[:project])
@@ -25,12 +35,4 @@ private
     resource.owner == current_user
   end
   helper_method :is_owner?
-  
-  def collection
-    @projects ||= if current_user
-                    current_user.projects
-                  else
-                    Project.all
-                  end
-  end
 end

@@ -59,10 +59,7 @@ p.help {padding:3px 0 0 22px; background: url(/images/design/icon_star_red_18.pn
 
 // = users index
 body#users.index {
-  div.dataTables_filter {color: $dark_green;
-    input {background: rgba(255, 255, 255, 0.35); border: 1px solid $med_green; width:40%;}
-  }
-  div.dataTables_info {color: $dark_green;}
+  div.dataTables_filter, div.dataTables_info {padding:13px;}
 }
 
 

@@ -54,7 +54,7 @@ body#welcome {
   div.main p.view_all a {color: $feint; @include text-shadow(0 0 1px $default); background: $dark_grey; border-radius: 6px;}
 }
 
-p.help {padding:3px 0 0 22px; background: url(/images/design/icon_star_red_18.png) top left no-repeat; color: $red_dark;}
+p.help {padding:3px 0 0 22px; background: url(/images/design/icons.png) 0 -556px no-repeat; color: $red_dark;}
 
 
 // = users index

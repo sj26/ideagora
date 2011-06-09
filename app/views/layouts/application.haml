@@ -6,7 +6,8 @@
     %title Railscamp Ideagora
 
     = stylesheet_link_tag 'master'
-
+    = stylesheet_link_tag 'vendor/jquery-ui-smoothness/jquery-ui-1.8.13.custom.css'
+    
     = javascript_include_tag 'vendor/jquery-1.6.1.min'
     = javascript_include_tag 'vendor/jquery-ui-1.8.13.custom.min'
     = javascript_include_tag 'vendor/underscore-1.1.6.min'
@@ -25,7 +26,7 @@
               Logged in as
               = link_to current_user.email, user_path(current_user)
               &lowast;
-              = link_to "Edit my profile", user_path(current_user)
+              = link_to "Edit my profile", edit_user_path(current_user)
               - if organiser?
                 &lowast;
                 = link_to 'New notice', new_notice_path

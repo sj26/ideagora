@@ -1,6 +1,7 @@
-%h1= @project.name
+= render :partial => 'users/user_card', :locals => {:user => @project.owner}
 
-%h3= link_to @project.owner.full_name, user_path(@project.owner)
+.main
+  %h1= @project.name
 
--if @project.description
-  = textilize(@project.description).try(:html_safe)
+  - if @project.description
+    = textilize(@project.description).try(:html_safe)

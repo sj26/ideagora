@@ -57,9 +57,21 @@ body#welcome {
 p.help {padding:3px 0 0 22px; background: url(/images/design/icons.png) 0 -556px no-repeat; color: $red_dark;}
 
 
-// = users index
+// = users section
 body#users.index {
   div.dataTables_filter, div.dataTables_info {padding:13px;}
+}
+
+aside#user_card {border: 1px solid $feint_grey; border-radius:6px; background: rgba(255, 255, 255, 0.2); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 0 25px rgba(0, 0, 0, 0.1) inset;
+  img {padding:2px; border:1px solid $feint_grey; background:$bkg;}
+  h3 {border-bottom: 1px solid $feint_grey;}
+}
+
+
+// = section.projects partials (used on user's show view for example)
+section.projects {
+  p.add a {color: $feint; @include text-shadow(0 0 1px $default); background: $dark_grey; border-radius: 6px; padding:3px;}
+  .project {border-bottom: 1px solid $feint_grey;}
 }
 
 

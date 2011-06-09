@@ -1,36 +1,28 @@
-%h1= @user.full_name
+= render :partial => 'user_card', :locals => {:user => @user}
+
+.main
+  %h1= @user.full_name
+
+  %section.about_me
+    - if @user.bio
+      %article.bio
+        %h2 About me
+        = textilize(@user.bio).try(:html_safe)
+
+    %p.skills Skills: #{@user.skill_list.join(', ')}
+
+    %p.interests Interests: #{@user.interest_list.join(', ')}
+
+
+  %section.projects
+    - if @user == current_user
+      %p.add= link_to 'Add a project', new_user_project_path(@user)
+    %h2 My projects
   
-%img.profile_pic{:src => get_gravatar(@user, 200)}
-
-%p= link_to("edit my profile", edit_user_path(@user)) if current_user == @user
-
-%p Email: #{@user.email}
-
-
-%p Twitter username: #{@user.twitter}
-
-%p Bonjour nick: #{@user.bonjour}
-
-%p IRC nick: #{@user.irc}
-
-- if @user.bio
-  %p= textilize(@user.bio).try(:html_safe)
-
-%p Skills: #{@user.skill_list.join(', ')}
-
-%p Interests: #{@user.interest_list.join(', ')}
-
-%section.projects
-  %h2 My projects
-  %p= link_to 'Add a project', new_user_project_path(@user)
-  
-  - if @user.projects.any?
-    %ol
-      - for project in @user.projects
-        = render 'projects/project', :project => project
+    - if @user.projects.any?
+      = render 'projects/projects', :collection => @user.projects
         
-  - else
-    %p
-      Tell us what you are working on &#8212;
-      = link_to 'create a new project', new_user_project_path(@user)
-    
+    - else
+      %p
+        Tell us what you are working on &#8212;
+        = link_to 'create a new project', new_user_project_path(@user)

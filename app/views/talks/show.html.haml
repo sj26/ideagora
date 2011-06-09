@@ -1,13 +1,15 @@
-%h1.name= @talk.name
-%h3.speaker by  #{@talk.user.full_name}
+= render :partial => 'users/user_card', :locals => {:user => @talk.user}
 
-= render :partial => 'where_and_when', :locals => { :talk => @talk }
+.main
+  %h1.name= @talk.name
 
-- if @talk.description
-  = textilize(@talk.description).try(:html_safe)
+  = render :partial => 'where_and_when', :locals => { :talk => @talk }
 
-- if @talk.user == current_user
-  %p.actions
-    = link_to "Edit this talk", edit_talk_path(@talk)
-    |
-    = link_to "Delete this talk", talk_path(@talk), :method => :delete, :confirm => 'Really delete this talk?'
+  - if @talk.description
+    = textilize(@talk.description).try(:html_safe)
+
+  - if @talk.user == current_user
+    %p.actions
+      = link_to "Edit this talk", edit_talk_path(@talk)
+      |
+      = link_to "Delete this talk", talk_path(@talk), :method => :delete, :confirm => 'Really delete this talk?'

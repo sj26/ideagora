@@ -54,3 +54,7 @@ User.blueprint do
   interest_list    { 'interest_a, interest_b' }
 end
 
+
+Discussion.blueprint do
+  # Attributes here
+end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110531110214) do
+ActiveRecord::Schema.define(:version => 20110609015609) do
 
   create_table "attendances", :force => true do |t|
     t.integer  "camp_id"
@@ -29,6 +29,15 @@ ActiveRecord::Schema.define(:version => 20110531110214) do
     t.string   "time_zone"
     t.datetime "start_at"
     t.datetime "end_at"
+  end
+
+  create_table "discussions", :force => true do |t|
+    t.string   "path"
+    t.integer  "camp_id"
+    t.string   "title"
+    t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "notices", :force => true do |t|

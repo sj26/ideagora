@@ -13,6 +13,7 @@ Ideagora::Application.routes.draw do
   end
   
   resources :notices
+  resources :discussions
   resources :sessions
   resources :talks
   resources :venues

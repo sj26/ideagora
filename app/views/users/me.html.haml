@@ -3,6 +3,7 @@
 .main
   %h1
     = @user.full_name
+    %small (That's you!)
 
   %section.about_me
     - if @user.bio
@@ -16,10 +17,12 @@
 
 
   %section.projects
-    %h2= "#{@user.first_name}'s projects"
-  
+    %p.add= link_to 'Add a project', new_user_project_path(@user)
+    %h2 My Projects
+
     - if @user.projects.any?
       = render @user.projects
     - else
       %p
-        = "#{@user.first_name} has no projects."
+        Tell us what you are working on &#8212;
+        = link_to 'create a new project', new_user_project_path(@user)

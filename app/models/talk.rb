@@ -10,11 +10,11 @@ class Talk < ActiveRecord::Base
   validate :start_at_is_less_than_end_at
 
   def self.for_day(day)
-    where('start_at >= ? and start_at < ?', day, day + 1.day).order(:start_at)
+    where(:start_at => day.beginning_of_day..day.end_of_day).order(:start_at)
   end
 
   def self.for_venue(venue)
-    where(:venue => venue)
+    where(:venue_id => venue.id)
   end
 
   def day

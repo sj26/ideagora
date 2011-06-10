@@ -16,6 +16,7 @@ describe TalksHelper do
       #make it Monday
       @monday = Time.local(2011, 5, 30, 0, 0, 0) #Mon, May 30 2011
       Timecop.freeze(@monday)
+      @monday = @monday.to_date
     end
 
     context '+time+ is sometime before yesterday (last monday)' do

@@ -10,12 +10,10 @@
   %section.projects
     %p.view_all= link_to 'view all projects', projects_path
     %h1= link_to 'Random project', projects_path, :title => 'view all projects'
-    %h3= link_to @project.name, user_project_path(@project.owner, @project)
-    %p by #{link_to(@project.owner.full_name, user_path(@project.owner))}
-    - if @project.description
-      = truncate(textilize(@project.description), :length => 100).try(:html_safe)
-    - if @project.needs_help?
-      %p.help Could use help with this one
+    - if @project
+      = render @project
+    - else
+      %p there are no projects!
 
   %section.talks
     %p.view_all= link_to 'view all talks', talks_path

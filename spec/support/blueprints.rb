@@ -37,11 +37,12 @@ Talk.blueprint do
   venue    { Venue.make! }
   user     { User.make! }
   start_at { 1.day.ago }
-  end_at   { 1.day.from_now }
+  end_at   { object.start_at + 1.hour }
 end
 
 Venue.blueprint do
-  name          { Faker::Lorem.words(1) }
+  name { Faker::Lorem.words(1) }
+  camp { object.camp || Camp.current || Camp.make! }
 end
 
 User.blueprint do

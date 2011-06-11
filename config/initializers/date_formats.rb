@@ -1,0 +1,1 @@
+Time::DATE_FORMATS[:pretty_time] = '%l.%M%P'

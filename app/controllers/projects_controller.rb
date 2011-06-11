@@ -13,6 +13,10 @@ class ProjectsController < InheritedResources::Base
     @projects = parent.projects
   end
   
+  def show
+    @project = Project.find(params[:id])
+  end
+  
   def create
     @project = Project.new(params[:project])
     @project.owner = current_user

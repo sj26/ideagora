@@ -1,18 +1,18 @@
 module TalksHelper
-  def casual_day_description(time)
-    time = time.to_time if time.class == Date
-    time_diff = time - Time.now
-    if time_diff < 0 
-      case time_diff.abs
-        when 0..1.day then 'Yesterday'
-        else "#{time.strftime("%A, %d %B, %Y")}"
+  def casual_day_description(date)
+    today = Time.now.to_date
+    day_diff = date - today
+    if day_diff < 0 
+      case day_diff.abs
+        when 0..1 then 'Yesterday'
+        else "#{date.to_time.strftime("%A, %d %B, %Y")}"
       end
     else
-      case time_diff
-        when 0...1.day then 'Today'
-        when 1.day...2.days then 'Tomorrow'
-        when 2.days...7.days then "This #{time.strftime("%A")}"
-        else "#{time.strftime("%A, %d %B, %Y")}"
+      case day_diff
+        when 0...1 then 'Today'
+        when 1...2 then 'Tomorrow'
+        when 2...7 then "This #{date.to_time.strftime("%A")}"
+        else "#{date.to_time.strftime("%A, %d %B, %Y")}"
       end
     end
   end

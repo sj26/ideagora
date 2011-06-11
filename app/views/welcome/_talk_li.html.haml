@@ -2,9 +2,9 @@
   %span.talk_name= link_to talk.name, talk
   at
   %span.time
-    = talk.start_at.strftime("%H%P")
+    = talk.start_at.to_s(:pretty_time)
     &#8211;
-    = talk.end_at.strftime("%H%P")
+    = talk.end_at.to_s(:pretty_time)
   by
   %span.presenter= talk.user.full_name
 

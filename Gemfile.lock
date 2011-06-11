@@ -166,6 +166,7 @@ GEM
     shoulda (2.11.3)
     simple_form (1.4.0)
     spork (0.8.4)
+    state_machine (1.0.1)
     steak (1.1.0)
       rspec (>= 1.3)
     sys-uname (0.8.5)
@@ -208,5 +209,6 @@ DEPENDENCIES
   shoulda
   simple_form
   spork
+  state_machine
   steak
   timecop

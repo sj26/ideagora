@@ -20,14 +20,11 @@ Ideagora::Application.routes.draw do
   resources :talks
   resources :venues
   resources :users, :only => [:index, :show, :edit, :update] do
-    resources :projects
-  end
-  resources :projects, :only => [:show] do
-    resource :status, :only => [:update] do
+    resources :projects do
       member do
-        get "active"
-        get "win"
-        get "fail"
+        get "restart"
+        get "complete"
+        get "cancel"
       end
     end
   end

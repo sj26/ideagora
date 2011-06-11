@@ -12,6 +12,7 @@ gem 'hirb'
 gem 'inherited_resources'
 gem 'rake', '0.8.7'
 gem 'simple_form'
+gem 'state_machine'
 gem 'RedCloth'
 
 group :development, :test do

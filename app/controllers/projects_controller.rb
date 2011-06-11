@@ -1,6 +1,6 @@
 class ProjectsController < InheritedResources::Base
   before_filter :requires_login, :except => [:all, :index, :show]
-  before_filter :requires_owner, :except => [:all, :index, :show, :new, :create]
+  before_filter :requires_owner, :only => [:update, :destroy, :complete, :cancel, :restart]
   
   belongs_to :user
   
@@ -25,6 +25,30 @@ class ProjectsController < InheritedResources::Base
   
   def update
     update! { user_path(current_user) }
+  end
+  
+  def restart
+    if @project.restart
+      redirect_to user_project_path(@project.owner, @project)
+    else
+      flash[:error] = "Could not restart the project, sorry!"
+    end
+  end
+  
+  def complete
+    if @project.complete
+      redirect_to user_project_path(@project.owner, @project)
+    else
+      flash[:error] = "Could not complete the project, sorry!"
+    end
+  end
+  
+  def cancel
+    if @project.cancel
+      redirect_to user_project_path(@project.owner, @project)
+    else
+      flash[:error] = "Could not cancel the project, sorry!"
+    end
   end
   
 private

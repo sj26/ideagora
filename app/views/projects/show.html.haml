@@ -14,7 +14,7 @@
 
   - if is_owner?
     - if @project.active?
-      = link_to 'Completed!', win_project_status_path(@project)
-      = link_to 'Can it!', fail_project_status_path(@project)
+      = link_to 'Completed!', complete_user_project_path(@project.owner, @project)
+      = link_to 'Can it!', cancel_user_project_path(@project.owner, @project)
     - else
-      = link_to 'Start it up again?', active_project_status_path(@project)
+      = link_to 'Start it up again?', restart_user_project_path(@project.owner, @project)

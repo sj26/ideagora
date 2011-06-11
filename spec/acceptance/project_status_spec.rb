@@ -15,23 +15,19 @@ describe 'Viewing and setting a project\'s status', :type => :request do
     end
 
     context 'when viewing an active project' do
-      before do
-        @p.status = Active.new
-      end
-      
       it "should show the status as active" do
         visit projects_path
-        page.should have_content(@p.name)
-        page.should have_content("Active")
+        find("table tbody tr:first-child").should have_content(@p.name)
+        find("table tbody tr:first-child").should have_content("Active")
         
-        visit project_path(@p)
+        visit user_project_path(@u, @p)
         
         page.should have_content("Status: Active")
       end
     end
 
     it 'can set a project status to Canned' do
-      visit project_path(@p)
+      visit user_project_path(@u, @p)
       
       page.should have_content('Status: Active')
       page.should have_content('Completed!')
@@ -39,7 +35,7 @@ describe 'Viewing and setting a project\'s status', :type => :request do
       
       click_link 'Can it!'
       
-      current_path.should == project_path(@p)
+      current_path.should == user_project_path(@u, @p)
       
       page.should have_content('Status: Canned')
       page.should have_content('Start it up again?')

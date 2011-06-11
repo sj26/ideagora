@@ -11,10 +11,12 @@
         %th Owner
         %th Description
         %th Needs Help
+        %th Status
     %tbody
       - @projects.each do |project|
         %tr{:class => cycle('odd','even')}
           %td= link_to project.name, user_project_path(project.owner, project)
           %td= link_to project.owner, user_path(project.owner)
           %td= truncate(project.try(:description))
-          %td= project.needs_help? && "Yes"
+          %td= project.needs_help? && "Yes" || nil
+          %td= project.status

@@ -2,7 +2,8 @@ class Project < ActiveRecord::Base
   validates_presence_of :name, :owner
   
   belongs_to :owner, :class_name => "User", :foreign_key => :user_id
-  
+  has_one :status
+ 
   def needs_help?
     !!help
   end
@@ -14,4 +15,17 @@ class Project < ActiveRecord::Base
     end
   end
   
+  def active?
+    status.nil? || status.kind_of?(Active)
+  end
+  
+  def done?
+    status.kind_of? Done
+  end
+  alias :complete? :done?
+  alias :completed? :done?
+  
+  def canned?
+    status.kind_of? Canned
+  end
 end

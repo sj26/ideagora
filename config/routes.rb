@@ -1,5 +1,7 @@
 Ideagora::Application.routes.draw do
 
+  get "project_status/update"
+
   get "camps/message_board"
 
   get "welcome/index"
@@ -19,6 +21,15 @@ Ideagora::Application.routes.draw do
   resources :venues
   resources :users, :only => [:index, :show, :edit, :update] do
     resources :projects
+  end
+  resources :projects, :only => [:show] do
+    resource :status, :only => [:update] do
+      member do
+        get "active"
+        get "win"
+        get "fail"
+      end
+    end
   end
 
   # The priority is based upon order of creation:

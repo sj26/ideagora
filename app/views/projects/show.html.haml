@@ -1,7 +1,20 @@
 = render :partial => 'users/user_card', :locals => {:user => @project.owner}
 
 .main
+  %p.actions
+    = link_to 'Edit project', edit_user_project_path(@project.owner) if is_owner?
   %h1= @project.name
 
   - if @project.description
     = textilize(@project.description).try(:html_safe)
+
+  %p.status
+    %b Status:
+    = @project.status
+
+  - if is_owner?
+    - if @project.active?
+      = link_to 'Completed!', win_project_status_path(@project)
+      = link_to 'Can it!', fail_project_status_path(@project)
+    - else
+      = link_to 'Start it up again?', active_project_status_path(@project)

@@ -1,22 +1,22 @@
-%section.projects
-  - if current_user
-    %p.add
-      = link_to 'Add a project', new_user_project_path(current_user)
-  %h1 All projects
+- if current_user
+  %p.add
+    = link_to 'Add a project', new_user_project_path(current_user)
 
-  %table.projects
-    %thead
-      %tr
-        %th Name
-        %th Owner
-        %th Description
-        %th Needs Help
-        %th Status
-    %tbody
-      - @projects.each do |project|
-        %tr{:class => cycle('odd','even')}
-          %td= link_to project.name, user_project_path(project.owner, project)
-          %td= link_to project.owner, user_path(project.owner)
-          %td= truncate(project.try(:description))
-          %td= project.needs_help? && "Yes" || nil
-          %td= project.status
+%h1 All projects
+
+%table.projects
+  %thead
+    %tr
+      %th Name
+      %th Owner
+      %th Description
+      %th Needs Help
+      %th Status
+  %tbody
+    - @projects.each do |project|
+      %tr{:class => cycle('odd','even')}
+        %td.name= link_to project.name, user_project_path(project.owner, project)
+        %td= link_to project.owner, user_path(project.owner)
+        %td= truncate(project.try(:description))
+        %td.desc= project.needs_help? && "Yes" || nil
+        %td= project.status

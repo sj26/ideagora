@@ -1,7 +1,7 @@
 = render :partial => 'users/user_card', :locals => {:user => @project.owner}
 
 .main
-  %p.actions
+  %p.add
     = link_to 'Edit project', edit_user_project_path(@project.owner) if is_owner?
   %h1= @project.name
 
@@ -13,8 +13,10 @@
     = @project.status
 
   - if is_owner?
-    - if @project.active?
-      = link_to 'Completed!', complete_user_project_path(@project.owner, @project)
-      = link_to 'Can it!', cancel_user_project_path(@project.owner, @project)
-    - else
-      = link_to 'Start it up again?', restart_user_project_path(@project.owner, @project)
+    %p.commands
+      - if @project.active?
+        = link_to 'Completed!', complete_user_project_path(@project.owner, @project)
+        |
+        = link_to 'Can it!', cancel_user_project_path(@project.owner, @project), :class => "destroy"
+      - else
+        = link_to 'Start it up again?', restart_user_project_path(@project.owner, @project)

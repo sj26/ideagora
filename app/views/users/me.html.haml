@@ -18,7 +18,7 @@
 
   %section.projects
     %p.add= link_to 'Add a project', new_user_project_path(@user)
-    %h2 My Projects
+    %h2 My projects
 
     - if @user.projects.any?
       = render @user.projects

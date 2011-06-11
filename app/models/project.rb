@@ -4,6 +4,8 @@ class Project < ActiveRecord::Base
   belongs_to :owner, :class_name => "User", :foreign_key => :user_id
   has_one :status
  
+  before_save :create_status
+ 
   def needs_help?
     !!help
   end
@@ -15,8 +17,10 @@ class Project < ActiveRecord::Base
     end
   end
   
+  
+  
   def active?
-    status.nil? || status.kind_of?(Active)
+    status.kind_of?(Active)
   end
   
   def done?
@@ -27,5 +31,10 @@ class Project < ActiveRecord::Base
   
   def canned?
     status.kind_of? Canned
+  end
+
+private
+  def create_status
+    self.status ||= Active.new
   end
 end

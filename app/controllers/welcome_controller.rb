@@ -7,7 +7,7 @@ class WelcomeController < ApplicationController
     end
 
     @latest_notice = camp.notices.last
-    @projects = Project.limit(3)
+    @project = Project.order('random()').first
   end
   
   private

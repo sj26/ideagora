@@ -6,7 +6,8 @@ class User < ActiveRecord::Base
   
   validates_presence_of :first_name, :email
   validates_uniqueness_of :email
-  
+
+  default_scope order: 'lower(last_name), first_name'
   scope :organisers, :joins => :attendances, :conditions => ["attendances.organiser = ? and attendances.camp_id = ?", true, Camp.current] 
   
   acts_as_taggable

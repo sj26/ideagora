@@ -2,6 +2,8 @@ class UsersController < InheritedResources::Base
   actions :index, :update
   before_filter :requires_login, :except => [:index, :show]
 
+  helper :projects
+
   def show
     @user = User.find(params[:id])
     render :me if @user == current_user

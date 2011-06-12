@@ -1,5 +1,5 @@
 /* -----------------------------------------------------------------------
-colours, backgrounds, borders, text-shaddows, box-shaddows, gradients.....
+colours, backgrounds, borders, text-shadows, box-shadows, gradients.....
 ----------------------------------------------------------------------- */
 body {color: $dark_grey; background: $bkg;}
 h1,h1 a {color: $dark_green; @include text-shadow;}

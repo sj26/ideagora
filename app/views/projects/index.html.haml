@@ -18,7 +18,7 @@
           = link_to project.name, user_project_path(project.owner, project), :class => "name"
           - if project.description
             .description
-              =raw truncate(textilize(project.description))
+              = smart_description(project)
         %td= link_to project.owner, user_path(project.owner)
         %td= project.needs_help? && "Yes" || nil
         %td= project.status

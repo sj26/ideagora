@@ -76,6 +76,19 @@ section.projects {
   .project {border-bottom: 1px solid $feint_grey;}
 }
 
+// = projects index page
+#projects {
+  table.projects {
+    th.name { min-width: 40%; }
+    th.people { width: 15em; }
+    th.helpme,
+    th.status { width: 7.5em; }
+    .project {
+      td { line-height: 1.7; }
+      .description { margin-bottom: 0; }
+    }
+  }
+}
 
 // = talks index
 body#talks {

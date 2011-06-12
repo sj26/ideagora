@@ -7,16 +7,18 @@
 %table.projects
   %thead
     %tr
-      %th Name
-      %th Owner
-      %th Description
-      %th Needs Help
-      %th Status
+      %th.name Name
+      %th.people Owner
+      %th.helpme Needs Help
+      %th.status Status
   %tbody
     - @projects.each do |project|
-      %tr{:class => cycle('odd','even')}
-        %td.name= link_to project.name, user_project_path(project.owner, project)
+      %tr.project{:class => cycle('odd','even')}
+        %td
+          = link_to project.name, user_project_path(project.owner, project), :class => "name"
+          - if project.description
+            .description
+              =raw truncate(textilize(project.description))
         %td= link_to project.owner, user_path(project.owner)
-        %td= truncate(project.try(:description))
-        %td.desc= project.needs_help? && "Yes" || nil
+        %td= project.needs_help? && "Yes" || nil
         %td= project.status

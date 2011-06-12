@@ -6,7 +6,8 @@
   %h1= @project.name
 
   - if @project.description
-    = textilize(@project.description).try(:html_safe)
+    .description
+      = textilize(@project.description).try(:html_safe)
 
   %p.status
     %b Status:

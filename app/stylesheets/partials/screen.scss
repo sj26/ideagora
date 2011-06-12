@@ -1,5 +1,5 @@
 /* -----------------------------------------------------------------------
-colours, backgrounds, borders, text-shaddows, box-shaddows, gradients.....
+colours, backgrounds, borders, text-shadows, box-shadows, gradients.....
 ----------------------------------------------------------------------- */
 body {color: $dark_grey; background: $bkg;}
 h1,h1 a {color: $dark_green; @include text-shadow;}
@@ -37,8 +37,7 @@ body {background: url(/images/design/bkg.jpg); border-top: 2px solid $light_grey
 #header h1 a {color: $red_base;}
 #user_nav {color:$default;}
 // Main navigation
-#main_nav li {background: $light_grey;}
-#main_nav li a {color: #fafafa; @include text-shadow;}
+#main_nav li a {color: #fafafa; @include text-shadow; background: $light_grey; border-radius: 6px; &:hover { background-color: darken(#fafafa, 25%);}}
 
 
 // = home page
@@ -51,10 +50,14 @@ body#welcome {
   div.main ol.location {color:$default;}
   div.main ol.location ul li {border-bottom: 1px dotted $light_grey;}
   div.main p.details {color: #aaa;}
-  div.main p.view_all a {color: $feint; @include text-shadow(0 0 1px $default); background: $dark_grey; border-radius: 6px;}
+  
 }
 
 p.help {padding:3px 0 0 22px; background: url(/images/design/icons.png) 0 -556px no-repeat; color: $red_dark;}
+p.add { @include action_button; }
+p.commands { padding-top: 1em; @include action_button($dark_grey, false); text-align: left; float: none; 
+  .destroy { background-color: $red_dark; &:hover { background-color: lighten($red_dark, 20%); }}
+}
 
 
 // = users section
@@ -70,10 +73,22 @@ aside#user_card {border: 1px solid $feint_grey; border-radius:6px; background: r
 
 // = section.projects partials (used on user's show view for example)
 section.projects {
-  p.add a {color: $feint; @include text-shadow(0 0 1px $default); background: $dark_grey; border-radius: 6px; padding:3px;}
   .project {border-bottom: 1px solid $feint_grey;}
 }
 
+// = projects index page
+#projects {
+  table.projects {
+    th.name { min-width: 40%; }
+    th.people { width: 15em; }
+    th.helpme,
+    th.status { width: 7.5em; }
+    .project {
+      td { line-height: 1.7; }
+      .description { margin-bottom: 0; }
+    }
+  }
+}
 
 // = talks index
 body#talks {

@@ -16,6 +16,10 @@ module TalksHelper
       end
     end
   end
+  
+  def mini_day_description(date)
+    date.to_time.strftime('%A')
+  end
 
   def talk_description(talk)
     html = <<-END

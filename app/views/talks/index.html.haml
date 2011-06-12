@@ -1,4 +1,6 @@
-%h1 Talks for #{casual_day_description(@day)}
+%h1
+  Talks for #{casual_day_description(@day)}
+  %small (#{mini_day_description(@day)})
 
 .change_day
   %p
@@ -12,7 +14,7 @@
       -  @venues.each do |venue|
         %th.venue= venue.name
   %tbody
-    - Camp.current.talk_hours.each_with_index do |hour, index|
+    - Camp.current.talk_hours.each do |hour|
       - time = @day + hour.hours
       %tr
         %td

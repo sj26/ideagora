@@ -2,7 +2,7 @@ class TalksController < InheritedResources::Base
   before_filter :requires_login, :except => [:index, :show]
 
   def index
-    @day = params[:day] ? Date.parse(params[:day]) : Camp.current.talk_days.first
+    @day = best_day
     @venues = Camp.current.venues
     @talk_days = Camp.current.talk_days
     @talks_by_time_and_venue_for_day = Camp.current.talks_by_time_and_venue_for_day(@day)
@@ -27,5 +27,13 @@ class TalksController < InheritedResources::Base
     @talk = Talk.new(params[:talk])
     @talk.user = current_user
     create!
+  end
+
+private
+  def best_day
+    date = params[:day] && Date.parse(params[:day])
+    date ||= Date.today if Camp.current.talk_days.include?(Date.today)
+    date ||= Camp.current.talk_days.first
+    date
   end
 end

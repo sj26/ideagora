@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110611064424) do
+ActiveRecord::Schema.define(:version => 20110611114310) do
 
   create_table "attendances", :force => true do |t|
     t.integer  "camp_id"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20110611064424) do
     t.datetime "updated_at"
     t.datetime "closed_at"
     t.string   "status"
+    t.datetime "status_changed_at"
   end
 
   create_table "statuses", :force => true do |t|

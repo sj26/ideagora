@@ -32,6 +32,14 @@ class Camp < ActiveRecord::Base
     end
   end
 
+  def upcoming_talks
+    talks.after(Time.now).before(end_at)
+  end
+  
+  def past_talks
+    talks.before(Time.now).after(start_at)
+  end
+
   def talks_by_time_and_venue_for_day(day)
     #TODO test me
     #We want to return an ordered hash like { :time => { :venue => :talk } }

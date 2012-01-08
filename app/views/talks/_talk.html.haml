@@ -1,0 +1,13 @@
+%article.talk{ :"data-id" => talk.id }
+  %header
+    %h3.title
+      = link_to talk.name, talk
+    %div.meta
+      %time.start{ :datetime => talk.start_at, :"data-start-time" => talk.start_at.strftime("%H:%M") }
+        = time_ago_in_words talk.start_at
+      %time.end{ :datetime => talk.end_at, :"data-end-time" => talk.end_at.strftime("%H:%M") }
+        = time_ago_in_words talk.end_at
+      %span.remaining{ :"data-seconds" => talk.remaining.seconds }
+        = "#{talk.remaining.minutes} minutes"
+  %div.description
+    = textilize(talk.description).try(:html_safe)

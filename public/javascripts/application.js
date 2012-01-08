@@ -1,14 +1,18 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 (function($){
-	var displayPanel, lists;
+	var displayPanel, lists, currentItem;
 	
 	// Set active inspected article
 	function setActiveItem(article) {
 		var orig = article,
-			shown = article[0].cloneNode(true,false);
-		
+			shown = article[0].cloneNode(true,false),
+			previous = currentItem;
+
+		previous && previous.removeClass("selected");
 		displayPanel.empty().append(shown);
+		orig.addClass("selected");
+		currentItem = orig;
 	}
 	
 	// Bind functionality of summary lists

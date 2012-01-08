@@ -21,6 +21,10 @@ module TalksHelper
     date.to_time.strftime('%A')
   end
 
+  def hour_of(date)
+    date.to_time.strftime("%l:%M %P")
+  end
+
   def talk_description(talk)
     html = <<-END
       #{talk.try(:name)} <br/>

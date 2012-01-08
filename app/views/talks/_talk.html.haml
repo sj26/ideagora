@@ -1,7 +1,7 @@
 %article.talk{ :"data-id" => talk.id, :"data-start" => talk.start_at.to_time.to_i }
   %header
     %h3.title
-      = link_to talk.name, talk
+      = link_to talk.name, talk, :class => "item-link"
     %div.presenter
       %a{:href => user_path(talk.user) }
         = image_tag(get_gravatar(talk.user, 50), :class => "avatar")

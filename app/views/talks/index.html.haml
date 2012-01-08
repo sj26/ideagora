@@ -1,15 +1,20 @@
 %h1 Talks
 
-%h2 In progress
-- if @in_progress.empty?
-  %p Nobody's talking about anything right now. How odd!
-- else
-  = render :partial => "list", :locals => { :talks => @in_progress }
+%section.expandable-list
+  %div.list-panel
+    %h2 In progress
+    - if @in_progress.empty?
+      %p Nobody's talking about anything right now. How odd!
+    - else
+      = render :partial => "list", :locals => { :talks => @in_progress }
 
-%h2 Today
-- if @upcoming.empty?
-  %p
-    There aren't any talks coming up today.
-    = link_to "You better add one!", calendar_talks_path
-- else
-  = render :partial => "list", :locals => { :talks => @upcoming }
+    %h2 Today
+    - if @upcoming.empty?
+      %p
+        There aren't any talks coming up today.
+        = link_to "You better add one!", calendar_talks_path
+    - else
+      = render :partial => "list", :locals => { :talks => @upcoming }
+
+  %div.item-detail-panel
+    %p Click a talk for more details.

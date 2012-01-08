@@ -13,12 +13,15 @@
 	
 	// Bind functionality of summary lists
 	$.fn.ready(function() {
-		displayPanel = $("#item-details");
+		displayPanel = $(".item-detail-panel");
 		// Don't bother improving anything if the page didn't define a details area.
 		if (!displayPanel.size())
 			return;
 
-		displayPanel.
+		// Make the box float if we scroll past it.
+		displayPanel.portamento({
+			wrapper: $(".expandable-list")
+		});
 
 		lists = $(".summary-list");
 		lists.children().each(function(i, el) {

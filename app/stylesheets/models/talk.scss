@@ -1,0 +1,26 @@
+$avatar_size: 50px;
+$gap: 10px;
+
+.talk {
+	position: relative;
+	padding: $gap;
+	padding-left: $avatar_size + $gap*2;
+	
+	> header {
+		.avatar {
+			position: absolute;
+			left: $gap;
+			top: $gap;
+		}
+		
+		> .title {
+			font-size: 1.2em;
+		}
+		
+		> .where {
+			> .place:before {
+				content: "\2014";
+			}
+		}
+	}
+}

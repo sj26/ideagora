@@ -25,13 +25,11 @@ class Camp < ActiveRecord::Base
   def talks_by_day
     #TODO test me
     #OPTIMIZE: this is ghetto and could be done nicer in sql instead of ruby, but this is quick and dirty for now
-    tbd = ActiveSupport::OrderedHash.new
-
-    talks.collect{|t| t.start_at.to_date}.uniq.sort.each do |date|
-      tbd[date] = talks.where('start_at >= ? and start_at < ?', date, date + 1.day).order(:start_at)
+    returning ActiveSupport::OrderedHash.new do |tbd|
+      (start_at.to_date..end_at.to_date).each do |date|
+        tbd[date] = talks.for_day(date)
+      end
     end
-
-    return tbd
   end
 
   def talks_by_time_and_venue_for_day(day)

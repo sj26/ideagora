@@ -2,6 +2,7 @@ $avatar_size: 50px;
 $gap: 10px;
 
 .talk {
+	@include border-radius(4px, 4px, 4px, 4px);
 	position: relative;
 	padding: $gap;
 	padding-left: $avatar_size + $gap*2;
@@ -23,10 +24,22 @@ $gap: 10px;
 			}
 		}
 	}
+
+	&:hover, &:focus {
+		background: rgba(0,0,0,0.1);
+	}
+	
+	&.selected {
+		background: rgba(0,0,0,0.3);
+	}
 	
 	.summary-list & {
 		> .description {
 			display: none;
 		}
+	}
+	
+	.item-detail-panel & {
+		background: none;
 	}
 }

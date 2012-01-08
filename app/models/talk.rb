@@ -12,6 +12,7 @@ class Talk < ActiveRecord::Base
   scope :after, lambda { |time| where("start_at >= :time", :time => time) }
   scope :before, lambda { |time| where("start_at <= :time", :time => time) }
   scope :for_day, lambda { |day| self.after(day.beginning_of_day).before(day.end_of_day).order(:start_at) }
+  scope :in_progress, lambda { self.before(Time.now).where("end_at > :time", :time => Time.now) }
 
   def self.for_venue(venue)
     where(:venue_id => venue.id)

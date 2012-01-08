@@ -1,12 +1,13 @@
 class Camp < ActiveRecord::Base
+  include Timeboxed
+  
   has_many :attendees, :class_name => 'Attendance'
   has_many :users, :through => :attendees
   has_many :notices
   has_many :venues
   has_many :talks, :through => :venues
 
-  validates_presence_of :name, :current, :time_zone, :start_at, :end_at
-  validate :start_at_is_less_than_end_at
+  validates_presence_of :name, :current, :time_zone
   
   # TODO if one camp is enabled, all others should be disabled
 
@@ -76,14 +77,6 @@ class Camp < ActiveRecord::Base
     days = []
     number_of_days_with_talks.times {|i| days << first_talk_day.to_date + i.days}
     return days
-  end
-
-  private
-
-  def start_at_is_less_than_end_at
-    if start_at.blank? || end_at.blank? || start_at >= end_at
-      errors.add :start_at, "The start time must be before the end time" 
-    end
   end
 
 end

@@ -1,15 +1,15 @@
 %h1 Talks
 
 %h2 In progress
-- @in_progress.each do |talk|
-  = render talk
 - if @in_progress.empty?
   %p Nobody's talking about anything right now. How odd!
+- else
+  = render :partial => "list", :locals => { :talks => @in_progress }
 
 %h2 Today
-- @upcoming.each do |talk|
-  = render talk
 - if @upcoming.empty?
   %p
     There aren't any talks coming up today.
     = link_to "You better add one!", calendar_talks_path
+- else
+  = render :partial => "list", :locals => { :talks => @upcoming }

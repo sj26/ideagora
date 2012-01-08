@@ -17,7 +17,11 @@ Ideagora::Application.routes.draw do
   resources :notices
   resources :discussions
   resources :sessions
-  resources :talks
+  resources :talks do
+    collection do
+      get "calendar"
+    end
+  end
   resources :venues
   resources :users, :only => [:index, :show, :edit, :update] do
     resources :projects do

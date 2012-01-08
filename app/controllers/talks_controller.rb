@@ -5,6 +5,10 @@ class TalksController < InheritedResources::Base
   def index
     @in_progress = @camp.talks.in_progress
     @upcoming = @camp.upcoming_talks
+    index!
+  end
+
+  def calendar
     @talks_by_time_and_venue_for_day = @camp.talks_by_time_and_venue_for_day(@day)
     index!
   end

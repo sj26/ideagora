@@ -21,6 +21,16 @@ class Talk < ActiveRecord::Base
   def day
     start_at.to_date
   end
+  
+  def duration
+    end_at - start_at
+  end
+  
+  def remaining
+    remnants = end_at - Time.now
+    remnants = [duration, remnants].min # To cap it at the talk's length
+    [0, remnants].max # So that we don't end up with a negative time if it's in the past.
+  end
 
   private
 

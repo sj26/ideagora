@@ -2,6 +2,10 @@
   %header
     %h3.title
       = link_to talk.name, talk
+    %div.presenter
+      %a{:href => user_path(talk.user) }
+        = image_tag(get_gravatar(talk.user, 50))
+        %span.name= talk.user
     %div.meta
       %time.start{ :datetime => talk.start_at, :"data-unix" => talk.start_at.to_time.to_i }
         = time_ago_in_words talk.start_at

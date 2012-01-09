@@ -1,0 +1,15 @@
+%article.talk{ :"data-id" => talk.id, :"data-start" => talk.start_at.to_time.to_i }
+  %header
+    %h3.title
+      = link_to talk.name, talk, :class => "item-link"
+    %div.presenter
+      %a{:href => user_path(talk.user) }
+        = image_tag(get_gravatar(talk.user, 50), :class => "avatar")
+        %span.name= talk.user
+    %div.where
+      %time.start{ :datetime => talk.start_at, :"data-unix" => talk.start_at.to_time.to_i }
+        = hour_of talk.start_at
+      %span.place
+        = talk.venue
+  %div.description
+    = textilize(talk.description).try(:html_safe)

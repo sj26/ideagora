@@ -1,12 +1,13 @@
 class Camp < ActiveRecord::Base
+  include Timeboxed
+  
   has_many :attendees, :class_name => 'Attendance'
   has_many :users, :through => :attendees
   has_many :notices
   has_many :venues
   has_many :talks, :through => :venues
 
-  validates_presence_of :name, :current, :time_zone, :start_at, :end_at
-  validate :start_at_is_less_than_end_at
+  validates_presence_of :name, :current, :time_zone
   
   # TODO if one camp is enabled, all others should be disabled
 
@@ -25,13 +26,19 @@ class Camp < ActiveRecord::Base
   def talks_by_day
     #TODO test me
     #OPTIMIZE: this is ghetto and could be done nicer in sql instead of ruby, but this is quick and dirty for now
-    tbd = ActiveSupport::OrderedHash.new
-
-    talks.collect{|t| t.start_at.to_date}.uniq.sort.each do |date|
-      tbd[date] = talks.where('start_at >= ? and start_at < ?', date, date + 1.day).order(:start_at)
+    returning ActiveSupport::OrderedHash.new do |tbd|
+      (start_at.to_date..end_at.to_date).each do |date|
+        tbd[date] = talks.for_day(date)
+      end
     end
+  end
 
-    return tbd
+  def upcoming_talks
+    talks.after(Time.now).before(end_at)
+  end
+  
+  def past_talks
+    talks.before(Time.now).after(start_at)
   end
 
   def talks_by_time_and_venue_for_day(day)
@@ -70,14 +77,6 @@ class Camp < ActiveRecord::Base
     days = []
     number_of_days_with_talks.times {|i| days << first_talk_day.to_date + i.days}
     return days
-  end
-
-  private
-
-  def start_at_is_less_than_end_at
-    if start_at.blank? || end_at.blank? || start_at >= end_at
-      errors.add :start_at, "The start time must be before the end time" 
-    end
   end
 
 end

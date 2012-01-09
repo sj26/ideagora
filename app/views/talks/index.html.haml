@@ -1,28 +1,24 @@
-%h1
-  Talks for #{casual_day_description(@day)}
-  %small (#{mini_day_description(@day)})
+- if current_user
+  %p.add
+    = link_to 'Add a talk', calendar_talks_path
 
-.change_day
-  %p
-    %span Change Day:
-    - @talk_days.each do |day|
-      = day == @day ? day.strftime("%A") : link_to(day.strftime("%A"), talks_path(:day => day))
-%table.talks
-  %thead
-    %tr
-      %th Time
-      -  @venues.each do |venue|
-        %th.venue= venue.name
-  %tbody
-    - Camp.current.talk_hours.each do |hour|
-      - time = @day + hour.hours
-      %tr
-        %td
-          = time.strftime "%H:%M"
-          - @venues.each do |venue|
-            - talk = @talks_by_time_and_venue_for_day[time] && @talks_by_time_and_venue_for_day[time][venue]
-            %td{:class => talk ? 'filled' : 'available'}
-              - if talk
-                = link_to talk_description(talk), talk_path(talk)
-              - else
-                = link_to "[+] Add Talk", new_talk_path(:start_at => time, :venue_id => venue.id)
+%h1 Talks
+
+%section.expandable-list
+  %div.list-panel
+    %h2 In progress
+    - if @in_progress.empty?
+      %p Nobody's talking about anything right now. How odd!
+    - else
+      = render :partial => "list", :locals => { :talks => @in_progress }
+
+    %h2 Today
+    - if @upcoming.empty?
+      %p
+        There aren't any talks coming up today.
+        = link_to "You better add one!", calendar_talks_path
+    - else
+      = render :partial => "list", :locals => { :talks => @upcoming }
+
+  %div.item-detail-panel
+    %p Click a talk for more details.

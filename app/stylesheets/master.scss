@@ -5,3 +5,10 @@
 @import "partials/type";
 @import "partials/screen";
 @import "partials/forms";
+/* Some generic operations */
+@import "partials/collections";
+/* And now, the models */
+@import "models/talk";
+
+/* Some specific page overrides */
+@import "pages/talks";

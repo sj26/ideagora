@@ -1,16 +1,20 @@
 class TalksController < InheritedResources::Base
+  before_filter :details
   before_filter :requires_login, :except => [:index, :show]
 
   def index
-    @day = best_day
-    @venues = Camp.current.venues
-    @talk_days = Camp.current.talk_days
-    @talks_by_time_and_venue_for_day = Camp.current.talks_by_time_and_venue_for_day(@day)
+    @in_progress = @camp.talks.in_progress
+    @upcoming = @camp.upcoming_talks
+    index!
+  end
+
+  def calendar
+    @talks_by_time_and_venue_for_day = @camp.talks_by_time_and_venue_for_day(@day)
     index!
   end
 
   def new
-    @users = Camp.current.users.order(:first_name)
+    @users = @camp.users.order(:first_name)
     @start_at = Time.parse(params[:start_at])
     @end_at = @start_at + 1.hour
     @venue = Venue.find(params[:venue_id])
@@ -19,7 +23,7 @@ class TalksController < InheritedResources::Base
   end
 
   def edit
-    @users = Camp.current.users.order(:first_name)
+    @users = @camp.users.order(:first_name)
     edit!
   end
 
@@ -30,10 +34,21 @@ class TalksController < InheritedResources::Base
   end
 
 private
+  def current_camp
+    @camp = Camp.current
+  end
+
+  def details
+    current_camp
+    @day = best_day
+    @venues = @camp.venues
+    @talk_days = @camp.talk_days
+  end
+
   def best_day
     date = params[:day] && Date.parse(params[:day])
-    date ||= Date.today if Camp.current.talk_days.include?(Date.today)
-    date ||= Camp.current.talk_days.first
+    date ||= Date.today if @camp.talk_days.include?(Date.today)
+    date ||= @camp.talk_days.first
     date
   end
 end

@@ -1,3 +1,15 @@
+@mixin circle($diameter) {
+	@include border-radius(($diameter/2)+3);
+	display: block;
+	line-height: $diameter;
+	height: $diameter;
+	text-align: center;
+	vertical-align: middle;
+	width: $diameter;
+}
+
+$logoDiameter: 139px;
+
 body {
 	background: $pageBackground url('/images/bg.png');
 }
@@ -19,9 +31,32 @@ body {
 	}
 
 	#logo {
-		position: absolute;
-		top: 0;
+		@include circle($logoDiameter);
+		background: $pageBackground;
 		left: 0;
+		position: absolute;
+		top: -($logoDiameter/4);
+		
+		> h1 {
+			@include circle($logoDiameter - 10px);
+			background: $menuBackground;
+			@include box-sizing("border-box");
+			font-size: 24px;
+			margin: 5px;
+			padding: 5px;
+			word-wrap: nowrap;
+
+			> a {
+				@include circle($logoDiameter - 20px);
+				border: 0;
+				margin: 0;
+				padding: 0 5px 10px;
+
+				&:hover, &:active {
+					border-color: transparent;
+				}
+			}
+		}
 	}
 
 	a {

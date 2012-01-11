@@ -61,7 +61,7 @@ body {
 		
 		> h1 {
 			@include circle($logoDiameter - 10px);
-			background: $menuBackground;
+			background: $logoBackground;
 			@include box-sizing("border-box");
 			font-size: 24px;
 			margin: 5px;
@@ -70,12 +70,15 @@ body {
 
 			> a {
 				@include circle($logoDiameter - 20px);
+				@include box-shadow(rgba(0,0,0,0.5) 0 0 2px inset);
+				background: url("/images/logo-bg.png") 50% 50% no-repeat;
 				border: 0;
 				margin: 0;
 				padding: 0 5px 10px;
 
 				&:hover, &:active {
 					border-color: transparent;
+					background: $menuSelectedBackground;
 				}
 			}
 		}

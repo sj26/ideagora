@@ -2,32 +2,47 @@
 %html
   %head
     %meta{:charset => "utf-8"}
+    %meta{:"http-equiv" => "X-UA-Compatible", :content => "IE=edge,chrome=1"}
     
     %title Railscamp Ideagora
 
     = stylesheet_link_tag 'master'
     = stylesheet_link_tag 'vendor/jquery-ui-smoothness/jquery-ui-1.8.13.custom.css'
-    
-    = javascript_include_tag :defaults
 
+    = javascript_include_tag :defaults
     = csrf_meta_tag
     
     = yield :header
     
   %body{:id => @body_id || controller.controller_name, :class => controller.action_name }
-    #wrapper
-      %header#header
-        = render :partial => 'common/user_nav'
-        %h1=link_to 'Railscamp 9', root_path
+    #page
+      %header#header{:role => "banner"}
+        %nav.global{:role => "navigation"}
+          .primary
+            %h1#logo=link_to 'Railscamp 9', root_path
+            %ul
+              %li= link_to 'Welcome', root_path
+              %li= link_to 'Campers', users_path
+              %li= link_to 'Projects', projects_path
+              %li= link_to 'Talks', talks_path
+          .secondary
+            = render :partial => 'common/user_nav'
+        %nav.local{:role => "navigation"}
+          - if content_for? :local_primary_nav
+            .primary= yield :local_primary_nav
+          - if content_for? :local_secondary_nav
+            .secondary= yield :local_secondary_nav
 
-      %nav#main_nav
-        %ul
-          %li= link_to 'Welcome', root_path
-          %li= link_to 'Campers', users_path
-          %li= link_to 'Projects', projects_path
-          %li= link_to 'Talks', talks_path
-
-      #content
+      %section#content{:role => "main"}
         = flash_helper.html_safe
-        = yield
-        = render :partial => 'common/discussion'
+        %header
+          %h1= yield :title
+          = yield :content_header if content_for? :content_header
+        .content-container
+          .content-body
+            = yield
+
+      = render :partial => 'common/discussion'
+
+      %footer#footer{:role => "contentinfo"}
+        .footer-body

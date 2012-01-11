@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110611114310) do
+ActiveRecord::Schema.define(:version => 20120109110831) do
 
   create_table "attendances", :force => true do |t|
     t.integer  "camp_id"
@@ -40,6 +40,19 @@ ActiveRecord::Schema.define(:version => 20110611114310) do
     t.datetime "updated_at"
   end
 
+  create_table "events", :force => true do |t|
+    t.integer  "venue_id"
+    t.integer  "user_id"
+    t.string   "name"
+    t.text     "description"
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "camp_id"
+    t.string   "type"
+  end
+
   create_table "notices", :force => true do |t|
     t.string   "title"
     t.text     "content"
@@ -58,8 +71,8 @@ ActiveRecord::Schema.define(:version => 20110611114310) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "closed_at"
-    t.string   "status"
     t.datetime "status_changed_at"
+    t.string   "status"
   end
 
   create_table "statuses", :force => true do |t|
@@ -86,16 +99,20 @@ ActiveRecord::Schema.define(:version => 20110611114310) do
     t.string "name"
   end
 
-  create_table "talks", :force => true do |t|
-    t.integer  "venue_id"
-    t.integer  "user_id"
-    t.string   "name"
+  create_table "thought_processes", :force => true do |t|
+    t.integer  "thought_id"
+    t.integer  "evolution_id"
+    t.string   "evolution_type"
+    t.datetime "evolved_at"
+  end
+
+  create_table "thoughts", :force => true do |t|
     t.text     "description"
-    t.datetime "start_at"
-    t.datetime "end_at"
+    t.boolean  "dead"
+    t.integer  "ancestor_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "camp_id"
   end
 
   create_table "users", :force => true do |t|

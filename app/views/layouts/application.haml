@@ -18,8 +18,9 @@
       %header#header{:role => "banner"}
         %nav.global{:role => "navigation"}
           .primary
-            %h1#logo=link_to 'Railscamp 9', root_path
             %ul
+              %li#logo
+                %h1=link_to 'Railscamp 9', root_path
               %li= link_to 'Welcome', root_path
               %li= link_to 'Campers', users_path
               %li= link_to 'Projects', projects_path

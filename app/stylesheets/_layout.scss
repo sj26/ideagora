@@ -8,10 +8,21 @@
 	width: $diameter;
 }
 
+$pageWidth: 960px;
+
+$topGap: 58px;
+$secondMenuHeight: 22px;
+$menuGap: $topGap - $secondMenuHeight;
+
 $logoDiameter: 139px;
 
 body {
 	background: $pageBackground url('/images/bg.png');
+}
+
+#header {
+	position: relative;
+	padding-top: $topGap;
 }
 
 .global > .primary {
@@ -19,7 +30,6 @@ body {
 	color: $menuColor;
 	font-family: "Steelfish";
 	height: 60px;
-	margin-top: 58px;
 
 	&:after {
 		content:'';
@@ -70,7 +80,7 @@ body {
 		position: relative;
 		margin: 0 auto;
 		text-align: right;
-		width: 960px;
+		width: $pageWidth;
 		
 		> li {
 			display: inline-block;
@@ -98,6 +108,24 @@ body {
 					border-right-color: $menuHighlight;
 				}
 			}
+		}
+	}
+}
+
+.global > .secondary {
+	position: relative;
+	top: -($topGap + $menuGap);
+	height: $secondMenuHeight;
+	
+	> ul {
+		display: block;
+		padding-left: 0;
+		margin: 0 auto;
+		text-align: right;
+		width: $pageWidth;
+		
+		> li {
+			display: inline-block;
 		}
 	}
 }

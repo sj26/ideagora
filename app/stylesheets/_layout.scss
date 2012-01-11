@@ -8,6 +8,18 @@
 	width: $diameter;
 }
 
+@mixin global-menu {
+	display: block;
+	padding-left: 0;
+	margin: 0 auto;
+	text-align: right;
+	width: $pageWidth;
+
+	> li {
+		display: inline-block;
+	}
+}
+
 $pageWidth: 960px;
 
 $topGap: 58px;
@@ -75,15 +87,10 @@ body {
 	}
 
 	> ul {
-		display: block;
-		padding-left: 0;
+		@include global-menu();
 		position: relative;
-		margin: 0 auto;
-		text-align: right;
-		width: $pageWidth;
 		
 		> li {
-			display: inline-block;
 			font-weight: 900;
 			font-size: 22px;
 			height: 60px;
@@ -118,14 +125,6 @@ body {
 	height: $secondMenuHeight;
 	
 	> ul {
-		display: block;
-		padding-left: 0;
-		margin: 0 auto;
-		text-align: right;
-		width: $pageWidth;
-		
-		> li {
-			display: inline-block;
-		}
+		@include global-menu();
 	}
 }

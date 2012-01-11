@@ -17,21 +17,7 @@
   %body{:id => @body_id || controller.controller_name, :class => controller.action_name }
     #wrapper
       %header#header
-        #user_nav
-          %p
-            - if current_user
-              Logged in as
-              = link_to current_user.email, user_path(current_user)
-              &lowast;
-              = link_to "Edit my profile", edit_user_path(current_user)
-              - if organiser?
-                &lowast;
-                = link_to 'New notice', new_notice_path
-              &lowast;
-              = link_to "Log out", log_out_path
-            - else
-              = link_to "Sign in", sign_in_path
-              
+        = render :partial => 'common/user_nav'
         %h1=link_to 'Railscamp 9', root_path
 
       %nav#main_nav

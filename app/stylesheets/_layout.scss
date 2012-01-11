@@ -2,7 +2,7 @@ body {
 	background: $pageBackground url('/images/bg.png');
 }
 
-#header .global > .primary {
+.global > .primary {
 	background: $menuBackground url('/images/head-bg-pattern.png') 0 0 repeat;
 	color: $menuColor;
 	font-family: "Steelfish";

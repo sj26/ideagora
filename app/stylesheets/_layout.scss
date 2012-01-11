@@ -4,6 +4,7 @@ body {
 
 #header .global > .primary {
 	background: $menuBackground url('/images/head-bg-pattern.png') 0 0 repeat;
+	font-family: "Steelfish";
 	height: 60px;
 	margin-top: 58px;
 
@@ -32,6 +33,8 @@ body {
 		> li {
 			box-sizing: border-box;
 			display: inline-block;
+			font-weight: 900;
+			font-size: 20px;
 			height: 60px;
 			line-height: 50px;
 			padding-top: 10px;

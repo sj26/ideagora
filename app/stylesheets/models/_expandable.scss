@@ -15,6 +15,15 @@
 	}
 }
 
+.summary-list {
+	list-style: none;
+	padding-left: 0;
+	
+	> li + li {
+		margin-top: 8px;
+	}
+}
+
 #portamento_container {
 	position: absolute;
 	right: 40px;

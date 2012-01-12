@@ -36,7 +36,8 @@
       %section#content{:role => "main"}
         = flash_helper.html_safe
         %header
-          %h1= yield :title
+          - if content_for? :title
+            %h1= yield :title
           = yield :content_header if content_for? :content_header
         .content-container
           .content-body

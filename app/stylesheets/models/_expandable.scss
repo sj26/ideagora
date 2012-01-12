@@ -1,0 +1,30 @@
+/* TODO: These styles could be made more generic -- CSS table layout pattern. Rewrite them using generic pattern. */
+.expandable-list {
+	position: relative;
+	
+	> .list-panel {
+		margin-right: 10px;
+		width: 470px;
+	}
+	
+	> .item-detail-panel {
+		position: absolute;
+		right: 40px;
+		top: 0;
+		width: 410px;
+	}
+}
+
+#portamento_container {
+	position: absolute;
+	right: 40px;
+	top: 0;
+
+	.item-detail-panel {
+		width: 410px;
+		
+		&.fixed {
+			position: fixed;
+		}
+	}
+}

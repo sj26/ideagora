@@ -178,3 +178,12 @@ body {
 	top: 4px;
 	right: 0;
 }
+
+.layout-group {
+	display: table;
+	width: 100%;
+	
+	> .layout-item {
+		display: table-cell;
+	}
+}

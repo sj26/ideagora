@@ -97,6 +97,7 @@ body {
 	}
 
 	a {
+		@include text-shadow($menuShadow 0 -1px 0);
 		color: $menuColor;
 		text-decoration: none;
 	}

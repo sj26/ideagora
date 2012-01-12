@@ -12,16 +12,23 @@
 	width: $diameter;
 }
 
-@mixin global-menu {
+@mixin inline-list {
 	display: block;
+	list-style: none;
+	margin-top: 0;
+	margin-bottom: 0;
 	padding-left: 0;
-	margin: 0 auto;
-	text-align: right;
-	width: $pageWidth;
 
 	> li {
 		display: inline-block;
 	}
+}
+
+@mixin global-menu {
+	@include inline-list;
+	margin: 0 auto;
+	text-align: right;
+	width: $pageWidth;
 }
 
 $pageWidth: 960px;

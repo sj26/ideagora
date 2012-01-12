@@ -1,3 +1,6 @@
+- content_for :title do
+  All the campers
+
 - content_for :header do
   = javascript_include_tag 'vendor/jquery.dataTables-1.7.6.min'
   :javascript
@@ -12,7 +15,6 @@
       });
     });
 
-%h1 All the campers
 - if current_user
   %p
     Make sure to <strong>#{link_to "populate your profile", edit_user_path(current_user)}</strong> so others can learn about you.

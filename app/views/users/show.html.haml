@@ -1,9 +1,9 @@
+- content_for :title do
+  = @user.full_name
+
 = render :partial => 'user_card', :locals => {:user => @user}
 
 .main
-  %h1
-    = @user.full_name
-
   %section.about_me
     - if @user.bio
       %article.bio

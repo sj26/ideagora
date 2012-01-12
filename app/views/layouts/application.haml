@@ -43,6 +43,8 @@
 
       #content
         = flash_helper.html_safe
+        - if content_for? :title
+          %h1= yield :title
         = yield
         - if @discussion
           #discussion

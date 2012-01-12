@@ -1,9 +1,9 @@
 h1 {
+	@include title-font($h1Size);
 	color: $headingColor;
-	font: 32px/1.5 "Steelfish", sans-serif;
+	line-height: $h1Line;
 	margin: 0 auto;
 	@include text-shadow($pageBackground 1px 1px 0, $headingShadow 3px 3px 0);
-	text-transform: uppercase;
 	
 	> a {
 		text-decoration: none;

@@ -43,9 +43,9 @@ body {
 }
 
 .global > .primary {
+	@include title-font;
 	background: $menuBackground url('/images/head-bg-pattern.png') repeat 0 0;
 	color: $menuColor;
-	font-family: "Steelfish";
 	height: 60px;
 
 	&:after {
@@ -113,7 +113,6 @@ body {
 				margin: 10px 0 0;
 				height: 40px;
 				padding: 8px 12px 10px;
-				text-transform: uppercase;
 				
 				&:hover, &:focus {
 					background: $menuSelectedBackground;

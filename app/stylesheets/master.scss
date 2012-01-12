@@ -2,5 +2,19 @@
 @import 'colours';
 @import 'fonts';
 
+$h1Size: 32px;
+$h1Line: 1.5;
+
+@mixin title-font($size: -1) {
+	font-family: "Steelfish", Impact, sans-serif;
+	@if $size > 0 {
+		@if unitless($size) {
+			$size: 1px * $size;
+		}
+		font-size: $size;
+	}
+	text-transform: uppercase;
+}
+
 @import 'layout';
 @import 'content';

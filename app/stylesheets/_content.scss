@@ -33,6 +33,20 @@ h1 {
 	
 }
 
+a {
+	color: $linkColor;
+	text-decoration: none;
+	
+	&:hover, &:focus {
+		color: $linkHoverColor;
+	}
+	
+	.content-body &:active {
+		background: $menuBackground;
+		color: $menuColor;
+	}
+}
+
 .actions {
 	@include inline-list;
 	text-align: right;

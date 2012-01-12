@@ -6,6 +6,7 @@ class Camp < ActiveRecord::Base
   has_many :notices
   has_many :venues
   has_many :talks, :through => :venues
+  has_many :events
 
   validates_presence_of :name, :current, :time_zone
   

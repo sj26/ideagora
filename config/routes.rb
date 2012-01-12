@@ -22,6 +22,7 @@ Ideagora::Application.routes.draw do
       get "calendar"
     end
   end
+  resources :events
   resources :venues
   resources :users, :only => [:index, :show, :edit, :update] do
     resources :projects do

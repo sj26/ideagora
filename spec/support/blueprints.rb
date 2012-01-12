@@ -33,10 +33,16 @@ Project.blueprint do
 end
 
 Talk.blueprint do
-  name     { 'Introduction to Coffeescript' }
-  venue    { Venue.make! }
-  user     { User.make! }
-  start_at { 1.day.ago }
+  name     { Faker::Lorem.words((rand * 10).floor).join(" ") }
+  description { Faker::Lorem.sentences }
+  venue    { Venue.all.sample }
+  user     { User.all.sample }
+  start_at do
+    starting = Camp.current.start_at.to_time
+    ending = Camp.current.end_at.to_time
+    timestamp = (starting.to_i..ending.to_i).step(3600).sample
+    Time.at(timestamp) + (rand * 360).floor.minutes
+  end
   end_at   { object.start_at + 1.hour }
 end
 

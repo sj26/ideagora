@@ -1,8 +1,9 @@
+-content_for :title do
+  Talks
+
 - if current_user
   %p.add
     = link_to 'Add a talk', calendar_talks_path
-
-%h1 Talks
 
 %section.expandable-list
   %div.list-panel

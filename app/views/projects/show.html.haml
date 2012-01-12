@@ -1,9 +1,11 @@
+- content_for :title do
+  = @project.name
+
 = render :partial => 'users/user_card', :locals => {:user => @project.owner}
 
 .main
   %p.add
     = link_to 'Edit project', edit_user_project_path(@project.owner) if is_owner?
-  %h1= @project.name
 
   - if @project.description
     .description

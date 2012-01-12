@@ -1,8 +1,9 @@
+- content_for :title do
+  = @talk.name
+
 = render :partial => 'users/user_card', :locals => {:user => @talk.user}
 
 .main
-  %h1.name= @talk.name
-
   = render :partial => 'where_and_when', :locals => { :talk => @talk }
 
   - if @talk.description

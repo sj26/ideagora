@@ -1,4 +1,6 @@
-%h1 Message Board
+- content_for :title do
+  Message Board
+
 - @notices.each do |notice|
   %h2= notice.title
   = textilize(notice.content).try(:html_safe)

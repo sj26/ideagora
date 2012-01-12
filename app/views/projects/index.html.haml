@@ -1,8 +1,9 @@
+- content_for :title do
+  All projects
+
 - if current_user
   %p.add
     = link_to 'Add a project', new_user_project_path(current_user)
-
-%h1 All projects
 
 %table.projects
   %thead

@@ -1,4 +1,4 @@
-%section.notices
+%section.notices.summary-list
   %header
     %h1= link_to 'Message board', message_board_camp_path(Camp.current), :title => 'view all notices'
   
@@ -10,7 +10,7 @@
     %ul.actions
       %li.more= link_to 'view all messages', message_board_camp_path(Camp.current)
 
-%section.talks
+%section.talks.summary-list
   %header
     %h1= link_to "Upcoming talks", talks_path, :title => 'view all talks'
 
@@ -21,7 +21,7 @@
     %ul.actions
       %li.more= link_to 'view all talks', talks_path
 
-%section.events
+%section.events.summary-list
   %header
     %h1
       =# link_to "Events", events_path, :title => 'view all events'
@@ -30,7 +30,7 @@
   - @events.each do |event|
     = render event
 
-%section.projects
+%section.projects.summary-list
   %header
     %h1= link_to 'Random project', projects_path, :title => 'view all projects'
 

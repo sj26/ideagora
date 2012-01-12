@@ -30,6 +30,10 @@ h1 {
 	@include inline-list;
 	text-align: right;
 	
+	> li + li {
+		margin-left: 0.5em;
+	}
+	
 	a {
 		@include action-button;
 		@include box-sizing("border-box");

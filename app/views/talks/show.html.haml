@@ -10,7 +10,6 @@
     = textilize(@talk.description).try(:html_safe)
 
   - if @talk.user == current_user
-    %p.actions
-      = link_to "Edit this talk", edit_talk_path(@talk)
-      |
-      = link_to "Delete this talk", talk_path(@talk), :method => :delete, :confirm => 'Really delete this talk?'
+    %ul.actions
+      %li= link_to "Edit this talk", edit_talk_path(@talk)
+      %li.destroy= link_to "Delete this talk", talk_path(@talk), :method => :delete, :confirm => 'Really delete this talk?'

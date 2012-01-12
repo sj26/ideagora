@@ -34,6 +34,7 @@ $logoDiameter: 139px;
 
 body {
 	@include fixed-background();
+	font-family: "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 #header {

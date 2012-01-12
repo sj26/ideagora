@@ -9,7 +9,6 @@
   - if project.needs_help?
     %p.help Could use help with this one
   - if project.owner == current_user
-    %p.actions
-      = link_to 'Edit this project', edit_user_project_path(project.owner, project)
-      |
-      = link_to 'Delete this project', user_project_path(project.owner, project), :confirm => 'Are you sure you want to delete this project?', :method => :delete
+    %ul.actions
+      %li= link_to 'Edit this project', edit_user_project_path(project.owner, project)
+      %li= link_to 'Delete this project', user_project_path(project.owner, project), :confirm => 'Are you sure you want to delete this project?', :method => :delete

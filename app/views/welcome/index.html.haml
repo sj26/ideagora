@@ -1,14 +1,24 @@
-%section.notices.summary-list
-  %header
-    %h1= link_to 'Message board', message_board_camp_path(Camp.current), :title => 'view all notices'
-  
-  - if @latest_notice
-    %h2= @latest_notice.title
-    = textilize(@latest_notice.content).try(:html_safe)
-  
-  %footer
-    %ul.actions
-      %li.more= link_to 'view all messages', message_board_camp_path(Camp.current)
+.layout-group
+  %section.events.summary-list.layout-item
+    %header
+      %h1
+        =# link_to "Events", events_path, :title => 'view all events'
+        Events
+
+    - @events.each do |event|
+      = render event
+
+  %section.notices.summary-list.layout-item
+    %header
+      %h1= link_to 'Message board', message_board_camp_path(Camp.current), :title => 'view all notices'
+
+    - if @latest_notice
+      %h2= @latest_notice.title
+      = textilize(@latest_notice.content).try(:html_safe)
+
+    %footer
+      %ul.actions
+        %li.more= link_to 'view all messages', message_board_camp_path(Camp.current)
 
 %section.talks.summary-list
   %header
@@ -20,15 +30,6 @@
   %footer
     %ul.actions
       %li.more= link_to 'view all talks', talks_path
-
-%section.events.summary-list
-  %header
-    %h1
-      =# link_to "Events", events_path, :title => 'view all events'
-      Events
-  
-  - @events.each do |event|
-    = render event
 
 %section.projects.summary-list
   %header

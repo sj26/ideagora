@@ -15,3 +15,13 @@ h1 {
 	}
 	
 }
+
+.actions {
+	@include inline-list;
+	text-align: right;
+	
+	a {
+		@include action-button;
+		@include box-sizing("border-box");
+	}
+}

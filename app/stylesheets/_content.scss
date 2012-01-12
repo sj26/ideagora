@@ -1,3 +1,13 @@
+@mixin action-button {
+	@include title-font(18px);
+	@include box-shadow(transparentize($menuBackground, 0.6) 3px 3px 0);
+	background: $menuBackground;
+	color: $menuColor;
+	display: inline-block;
+	padding: 0.5em 1.5em;
+	text-decoration: none;
+}
+
 h1 {
 	@include title-font($h1Size);
 	color: $headingColor;

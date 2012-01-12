@@ -17,6 +17,10 @@ $h1Line: 1.5;
 	text-transform: uppercase;
 }
 
+@mixin body-font {
+	font-family: "Droid Serif", "Museo Serif", "Times New Roman", serif;
+}
+
 @import 'layout';
 @import 'content';
 

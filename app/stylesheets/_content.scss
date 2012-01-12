@@ -47,6 +47,15 @@ a {
 	}
 }
 
+.content-body {
+	@include body-font;
+	color: $textColor;
+	
+	h1, h2, h3 {
+		color: #000;
+	}
+}
+
 .actions {
 	@include inline-list;
 	text-align: right;

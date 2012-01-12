@@ -1,10 +1,9 @@
 class WelcomeController < ApplicationController
   def index
-    @todays_talks_by_venue_id = Hash.new
-    @venues = camp.venues
-    @venues.each do |v|
-      @todays_talks_by_venue_id[v.id] = camp.talks.for_day( params[:day].try(:to_date) || Time.now.to_date ).for_venue(v)
-    end
+    @talks = camp.upcoming_talks.limit(3)
+
+    @events = camp.events.after(Time.now).limit(3)
+    @events = @events.where(:type => nil) # FIXME: Subtype the camp catering events
 
     @latest_notice = camp.notices.last
     @project = Project.order('random()').first

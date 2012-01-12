@@ -1,3 +1,7 @@
+@mixin fixed-background {
+	background: $pageBackground url('/images/bg.png') repeat fixed 0 0;
+}
+
 @mixin circle($diameter) {
 	@include border-radius(($diameter/2)+3);
 	display: block;
@@ -29,7 +33,7 @@ $menuGap: $topGap - $secondMenuHeight;
 $logoDiameter: 139px;
 
 body {
-	background: $pageBackground url('/images/bg.png');
+	@include fixed-background();
 }
 
 #header {
@@ -38,7 +42,7 @@ body {
 }
 
 .global > .primary {
-	background: $menuBackground url('/images/head-bg-pattern.png') 0 0 repeat;
+	background: $menuBackground url('/images/head-bg-pattern.png') repeat 0 0;
 	color: $menuColor;
 	font-family: "Steelfish";
 	height: 60px;
@@ -53,8 +57,8 @@ body {
 	}
 
 	#logo {
+		@include fixed-background();
 		@include circle($logoDiameter);
-		background: $pageBackground;
 		left: 0;
 		position: absolute;
 		top: -($logoDiameter/4);
@@ -139,12 +143,14 @@ body {
 		background: url('/images/header-bg-linethrough.png') 0 50% repeat-x;
 		margin: 0 auto;
 		position: relative;
+		text-align: center;
 		width: $pageWidth;
 		
 		> h1 {
+			@include fixed-background(); // allows for clobbering the line-through
+			display: inline-block;       // ...but only around the text.
 			padding: 0 0.5em 1px;
 			position: relative;
-			text-align: center;
 		}
 	}
 }

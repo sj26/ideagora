@@ -1,0 +1,17 @@
+h1 {
+	color: $headingColor;
+	font: 32px/1.5 "Steelfish", sans-serif;
+	margin: 0 auto;
+	@include text-shadow($pageBackground 1px 1px 0, $headingShadow 3px 3px 0);
+	text-transform: uppercase;
+	
+	> a {
+		text-decoration: none;
+		color: inherit;
+	}
+	
+	#logo & {
+		text-shadow: none;
+	}
+	
+}

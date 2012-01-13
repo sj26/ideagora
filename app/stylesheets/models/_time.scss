@@ -1,0 +1,39 @@
+$gemDiameter: 63px;
+
+.time-gem {
+	@include circle($gemDiameter);
+	background: $timeGemBackground;
+	color: $timeGemColor;
+	display: inline-block;
+	line-height: 1;
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	margin-top: -($gemDiameter/2);
+	
+	i, .units {
+		font-family: "Droid Serif";
+		font-style: italic;
+		font-size: 10px;
+		line-height: 0.8;
+	}
+	
+	.units {
+		display: block;
+	}
+	
+	time {
+		font-size: 26px;
+		position: absolute;
+		top: 50%;
+		margin-top: -18px;
+	}
+	
+	&.future {
+		> i:first-child {
+			display: none;
+			position: absolute;
+			top: 8px;
+		}
+	}
+}

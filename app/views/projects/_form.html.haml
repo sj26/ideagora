@@ -1,6 +1,6 @@
-- simple_form_for([current_user, @project]) do |f|
+- semantic_form_for([current_user, @project]) do |f|
   = f.input :name
   = f.input :description, :hint => 'Textile supported'
   = f.input :help, :label => 'Need help?'
   
-  = f.button :submit
+  = f.buttons

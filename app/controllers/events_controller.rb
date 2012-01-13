@@ -4,7 +4,8 @@ class EventsController < InheritedResources::Base
   def index
     @in_progress = @camp.events.in_progress
     the_rest = @camp.events.after(Time.now)
-    @upcoming = the_rest.group_by { |a| a.start_at - ((a.start_at.to_time.to_i) % 6.hours) }
+    @upcoming = the_rest.group_by { |a| (a.start_at + Time.zone.utc_offset + 1.hour).to_i / 6.hours }
+    @upcoming = Hash[@upcoming.map { |key, val| [Time.zone.at(key * 6.hours - Time.zone.utc_offset - 1.hour), val] }]
     index!
   end
 

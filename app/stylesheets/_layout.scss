@@ -139,7 +139,19 @@ body {
 	height: $secondMenuHeight;
 	
 	> ul {
-		@include global-menu();
+		@include global-menu;
+		font-size: 0.9em;
+		
+		> li + li {
+			margin-left: 1em;
+			
+			&:before {
+				color: #999;
+				display: inline-block;
+				content: '\00B7';
+				margin: 0 0.5em 0 -0.5em;
+			}
+		}
 	}
 }
 

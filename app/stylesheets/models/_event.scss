@@ -1,0 +1,29 @@
+$avatar_size: 50px;
+$gap: 10px;
+
+.event {
+	@include border-radius(4px);
+	border: 1px solid transparent;
+	min-height: $avatar_size;
+	padding: $gap;
+	position: relative;
+	
+	> header {
+		> .title {
+			line-height: 1;
+			margin: 0;
+		}
+	}
+	
+	&.with-avatar {
+		padding-left: $avatar_size + $gap*2;
+		
+		> header {
+			.avatar {
+				position: absolute;
+				left: $gap;
+				top: $gap;
+			}
+		}
+	}
+}

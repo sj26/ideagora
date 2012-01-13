@@ -1,4 +1,4 @@
-%article.talk{ :"data-id" => talk.id, :"data-start" => talk.start_at.to_time.to_i }
+%article.event.talk.with-avatar{ :"data-id" => talk.id, :"data-start" => talk.start_at.to_time.to_i }
   %header
     %h3.title
       = link_to talk.name, talk, :class => "item-link"

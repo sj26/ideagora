@@ -55,7 +55,7 @@ events << {:start_at => "2012-01-16 08:00:00", :end_at => "2012-01-16 09:00:00",
 events << {:start_at => "2012-01-16 09:30:00", :end_at => "2012-01-16 10:30:00", :name => "Game Over", :description => "RailsCamp is over. Time to pack up and head on out."}
 events << {:start_at => "2012-01-16 11:00:00", :end_at => "2012-01-16 11:05:00", :name => "Shuttle Bus to the Airport", :description => "If you need the shuttle bus to the airport, they'll be outside the Main Hall building."}
 
-events.each { |e| Event.create!(e.merge(:camp => rc10, :venue => catering, :user => svc)) }
+events.each { |e| Event.create!({:camp => rc10, :venue => catering, :user => svc}.merge(e)) }
 puts 'Events created.'
 
 puts 'Adding a welcome message'

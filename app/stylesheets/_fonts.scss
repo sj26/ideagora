@@ -1,3 +1,22 @@
 @include font-face("Steelfish", font-files("/fonts/steelfish-rg.otf", opentype, "/fonts/steelfish-bd.otf", opentype, "/fonts/steelfish-eb.otf", opentype));
 @include font-face("Droid Sans", font-files("/fonts/DroidSans.ttf", truetype, "/fonts/DroidSans-Bold.ttf", truetype));
 @include font-face("Droid Serif", font-files("/fonts/DroidSerif.ttf", truetype, "/fonts/DroidSerif-Italic.ttf", truetype, "/fonts/DroidSerif-Bold.ttf", truetype, "/fonts/DroidSerif-BoldItalic.ttf", truetype));
+
+$h1Size: 32px;
+$h1Line: 1.5;
+
+@mixin title-font($size: -1) {
+	font-family: "Steelfish", Impact, sans-serif;
+	@if $size > 0 {
+		@if unitless($size) {
+			$size: 1px * $size;
+		}
+		font-size: $size;
+	}
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+}
+
+@mixin body-font {
+	font-family: "Droid Serif", "Museo Serif", "Times New Roman", serif;
+}

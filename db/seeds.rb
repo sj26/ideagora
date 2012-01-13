@@ -3,6 +3,7 @@
 #
 
 rc10 = Camp.find_by_name('Railscamp X') || Camp.create(:name => 'Railscamp X', :location => 'Woodhouse, Piccadilly, Adelaide', :current => true, :time_zone => 'Adelaide', :start_at => '2012-01-13 16:00:00', :end_at => '2012-01-16 10:00:00')
+Time.zone = rc10.time_zone
 
 require 'csv'
 filename = File.join(Rails.root.to_s, 'db', 'seeds', 'rc10_attendees.csv')

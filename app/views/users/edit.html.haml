@@ -10,12 +10,14 @@
 
 
 = semantic_form_for @user, :url => user_path(@user) do |f|
-  - f.inputs "Your Name" do
+  = f.semantic_errors
+
+  - f.inputs "You" do
     = f.input :first_name
     = f.input :last_name
     = f.input :email
 
-  - f.inputs "Your Quest" do
+  - f.inputs do
     = f.input :bio, :hint => 'Textile supported'
   
   - f.inputs "Contactability" do

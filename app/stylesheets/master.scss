@@ -2,6 +2,39 @@
 @import 'colours';
 @import 'fonts';
 
+@mixin fixed-background {
+	background: $pageBackground url('/images/bg.png') repeat fixed 0 0;
+}
+
+@mixin circle($diameter) {
+	@include border-radius(($diameter/2)+3);
+	display: block;
+	line-height: $diameter;
+	height: $diameter;
+	text-align: center;
+	vertical-align: middle;
+	width: $diameter;
+}
+
+@mixin inline-list {
+	display: block;
+	list-style: none;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-left: 0;
+
+	> li {
+		display: inline-block;
+	}
+}
+
+@mixin global-menu {
+	@include inline-list;
+	margin: 0 auto;
+	text-align: right;
+	width: $pageWidth;
+}
+
 @mixin action-button {
 	@include title-font(18px);
 	@include box-shadow(transparentize($menuBackground, 0.6) 3px 3px 0);

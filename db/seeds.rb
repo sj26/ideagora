@@ -32,13 +32,18 @@ puts 'Done with organisers.'
 
 cd = User.find_by_email!('christopher.darroch@gmail.com')
 svc = User.find_by_email!('sebastian@vonconrad.com')
+ryanbigg = User.find_by_email!('me@ryanbigg.com')
+lachlanhardy = User.find_by_email!('lachlan@lachstock.com.au')
 
 puts 'Creating Venues'
 ['Main Hall', 'Henry Rymill room', 'Safe Refuge Area (Rec Room)', 'Pem Fooks room', 'A. J. Peake room (small)', 'Old House Dining Room', 'Old House Lounge Room'].each { |v| rc10.venues.create!(:name => v) unless rc10.venues.find_by_name(v) }
 catering = Venue.find_by_name!('Main Hall')
+rec_room = Venue.find_by_name!('Safe Refuge Area (Rec Room)')
 
 puts 'Creating Events'
 events = []
+events << {:start_at => "2012-01-13 21:45:00", :end_at => "2012-01-14 03:00:00", :name => "Werewolf", :description => "Quite possibly the best game you'll ever play.", :venue => rec_room, :user => ryanbigg}
+events << {:start_at => "2012-01-13 20:30:00", :end_at => "2012-01-14 00:10:00", :name => "ScotchFTW", :description => "So much scotch.", :venue => rec_room, :user => lachlanhardy}
 # Saturday
 events << {:start_at => "2012-01-14 08:00:00", :end_at => "2012-01-14 09:00:00", :name => "Breakfast", :description => "Saturday breakfast"}
 events << {:start_at => "2012-01-14 10:30:00", :end_at => "2012-01-14 11:00:00", :name => "Morning Tea", :description => "Saturday morning tea"}
@@ -56,7 +61,7 @@ events << {:start_at => "2012-01-16 08:00:00", :end_at => "2012-01-16 09:00:00",
 events << {:start_at => "2012-01-16 09:30:00", :end_at => "2012-01-16 10:30:00", :name => "Game Over", :description => "RailsCamp is over. Time to pack up and head on out."}
 events << {:start_at => "2012-01-16 11:00:00", :end_at => "2012-01-16 11:05:00", :name => "Shuttle Bus to the Airport", :description => "If you need the shuttle bus to the airport, they'll be outside the Main Hall building."}
 
-events.each { |e| Event.create!(e.merge(:camp => rc10, :venue => catering, :user => svc)) }
+events.each { |e| Event.create!({:camp => rc10, :venue => catering, :user => svc}.merge(e)) }
 puts 'Events created.'
 
 puts 'Adding a welcome message'

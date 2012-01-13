@@ -36,6 +36,10 @@ $gemDiameter: 63px;
 			top: 8px;
 		}
 	}
+	
+	&[data-unit=mins] {
+		background: mix($timeGemBackground, $menuBackground, 40%);
+	}
 }
 
 .with-time-gem {

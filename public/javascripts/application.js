@@ -57,6 +57,7 @@
 		t = $("<time>").html(time).attr("datetime", date);
 		t.append($("<span class='units'>").html(" " + relative.unit));
 		el.append(t);
+		el.attr("data-unit", relative.unit);
 		if (relative.time < 0) {
 			el.append($("<i> ago</i>"));
 			el.addClass("past");

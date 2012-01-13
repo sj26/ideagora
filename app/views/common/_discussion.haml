@@ -3,6 +3,9 @@
     %h3= @discussion.title || "Discuss this page"
     %p Anyone can edit this text.  Please do so with care.
 
-    = simple_form_for(@discussion) do |f|
-      = f.input :text, :label => false
-      = f.button :submit
+    = semantic_form_for(@discussion) do |f|
+      = f.semantic_errors
+
+      - f.inputs do
+        = f.input :text, :label => false
+      = f.buttons

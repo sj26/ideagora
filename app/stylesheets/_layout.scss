@@ -187,3 +187,20 @@ body {
 		display: table-cell;
 	}
 }
+
+#footer {
+	color: lighten($textColor, 30%);
+	font-size: 0.75em;
+	margin-top: 3em;
+	
+	p {
+		margin: 0.25em 0;
+		font-style: italic;
+	}
+	
+	.footer-body {
+		margin: 0 auto;
+		text-align: center;
+		width: $pageWidth;
+	}
+}

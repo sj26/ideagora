@@ -13,8 +13,14 @@ $gap: 10px;
 			line-height: 1;
 			margin: 0;
 		}
+
+		> .where {
+			> .place:before {
+				content: "\2014";
+			}
+		}
 	}
-	
+
 	&.with-avatar {
 		padding-left: $avatar_size + $gap*2;
 		

@@ -4,12 +4,6 @@
 			@include title-font(22px);
 			letter-spacing: 1px;
 		}
-		
-		> .where {
-			> .place:before {
-				content: "\2014";
-			}
-		}
 	}
 
 	.summary-list & {

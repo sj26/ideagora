@@ -37,3 +37,9 @@ $gemDiameter: 63px;
 		}
 	}
 }
+
+.with-time-gem {
+	&.event, &.talk {
+		padding-right: $gemDiameter + 10px;
+	}
+}

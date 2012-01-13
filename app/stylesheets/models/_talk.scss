@@ -12,16 +12,6 @@
 		}
 	}
 
-	&:hover, &:focus {
-		background: $panelInnerBackground;
-		cursor: pointer;
-	}
-	
-	&.selected {
-		background: $panelBackground;
-		border-color: $panelBorder;
-	}
-	
 	.summary-list & {
 		> .description {
 			display: none;

@@ -26,4 +26,16 @@ $gap: 10px;
 			}
 		}
 	}
+	
+	.summary-list & {
+		&:hover, &:focus {
+			background: $panelInnerBackground;
+			cursor: pointer;
+		}
+	
+		&.selected {
+			background: $panelBackground;
+			border-color: $panelBorder;
+		}
+	}
 }

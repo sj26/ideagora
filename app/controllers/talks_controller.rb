@@ -5,6 +5,8 @@ class TalksController < InheritedResources::Base
   def index
     @in_progress = @camp.talks.in_progress
     @upcoming = @camp.upcoming_talks
+    @upcoming = @upcoming.group_by { |a| (a.start_at + Time.zone.utc_offset + 1.hour).to_i / 6.hours }
+    @upcoming = Hash[@upcoming.map { |key, val| [Time.zone.at(key * 6.hours - Time.zone.utc_offset - 1.hour), val] }]
     index!
   end
 

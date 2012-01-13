@@ -15,13 +15,18 @@
     - else
       = render :partial => "list", :locals => { :talks => @in_progress }
 
-    %h2 Today
+    %h2 Upcoming
     - if @upcoming.empty?
       %p
         There aren't any talks coming up today.
         = link_to "You better add one!", calendar_talks_path
     - else
-      = render :partial => "list", :locals => { :talks => @upcoming }
+      - @upcoming.each do |time, talks|
+        %h3
+          %time{:datetime => time}
+            %span.day= time.strftime "%A"
+            %span.time= time.strftime "%l:%M %P"
+        = render :partial => "list", :locals => { :talks => talks }
 
   %div.item-detail-panel
     %p.placeholder Click a talk for more details.

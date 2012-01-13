@@ -59,6 +59,28 @@ a {
 	}
 }
 
+.contact-list {
+	padding-left: 0;
+	margin: 0;
+	
+	> li {
+		list-style: none;
+		&:empty { display: none; }
+		&:before {
+			color: #999;
+			display: block;
+			float: left;
+			margin-right: 4px;
+			text-align: right;
+			width: 24px;
+		}
+
+		&.twitter:before { content: '@'; width: 28px; margin-right: 0; }
+		&.irc:before { content: 'irc:'; }
+		&.bonjour:before { content: 'im:'; }
+	}
+}
+
 table {
 	width: 100%;
 	

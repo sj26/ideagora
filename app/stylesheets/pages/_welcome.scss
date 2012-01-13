@@ -1,0 +1,21 @@
+#welcome {
+	.layout-group {
+		border-spacing: 2em;
+		
+		> .layout-item {
+			position: relative;
+			
+			footer {
+				position: absolute;
+				bottom: 0;
+				right: 0;
+			}
+		}
+	}
+	
+	.content-body {
+		section  {
+			margin-bottom: 2em;
+		}
+	}
+}

@@ -1,0 +1,101 @@
+@mixin action-button {
+	@include title-font(18px);
+	@include box-shadow(transparentize($menuBackground, 0.6) 3px 3px 0);
+	@include text-shadow(opacify($menuShadow, 0.3) -0 -1px 0);
+	background: $menuBackground;
+	color: $menuColor;
+	display: inline-block;
+	padding: 0.5em 1.5em;
+	text-decoration: none;
+	
+	&:active {
+		@include box-shadow($menuShadow 3px 3px 2px inset, $menuHighlight -1px -1px 0 inset);
+		@include text-shadow($menuHighlight 1px 1px 0);
+		background: $menuSelectedBackground;
+	}
+}
+
+h1 {
+	@include title-font($h1Size);
+	color: $headingColor;
+	line-height: $h1Line;
+	margin: 0 auto;
+	@include text-shadow($pageBackground 1px 1px 0, $headingShadow 3px 3px 0);
+	
+	> a {
+		text-decoration: none;
+		color: inherit;
+	}
+	
+	#logo & {
+		text-shadow: none;
+	}
+	
+}
+
+a {
+	color: $linkColor;
+	text-decoration: none;
+	
+	&:hover, &:focus {
+		color: $linkHoverColor;
+	}
+	
+	.content-body &:active {
+		background: $menuBackground;
+		color: $menuColor;
+	}
+}
+
+.content-body {
+	@include body-font;
+	color: $textColor;
+	
+	h1, h2, h3 {
+		color: #000;
+	}
+}
+
+// Set a default size for avatars that haven't specified one.
+.avatar:not([width]) {
+	width: 50px;
+	height: 50px;
+}
+
+.actions {
+	@include inline-list;
+	text-align: right;
+	
+	> li + li {
+		margin-left: 0.5em;
+	}
+	
+	a {
+		@include action-button;
+		@include box-sizing("border-box");
+	}
+}
+
+table {
+	width: 100%;
+	
+	> thead > tr > th {
+		background: rgba(0,0,0,0.1);
+		border-bottom: 1px double rgba(0,0,0,0.8);
+		color: #000;
+		font-weight: 1.1em;
+		margin-bottom: 3px;
+		padding: 0.25em;
+		text-align: left;
+	}
+	
+	> tbody {
+		> tr.odd {
+			background: transparentize($menuBackground, 0.9);
+		}
+		
+		td {
+			padding: 2px;
+		}
+	}
+}

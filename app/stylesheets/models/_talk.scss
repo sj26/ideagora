@@ -1,0 +1,52 @@
+$avatar_size: 50px;
+$gap: 10px;
+
+.talk {
+	@include border-radius(4px);
+	border: 1px solid transparent;
+	min-height: $avatar_size;
+	padding: $gap;
+	padding-left: $avatar_size + $gap*2;
+	position: relative;
+	
+	> header {
+		.avatar {
+			position: absolute;
+			left: $gap;
+			top: $gap;
+		}
+		
+		> .title {
+			@include title-font(22px);
+			letter-spacing: 1px;
+			line-height: 1;
+			margin: 0;
+		}
+		
+		> .where {
+			> .place:before {
+				content: "\2014";
+			}
+		}
+	}
+
+	&:hover, &:focus {
+		background: $panelInnerBackground;
+		cursor: pointer;
+	}
+	
+	&.selected {
+		background: $panelBackground;
+		border-color: $panelBorder;
+	}
+	
+	.summary-list & {
+		> .description {
+			display: none;
+		}
+	}
+	
+	.item-detail-panel & {
+		background: none;
+	}
+}

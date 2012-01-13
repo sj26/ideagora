@@ -1,0 +1,56 @@
+/* TODO: These styles could be made more generic -- CSS table layout pattern. Rewrite them using generic pattern. */
+.expandable-list {
+	position: relative;
+	
+	> .list-panel {
+		margin-right: 10px;
+		width: 470px;
+	}
+	
+	.item-detail-panel {
+		@include border-radius(2px);
+		background: $panelInnerBorder;
+		border: 1px solid $panelBorder;
+		
+		> & {
+			position: absolute;
+			top: 0;
+			width: 410px;
+		}
+		
+		> .placeholder {
+			display: block;
+			padding: 2em 0.5em;
+		}
+
+		> article, > div, > .placeholder {
+			@include border-radius(2px);
+			background: $panelInnerBackground;
+			border: 5px solid $panelBackground;
+			margin: 0;
+		}
+	}
+}
+
+.summary-list {
+	list-style: none;
+	padding-left: 0;
+	
+	> li + li {
+		margin-top: 8px;
+	}
+}
+
+#portamento_container {
+	position: absolute;
+	right: 40px;
+	top: 0;
+
+	.item-detail-panel {
+		width: 410px;
+		
+		&.fixed {
+			position: fixed;
+		}
+	}
+}

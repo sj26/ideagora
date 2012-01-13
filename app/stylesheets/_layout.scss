@@ -1,0 +1,189 @@
+@mixin fixed-background {
+	background: $pageBackground url('/images/bg.png') repeat fixed 0 0;
+}
+
+@mixin circle($diameter) {
+	@include border-radius(($diameter/2)+3);
+	display: block;
+	line-height: $diameter;
+	height: $diameter;
+	text-align: center;
+	vertical-align: middle;
+	width: $diameter;
+}
+
+@mixin inline-list {
+	display: block;
+	list-style: none;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-left: 0;
+
+	> li {
+		display: inline-block;
+	}
+}
+
+@mixin global-menu {
+	@include inline-list;
+	margin: 0 auto;
+	text-align: right;
+	width: $pageWidth;
+}
+
+$pageWidth: 960px;
+
+$topGap: 58px;
+$secondMenuHeight: 22px;
+$menuGap: $topGap - $secondMenuHeight;
+
+$logoDiameter: 139px;
+
+body {
+	@include fixed-background();
+	font-family: "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#header {
+	position: relative;
+	padding-top: $topGap;
+}
+
+.global > .primary {
+	@include title-font;
+	background: $menuBackground url('/images/head-bg-pattern.png') repeat 0 0;
+	color: $menuColor;
+	height: 60px;
+
+	&:after {
+		content:'';
+		display: block;
+		background-color: $menuShadow;
+		height: 4px;
+		margin: 0;
+		padding: 0;
+	}
+
+	#logo {
+		@include fixed-background();
+		@include circle($logoDiameter);
+		left: 0;
+		position: absolute;
+		top: -($logoDiameter/4);
+		
+		> h1 {
+			@include circle($logoDiameter - 10px);
+			background: $logoBackground;
+			@include box-sizing("border-box");
+			font-size: 24px;
+			margin: 5px;
+			padding: 5px;
+			word-wrap: nowrap;
+
+			> a {
+				@include circle($logoDiameter - 20px);
+				@include box-shadow(rgba(0,0,0,0.5) 0 0 2px inset);
+				background: url("/images/logo-bg.png") 50% 50% no-repeat;
+				border: 0;
+				margin: 0;
+				padding: 0 5px 10px;
+
+				&:hover, &:active {
+					border-color: transparent;
+					background: $menuSelectedBackground;
+				}
+			}
+		}
+	}
+
+	a {
+		@include text-shadow($menuShadow 0 -1px 0);
+		color: $menuColor;
+		text-decoration: none;
+	}
+
+	> ul {
+		@include global-menu();
+		position: relative;
+		
+		> li {
+			font-weight: 900;
+			font-size: 22px;
+			height: 60px;
+			line-height: 1;
+			
+			a {
+				border: 1px solid transparent;
+				@include border-radius(4px);
+				@include box-sizing("border-box");
+				display: block;
+				margin: 10px 0 0;
+				height: 40px;
+				padding: 8px 12px 10px;
+				
+				&:hover, &:focus {
+					background: $menuSelectedBackground;
+					border: 1px solid;
+					border-color: $menuShadow;
+					border-bottom-color: $menuHighlight;
+					border-right-color: $menuHighlight;
+				}
+			}
+		}
+	}
+}
+
+.global > .secondary {
+	position: relative;
+	top: -($topGap + $menuGap);
+	height: $secondMenuHeight;
+	
+	> ul {
+		@include global-menu();
+	}
+}
+
+#content {
+	padding-top: 2em;
+
+	> header {
+		background: url('/images/header-bg-linethrough.png') 0 50% repeat-x;
+		margin: 0 auto;
+		position: relative;
+		text-align: center;
+		width: $pageWidth;
+		
+		> h1 {
+			@include fixed-background(); // allows for clobbering the line-through
+			display: inline-block;       // ...but only around the text.
+			padding: 0 0.5em 1px;
+			position: relative;
+		}
+	}
+}
+
+.content-body {
+	margin: 0 auto;
+	width: $pageWidth;
+	
+	section {
+		> footer {
+			margin-top: 1em;
+		}
+	}
+}
+
+#actions {
+	position: absolute;
+	top: 4px;
+	right: 0;
+}
+
+.layout-group {
+	display: table;
+	width: 100%;
+	
+	> .layout-item {
+		display: table-cell;
+	}
+}

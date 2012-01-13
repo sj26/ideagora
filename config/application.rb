@@ -31,7 +31,7 @@ module Ideagora
     # config.i18n.default_locale = :de
 
     # JavaScript files you want as :defaults (application.js is always included).
-    config.action_view.javascript_expansions[:defaults] = %w(jquery-1.6.1.min.js jquery-ui-1.8.13.custom.min.js underscore-1.1.6.min.js portamento-1.1.1.js).map { |path| File.join("vendor", path) }
+    config.action_view.javascript_expansions[:defaults] = %w(jquery-1.6.1.min.js underscore-1.1.6.min.js portamento-1.1.1.js).map { |path| File.join("vendor", path) }
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"

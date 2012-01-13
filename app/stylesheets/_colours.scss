@@ -1,0 +1,33 @@
+$pageBackground: #e5e5dd;
+$logoBackground: #ac300a;
+
+// Primary Menu
+$menuBackground: #bd3b13;
+$menuColor: #fff;
+$menuSelectedBackground: #842002;
+$menuShadow: rgba(0,0,0,0.17);
+$menuHighlight: rgba(255,255,255,0.2);
+
+$separatorColor: #cecec7;
+$separatorShadow: #fff;
+
+// UI Elements
+
+	// Panel
+	$panelBorder: #d2d2cb;
+	$panelInnerBorder: #fafaf5;
+	$panelBackground: #f7f7f3;
+	$panelInnerBackground: #ecece6;
+
+	// Icon Gem
+	$gemBackground: transparentize(#eb503f, 0.4);
+	$gemInnerShadow: #ca6054;
+
+// Content
+$textColor: #333;
+
+$headingColor: #4a4a43;
+$headingShadow: #cdcdcd;
+
+$linkColor: #bd3b13;
+$linkHoverColor: lighten($linkColor, 20%);

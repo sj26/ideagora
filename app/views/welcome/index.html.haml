@@ -1,31 +1,50 @@
-%section.notices
+.layout-group
+  %section.events.summary-list.layout-item
+    %header
+      %h1
+        =# link_to "Events", events_path, :title => 'view all events'
+        Events
+
+    - @events.each do |event|
+      = render event
+
+    %footer
+      %ul.actions
+        %li.more= link_to 'view all events', events_path
+
+  %section.notices.summary-list.layout-item
+    %header
+      %h1= link_to 'Message board', message_board_camp_path(Camp.current), :title => 'view all notices'
+
+    - if @latest_notice
+      %h2= @latest_notice.title
+      = textilize(@latest_notice.content).try(:html_safe)
+
+    %footer
+      %ul.actions
+        %li.more= link_to 'view all messages', message_board_camp_path(Camp.current)
+
+%section.talks.summary-list
   %header
-    %h1= link_to 'Message board', message_board_camp_path(Camp.current), :title => 'view all notices'
+    %h1= link_to "Upcoming talks", talks_path, :title => 'view all talks'
+
+  - @talks.each do |talk|
+    = render talk
+
+  %footer
     %ul.actions
-      %li.more= link_to 'view all messages', message_board_camp_path(Camp.current)
-  
-  - if @latest_notice
-    %h2= @latest_notice.title
-    = textilize(@latest_notice.content).try(:html_safe)
+      %li.more= link_to 'view all talks', talks_path
 
-.main
-  %section.projects
-    %header
-      %h1= link_to 'Random project', projects_path, :title => 'view all projects'
-      %ul.actions
-        %li.more= link_to 'view all projects', projects_path
+%section.projects.summary-list
+  %header
+    %h1= link_to 'Random project', projects_path, :title => 'view all projects'
 
-    - if @project
-      = render @project
-    - else
-      %p there are no projects!
+  - if @project
+    = render @project
+  - else
+    %p there are no projects!
 
-  %section.talks
-    %header
-      %h1= link_to "Today's talks", talks_path, :title => 'view all talks'
-      %ul.actions
-        %li.more= link_to 'view all talks', talks_path
+  %footer
+    %ul.actions
+      %li.more= link_to 'view all projects', projects_path
 
-    - @venues.each do |venue|
-      = render :partial => 'talks_for_location_list', :locals => { :location => venue, :talks => @todays_talks_by_venue_id[venue.id]}
-            

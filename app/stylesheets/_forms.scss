@@ -1,0 +1,14 @@
+form {
+	width: 60%; // TODO: Use a grid mixin
+
+	&.formtastic {
+		.input {
+			list-style: none;
+		}
+		
+		.inline-hints {
+			font-size: 0.9em;
+			font-style: italic;
+		}
+	}
+}

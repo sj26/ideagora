@@ -4,11 +4,33 @@ $input_margin: $label_width+$label_margin;
 
 // = general form styling
 
-form {width: 60%;}
-legend {white-space:normal; color:#000; font-weight:bold; font-size:1.2em; margin-bottom: 10px;}
-textarea {height: 100px;}
+form {
+	width: 60%;
 
-input[type=submit] {width: auto; @include green_button; float:right;}
+	legend {white-space:normal; color:#000; font-weight:bold; font-size:1.2em; margin-bottom: 10px;}
+	textarea {height: 100px;}
+
+	input[type=submit] {
+		@include green_button;
+		float:right;
+		padding: 0.5em;
+		width: auto;
+	}
+
+	&.formtastic {
+		.input {
+			list-style: none;
+		}
+	}
+
+	// overrides for discussion form
+	&.discussion {
+		textarea { font-size: .9em; width: 100%; height: 500px; }
+		input[type=submit] {
+			float: none;
+		}
+	}
+}
 
 // = errors
 #error_explanation h2 {color: #8a1f11; font-size: 1.4em;}
@@ -18,9 +40,3 @@ input[type=submit] {width: auto; @include green_button; float:right;}
 }
 
 .hint, .inline-hints {display:block; font-style:italic; color: $light_grey; }
-
-// overrides for discussion form
-form.discussion {
-  textarea { font-size: .9em; width: 100%; height: 500px; }
-  input[type=submit] {width: auto; @include green_button; float: none;}
-}

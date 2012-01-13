@@ -10,5 +10,19 @@ form {
 			font-size: 0.9em;
 			font-style: italic;
 		}
+		
+		.buttons {
+			margin-bottom: 0.5em;
+			
+			.button {
+				padding-bottom: 4px;
+			}
+		}
+		
+		input[type='submit'] {
+			border: 0;
+			padding: 0;
+			@include action-button;
+		}
 	}
 }

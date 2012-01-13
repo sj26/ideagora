@@ -33,8 +33,8 @@ cd = User.find_by_email!('christopher.darroch@gmail.com')
 svc = User.find_by_email!('sebastian@vonconrad.com')
 
 puts 'Creating Venues'
-['Front Room', 'Back Room', 'Which Room', 'Catering Area'].each { |v| rc10.venues.create!(:name => v) unless rc10.venues.find_by_name(v) }
-catering = Venue.find_by_name!('Catering Area')
+['Main Hall', 'Henry Rymill room', 'Safe Refuge Area (Rec Room)', 'Pem Fooks room', 'A. J. Peake room (small)', 'Old House Dining Room', 'Old House Lounge Room'].each { |v| rc10.venues.create!(:name => v) unless rc10.venues.find_by_name(v) }
+catering = Venue.find_by_name!('Main Hall')
 
 puts 'Creating Events'
 events = []

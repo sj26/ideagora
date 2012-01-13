@@ -3,7 +3,8 @@ class EventsController < InheritedResources::Base
 
   def index
     @in_progress = @camp.events.in_progress
-    @upcoming = @camp.events.after(Time.now)
+    the_rest = @camp.events.after(Time.now)
+    @upcoming = the_rest.group_by { |a| a.start_at - ((a.start_at.to_time.to_i) % 6.hours) }
     index!
   end
 

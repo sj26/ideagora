@@ -1,5 +1,9 @@
 -content_for :title do
-  events
+  Events
+
+#actions
+  %ul.actions
+    %li=link_to "Create new event", new_event_path
 
 %section.expandable-list
   %div.list-panel

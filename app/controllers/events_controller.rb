@@ -7,6 +7,14 @@ class EventsController < InheritedResources::Base
     index!
   end
 
+  def new
+    @event = Event.new
+    @event.user = current_user if current_user
+    @event.start_at = 1.hour.from_now
+    @event.end_at = @event.start_at + 1.hour
+    new!
+  end
+
 private
   def current_camp
     @camp = Camp.current

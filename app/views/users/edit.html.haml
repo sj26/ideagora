@@ -9,19 +9,25 @@
 
 
 
-= simple_form_for @user, :url => user_path(@user) do |f|
-  = f.input :first_name
-  = f.input :last_name
-  = f.input :email
-  = f.input :bio, :hint => 'Textile supported'
-  = f.input :twitter
-  = f.input :bonjour
-  = f.input :irc
-  = f.input :skill_list, :input_html => { :value => @user.skill_list.sort }, :hint => 'enter tags, comma separated (Ex: javascript, rspec, rails)'
-  = f.input :interest_list, :input_html => { :value => @user.interest_list.sort }, :hint => 'enter tags, comma separated (Ex: javascript, rspec, rails)'
+= semantic_form_for @user, :url => user_path(@user) do |f|
+  - f.inputs "Your Name" do
+    = f.input :first_name
+    = f.input :last_name
+    = f.input :email
 
-  %p.submits
-    = link_to 'Cancel', @user, :class => 'cancel'
-    or
-    = f.button :submit, :value => 'Save changes'
+  - f.inputs "Your Quest" do
+    = f.input :bio, :hint => 'Textile supported'
+  
+  - f.inputs "Contactability" do
+    = f.input :twitter
+    = f.input :bonjour
+    = f.input :irc
+
+  - f.inputs "Skills" do
+    = f.input :skill_list, :input_html => { :value => @user.skill_list.sort }, :hint => 'enter tags, comma separated (Ex: javascript, rspec, rails)'
+    = f.input :interest_list, :input_html => { :value => @user.interest_list.sort }, :hint => 'enter tags, comma separated (Ex: javascript, rspec, rails)'
+
+  - f.buttons do
+    %li.cancel= link_to 'Cancel', @user, :class => 'cancel'
+    = f.commit_button
 

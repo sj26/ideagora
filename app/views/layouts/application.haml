@@ -6,6 +6,7 @@
     %title Railscamp Ideagora
 
     = stylesheet_link_tag 'master'
+    = stylesheet_link_tag 'formtastic'
     = stylesheet_link_tag 'vendor/jquery-ui-smoothness/jquery-ui-1.8.13.custom.css'
     
     = javascript_include_tag :defaults
@@ -43,12 +44,15 @@
 
       #content
         = flash_helper.html_safe
+        - if content_for? :title
+          %h1= yield :title
+        = yield :content_header if content_for? :content_header
         = yield
         - if @discussion
           #discussion
             %h3= @discussion.title || "Discuss this page"
             %p Anyone can edit this text.  Please do so with care.
 
-            = simple_form_for(@discussion) do |f|
+            = semantic_form_for(@discussion) do |f|
               = f.input :text, :label => false
-              = f.button :submit
+              = f.buttons

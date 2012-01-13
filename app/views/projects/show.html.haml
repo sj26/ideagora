@@ -1,10 +1,15 @@
+- content_for :title do
+  = @project.name
+
+- content_for :content_header do
+  #actions
+    %ul.actions
+      - if is_owner?
+        %li= link_to 'Edit project', edit_user_project_path(@project.owner)
+
 = render :partial => 'users/user_card', :locals => {:user => @project.owner}
 
 .main
-  %p.add
-    = link_to 'Edit project', edit_user_project_path(@project.owner) if is_owner?
-  %h1= @project.name
-
   - if @project.description
     .description
       = textilize(@project.description).try(:html_safe)
@@ -14,10 +19,9 @@
     = @project.status
 
   - if is_owner?
-    %p.commands
+    %ul.actions
       - if @project.active?
-        = link_to 'Completed!', complete_user_project_path(@project.owner, @project)
-        |
-        = link_to 'Can it!', cancel_user_project_path(@project.owner, @project), :class => "destroy"
+        %li= link_to 'Completed!', complete_user_project_path(@project.owner, @project)
+        %li.destroy= link_to 'Can it!', cancel_user_project_path(@project.owner, @project)
       - else
-        = link_to 'Start it up again?', restart_user_project_path(@project.owner, @project)
+        %li= link_to 'Start it up again?', restart_user_project_path(@project.owner, @project)

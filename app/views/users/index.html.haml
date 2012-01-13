@@ -1,3 +1,6 @@
+- content_for :title do
+  All the campers
+
 - content_for :header do
   = javascript_include_tag 'vendor/jquery.dataTables-1.7.6.min'
   :javascript
@@ -11,11 +14,13 @@
         bAutoWidth: false
       });
     });
+  
 
-%h1 All the campers
 - if current_user
   %p
-    Make sure to <strong>#{link_to "populate your profile", edit_user_path(current_user)}</strong> so others can learn about you.
+    Make sure to 
+    %strong=link_to "populate your profile", edit_user_path(current_user)
+    so others can learn about you.
 
 %table.users
   %thead
@@ -31,7 +36,7 @@
     - @users.each_with_index do |user, index|
       - row_class = index.even? ? 'even' : 'odd'
       %tr{:class => row_class}
-        %td.profile_pic= link_to image_tag(get_gravatar(user, 50)), user_path(user)
+        %td.profile_pic= link_to user_avatar(user), user_path(user)
         %td= link_to user.full_name, user_path(user)
         %td= user.bonjour
         %td= user.twitter

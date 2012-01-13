@@ -1,15 +1,15 @@
+- content_for :title do
+  = @talk.name
+
 = render :partial => 'users/user_card', :locals => {:user => @talk.user}
 
 .main
-  %h1.name= @talk.name
-
   = render :partial => 'where_and_when', :locals => { :talk => @talk }
 
   - if @talk.description
     = textilize(@talk.description).try(:html_safe)
 
   - if @talk.user == current_user
-    %p.actions
-      = link_to "Edit this talk", edit_talk_path(@talk)
-      |
-      = link_to "Delete this talk", talk_path(@talk), :method => :delete, :confirm => 'Really delete this talk?'
+    %ul.actions
+      %li= link_to "Edit this talk", edit_talk_path(@talk)
+      %li.destroy= link_to "Delete this talk", talk_path(@talk), :method => :delete, :confirm => 'Really delete this talk?'

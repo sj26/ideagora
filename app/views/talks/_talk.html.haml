@@ -4,7 +4,7 @@
       = link_to talk.name, talk, :class => "item-link"
     %div.presenter
       %a{:href => user_path(talk.user) }
-        = image_tag(get_gravatar(talk.user, 50), :class => "avatar")
+        = user_avatar(talk.user)
         %span.name= talk.user
     %div.where
       %time.start{ :datetime => talk.start_at, :"data-unix" => talk.start_at.to_time.to_i }

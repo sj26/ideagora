@@ -75,3 +75,27 @@ a {
 		@include box-sizing("border-box");
 	}
 }
+
+table {
+	width: 100%;
+	
+	> thead > tr > th {
+		background: rgba(0,0,0,0.1);
+		border-bottom: 1px double rgba(0,0,0,0.8);
+		color: #000;
+		font-weight: 1.1em;
+		margin-bottom: 3px;
+		padding: 0.25em;
+		text-align: left;
+	}
+	
+	> tbody {
+		> tr.odd {
+			background: transparentize($menuBackground, 0.9);
+		}
+		
+		td {
+			padding: 2px;
+		}
+	}
+}

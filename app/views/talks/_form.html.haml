@@ -1,11 +1,13 @@
 = render :partial => 'where_and_when', :locals => { :talk => @talk }
 
-= simple_form_for @talk do |f|
-  = f.input :name, :label => 'Talk Title'
-  = f.input :user_id, :label => 'Speaker',  :collection => @users, :label_method => :full_name, :value_method => :id
-  = f.input :description, :hint => 'Textile supported'
+= semantic_form_for @talk do |f|
+  - f.inputs do
+    = f.input :name, :label => 'Talk Title'
+    = f.input :user, :as => :select, :collection => @users, :label_method => :full_name, :value_method => :id
+    = f.input :description, :hint => 'Textile supported'
+
   = f.input :start_at, :as => :hidden
   = f.input :end_at, :as => :hidden
   = f.input :venue_id, :as => :hidden
-  
-  = f.button :submit
+
+  = f.buttons

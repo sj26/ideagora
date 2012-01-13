@@ -1,0 +1,26 @@
+-content_for :title do
+  Events
+
+-content_for :content_header do
+  #actions
+    %ul.actions
+      %li=link_to "Create new event", new_event_path
+
+%section.expandable-list
+  %div.list-panel
+    %h2 In progress
+    - if @in_progress.empty?
+      %p There's nothing on at the moment.
+    - else
+      = render :partial => "list", :locals => { :events => @in_progress }
+
+    %h2 Today
+    - if @upcoming.empty?
+      %p
+        There aren't any events coming up today.
+        = link_to "You better add one!", new_event_path
+    - else
+      = render :partial => "list", :locals => { :events => @upcoming }
+
+  %div.item-detail-panel
+    %p.placeholder Click an event for more details.

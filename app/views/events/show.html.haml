@@ -1,0 +1,12 @@
+- content_for :title do
+  = @event.name
+
+= render :partial => '/talks/where_and_when', :locals => { :talk => @event }
+
+- if @event.description
+  = textilize(@event.description).try(:html_safe)
+
+- if @event.user == current_user
+  %ul.actions
+    %li= link_to "Edit this event", edit_event_path(@event)
+    %li.destroy= link_to "Delete this event", event_path(@event), :method => :delete, :confirm => 'Really delete this event?'

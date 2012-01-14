@@ -6,7 +6,7 @@ class Thought < ActiveRecord::Base
   
   validates_presence_of :description, :message => "Surely you have something on your mind?"
   
-  default_scope order(:likes_count)
+  default_scope order('likes_count desc')
   
   def liked_by?(user)
     fans.exists? user

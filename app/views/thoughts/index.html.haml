@@ -13,9 +13,8 @@
       Nobody has any thoughts?! Inconceivable!
       = link_to "You better add one!", "#add"
   - else
-    %ul
-      - @thoughts.each do |thought|
-        %li= render thought
+    - @thoughts.each do |thought|
+      = render thought
 
 %section.thoughts#add
   %h2 Got an idea?

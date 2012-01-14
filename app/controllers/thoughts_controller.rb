@@ -15,6 +15,7 @@ class ThoughtsController < AuthenticatedController
     end
   end
 
+private
   def end_of_association_chain
     super.includes(:likes)
   end

@@ -40,6 +40,13 @@ $gemDiameter: 63px;
 		}
 	}
 	
+	&.past {
+		> i:last-child {
+			position: absolute;
+			bottom: 8px;
+		};
+	}
+	
 	&[data-unit=mins] {
 		background: mix($timeGemBackground, $menuBackground, 40%);
 	}

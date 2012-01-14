@@ -15,7 +15,7 @@
       -  @venues.each do |venue|
         %th.venue= venue.name
   %tbody
-    - Camp.current.talk_hours.each do |hour|
+    - current_camp.talk_hours.each do |hour|
       - time = @day + hour.hours
       %tr
         %td

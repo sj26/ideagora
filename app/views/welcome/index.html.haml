@@ -14,7 +14,7 @@
 
   %section.notices.summary-list.layout-item
     %header
-      %h1= link_to 'Message board', message_board_camp_path(Camp.current), :title => 'view all notices'
+      %h1= link_to 'Message board', message_board_camp_path(current_camp), :title => 'view all notices'
 
     - if @latest_notice
       %h2= @latest_notice.title
@@ -22,7 +22,7 @@
 
     %footer
       %ul.actions
-        %li.more= link_to 'view all messages', message_board_camp_path(Camp.current)
+        %li.more= link_to 'view all messages', message_board_camp_path(current_camp)
 
 %section.talks.summary-list
   %header

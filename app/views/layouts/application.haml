@@ -3,7 +3,7 @@
   %head
     %meta{:charset => "utf-8"}
     %meta{:"http-equiv" => "X-UA-Compatible", :content => "IE=edge,chrome=1"}
-    
+
     %title Railscamp Ideagora
 
     = stylesheet_link_tag 'normalize', 'formtastic', 'master'
@@ -11,9 +11,9 @@
     = javascript_include_tag :defaults
     = javascript_include_tag 'vendor/date.extensions.js'
     = csrf_meta_tag
-    
+
     = yield :header
-    
+
   %body{:id => @body_id || controller.controller_name, :class => controller.action_name }
     #page
       %header#header{:role => "banner"}
@@ -21,7 +21,7 @@
           .primary
             %ul
               %li#logo
-                %h1=link_to Camp.current.name, root_path
+                %h1=link_to current_camp.name, root_path
               %li= link_to 'Campers', users_path
               %li= link_to 'The ideas', thoughts_path
               %li= link_to 'Projects', projects_path

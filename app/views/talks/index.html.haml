@@ -4,7 +4,7 @@
 - content_for :content_header do
   - if current_user
     #actions
-      %ul.actions
+      %ul.actions.as-buttons
         %li= link_to 'Add a talk', calendar_talks_path
 
 %section.expandable-list

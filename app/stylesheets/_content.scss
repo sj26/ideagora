@@ -52,15 +52,31 @@ a {
 
 .actions {
 	@include inline-list;
+	font-size: 0.9em;
 	text-align: right;
 	
 	> li + li {
 		margin-left: 0.5em;
 	}
 	
-	a {
-		@include action-button;
-		@include box-sizing("border-box");
+	&.as-buttons {
+		a {
+			@include action-button;
+			@include box-sizing("border-box");
+		}
+	}
+
+	&.as-bullets {
+		> li + li {
+			margin-left: 1em;
+			
+			&:before {
+				color: #999;
+				display: inline-block;
+				content: '\00B7';
+				margin: 0 0.5em 0 -0.5em;
+			}
+		}
 	}
 }
 

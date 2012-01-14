@@ -18,4 +18,11 @@
 			margin-bottom: 2em;
 		}
 	}
+	
+	.actions {
+		a {
+			@include action-button;
+			@include box-sizing("border-box");
+		}
+	}
 }

@@ -4,7 +4,7 @@
 - content_for :content_header do
   - if current_user
     #actions
-      %ul.actions
+      %ul.actions.as-buttons
         %li= link_to 'Add a project', new_user_project_path(current_user)
 
 %table.projects

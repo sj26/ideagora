@@ -1,0 +1,63 @@
+$gemDiameter: 63px;
+
+.time-gem {
+	@include circle($gemDiameter);
+	background: $timeGemBackground;
+	color: $timeGemColor;
+	display: inline-block;
+	line-height: 1;
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	margin-top: -($gemDiameter/2);
+	
+	time {
+		margin-top: -18px;
+		position: absolute;
+		top: 50%;
+	}
+	
+	.value {
+		@include alt-font;
+		font-size: 26px;
+		font-weight: bold;
+		line-height: 1;
+	}
+	
+	i, .units {
+		@include body-font;
+		font-style: italic;
+		font-weight: normal;
+		font-size: 10px;
+		line-height: 0.8;
+	}
+	
+	.value, .units {
+		display: block;
+	}
+	
+	&.future {
+		> i:first-child {
+			display: none;
+			position: absolute;
+			top: 8px;
+		}
+	}
+	
+	&.past {
+		> i:last-child {
+			position: absolute;
+			bottom: 8px;
+		}
+	}
+	
+	&[data-unit=mins] {
+		background: mix($timeGemBackground, $menuBackground, 40%);
+	}
+}
+
+.with-time-gem {
+	&.event, &.talk {
+		padding-right: $gemDiameter + 10px;
+	}
+}

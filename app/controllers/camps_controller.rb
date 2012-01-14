@@ -1,5 +1,5 @@
 class CampsController < ApplicationController
   def message_board
-    @notices = Camp.current.notices
+    @notices = current_camp.notices
   end
 end

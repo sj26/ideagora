@@ -1,0 +1,917 @@
+@font-face {
+  font-family: "Steelfish";
+  src: url(/fonts/steelfish-rg.otf) format('opentype');
+}
+
+@font-face {
+  font-family: "Steelfish";
+  font-weight: bold;
+  src: url(/fonts/steelfish-bd.otf) format('opentype');
+}
+
+@font-face {
+  font-family: "Steelfish";
+  font-weight: 900;
+  src: url(/fonts/steelfish-eb.otf) format('opentype');
+}
+
+@font-face {
+  font-family: "Droid Sans";
+  src: url(/fonts/DroidSans.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: "Droid Sans";
+  font-weight: bold;
+  src: url(/fonts/DroidSans-Bold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: "Droid Serif";
+  src: url(/fonts/DroidSerif.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: "Droid Serif";
+  font-weight: bold;
+  src: url(/fonts/DroidSerif-Bold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: "Droid Serif";
+  font-style: italic;
+  src: url(/fonts/DroidSerif-Italic.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: "Droid Serif";
+  font-weight: bold;
+  font-style: italic;
+  src: url(/fonts/DroidSerif-BoldItalic.ttf) format('truetype');
+}
+
+/* line 9, ../../app/stylesheets/_layout.scss */
+#header {
+  position: relative;
+  padding-top: 58px;
+}
+
+/* line 14, ../../app/stylesheets/_layout.scss */
+.global > .primary {
+  font-family: "Steelfish", Impact, sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: #bd3b13 url("/images/head-bg-pattern.png") repeat 0 0;
+  color: white;
+  height: 60px;
+}
+/* line 20, ../../app/stylesheets/_layout.scss */
+.global > .primary:after {
+  content: '';
+  display: block;
+  background-color: rgba(0, 0, 0, 0.17);
+  height: 4px;
+  margin: 0;
+  padding: 0;
+}
+/* line 29, ../../app/stylesheets/_layout.scss */
+.global > .primary #logo {
+  background: #e5e5dd url("/images/bg.png") repeat fixed 0 0;
+  -moz-border-radius: 72.5px;
+  -webkit-border-radius: 72.5px;
+  -o-border-radius: 72.5px;
+  -ms-border-radius: 72.5px;
+  -khtml-border-radius: 72.5px;
+  border-radius: 72.5px;
+  display: block;
+  line-height: 139px;
+  height: 139px;
+  text-align: center;
+  vertical-align: middle;
+  width: 139px;
+  left: 0;
+  position: absolute;
+  top: -34.75px;
+}
+/* line 36, ../../app/stylesheets/_layout.scss */
+.global > .primary #logo > h1 {
+  -moz-border-radius: 67.5px;
+  -webkit-border-radius: 67.5px;
+  -o-border-radius: 67.5px;
+  -ms-border-radius: 67.5px;
+  -khtml-border-radius: 67.5px;
+  border-radius: 67.5px;
+  display: block;
+  line-height: 129px;
+  height: 129px;
+  text-align: center;
+  vertical-align: middle;
+  width: 129px;
+  background: #ac300a;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 24px;
+  margin: 5px;
+  padding: 5px;
+  word-wrap: nowrap;
+}
+/* line 45, ../../app/stylesheets/_layout.scss */
+.global > .primary #logo > h1 > a {
+  -moz-border-radius: 62.5px;
+  -webkit-border-radius: 62.5px;
+  -o-border-radius: 62.5px;
+  -ms-border-radius: 62.5px;
+  -khtml-border-radius: 62.5px;
+  border-radius: 62.5px;
+  display: block;
+  line-height: 119px;
+  height: 119px;
+  text-align: center;
+  vertical-align: middle;
+  width: 119px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.5) 0 0 2px inset;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0 0 2px inset;
+  -o-box-shadow: rgba(0, 0, 0, 0.5) 0 0 2px inset;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 0 2px inset;
+  background: url("/images/logo-bg.png") 50% 50% no-repeat;
+  border: 0;
+  margin: 0;
+  padding: 0 5px 10px;
+}
+/* line 53, ../../app/stylesheets/_layout.scss */
+.global > .primary #logo > h1 > a:hover, .global > .primary #logo > h1 > a:active {
+  border-color: transparent;
+  background: #842002;
+}
+/* line 61, ../../app/stylesheets/_layout.scss */
+.global > .primary a {
+  text-shadow: rgba(0, 0, 0, 0.17) 0 -1px 0;
+  color: white;
+  text-decoration: none;
+}
+/* line 67, ../../app/stylesheets/_layout.scss */
+.global > .primary > ul {
+  display: block;
+  list-style: none;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  margin: 0 auto;
+  text-align: right;
+  width: 960px;
+  position: relative;
+}
+/* line 26, ../../app/stylesheets/master.scss */
+.global > .primary > ul > li {
+  display: inline-block;
+}
+/* line 71, ../../app/stylesheets/_layout.scss */
+.global > .primary > ul > li {
+  font-weight: 900;
+  font-size: 22px;
+  height: 60px;
+  line-height: 1;
+}
+/* line 77, ../../app/stylesheets/_layout.scss */
+.global > .primary > ul > li a {
+  border: 1px solid transparent;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -o-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -khtml-border-radius: 4px;
+  border-radius: 4px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  display: block;
+  margin: 10px 0 0;
+  height: 40px;
+  padding: 8px 12px 10px;
+}
+/* line 86, ../../app/stylesheets/_layout.scss */
+.global > .primary > ul > li a:hover, .global > .primary > ul > li a:focus {
+  background: #842002;
+  border: 1px solid;
+  border-color: rgba(0, 0, 0, 0.17);
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+  border-right-color: rgba(255, 255, 255, 0.2);
+}
+
+/* line 98, ../../app/stylesheets/_layout.scss */
+.global > .secondary {
+  position: relative;
+  top: -94px;
+  height: 22px;
+}
+/* line 103, ../../app/stylesheets/_layout.scss */
+.global > .secondary > ul {
+  display: block;
+  list-style: none;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  margin: 0 auto;
+  text-align: right;
+  width: 960px;
+  font-size: 0.9em;
+}
+/* line 26, ../../app/stylesheets/master.scss */
+.global > .secondary > ul > li {
+  display: inline-block;
+}
+/* line 107, ../../app/stylesheets/_layout.scss */
+.global > .secondary > ul > li + li {
+  margin-left: 1em;
+}
+/* line 110, ../../app/stylesheets/_layout.scss */
+.global > .secondary > ul > li + li:before {
+  color: #999;
+  display: inline-block;
+  content: '\00B7';
+  margin: 0 0.5em 0 -0.5em;
+}
+
+/* line 120, ../../app/stylesheets/_layout.scss */
+#content {
+  padding-top: 2em;
+}
+/* line 123, ../../app/stylesheets/_layout.scss */
+#content > header {
+  background: url("/images/header-bg-linethrough.png") 0 50% repeat-x;
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+  width: 960px;
+}
+/* line 130, ../../app/stylesheets/_layout.scss */
+#content > header > h1 {
+  background: #e5e5dd url("/images/bg.png") repeat fixed 0 0;
+  display: inline-block;
+  padding: 0 0.5em 1px;
+  position: relative;
+}
+
+/* line 139, ../../app/stylesheets/_layout.scss */
+.content-body {
+  margin: 0 auto;
+  width: 960px;
+}
+/* line 144, ../../app/stylesheets/_layout.scss */
+.content-body section > footer {
+  margin-top: 1em;
+}
+
+/* line 150, ../../app/stylesheets/_layout.scss */
+#actions {
+  position: absolute;
+  top: 4px;
+  right: 0;
+}
+
+/* line 156, ../../app/stylesheets/_layout.scss */
+.layout-group {
+  display: table;
+  width: 100%;
+}
+/* line 160, ../../app/stylesheets/_layout.scss */
+.layout-group > .layout-item {
+  display: table-cell;
+}
+
+/* line 165, ../../app/stylesheets/_layout.scss */
+#footer {
+  color: gray;
+  font-size: 0.75em;
+  margin-top: 3em;
+}
+/* line 170, ../../app/stylesheets/_layout.scss */
+#footer p {
+  margin: 0.25em 0;
+  font-style: italic;
+}
+/* line 175, ../../app/stylesheets/_layout.scss */
+#footer .footer-body {
+  margin: 0 auto;
+  text-align: center;
+  width: 960px;
+}
+
+/* line 1, ../../app/stylesheets/_forms.scss */
+form {
+  width: 60%;
+}
+/* line 5, ../../app/stylesheets/_forms.scss */
+form.formtastic .input {
+  list-style: none;
+}
+/* line 9, ../../app/stylesheets/_forms.scss */
+form.formtastic .inline-hints {
+  font-size: 0.9em;
+  font-style: italic;
+}
+/* line 14, ../../app/stylesheets/_forms.scss */
+form.formtastic .buttons {
+  margin-bottom: 0.5em;
+}
+/* line 17, ../../app/stylesheets/_forms.scss */
+form.formtastic .buttons .button {
+  padding-bottom: 4px;
+}
+/* line 22, ../../app/stylesheets/_forms.scss */
+form.formtastic input[type='submit'] {
+  border: 0;
+  padding: 0;
+  font-family: "Steelfish", Impact, sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  -moz-box-shadow: rgba(189, 59, 19, 0.4) 3px 3px 0;
+  -webkit-box-shadow: rgba(189, 59, 19, 0.4) 3px 3px 0;
+  -o-box-shadow: rgba(189, 59, 19, 0.4) 3px 3px 0;
+  box-shadow: rgba(189, 59, 19, 0.4) 3px 3px 0;
+  text-shadow: rgba(0, 0, 0, 0.47) 0 -1px 0;
+  background: #bd3b13;
+  color: white;
+  display: inline-block;
+  padding: 0.5em 1.5em;
+  text-decoration: none;
+}
+/* line 48, ../../app/stylesheets/master.scss */
+form.formtastic input[type='submit']:active {
+  -moz-box-shadow: rgba(0, 0, 0, 0.17) 3px 3px 2px inset, rgba(255, 255, 255, 0.2) -1px -1px 0 inset;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.17) 3px 3px 2px inset, rgba(255, 255, 255, 0.2) -1px -1px 0 inset;
+  -o-box-shadow: rgba(0, 0, 0, 0.17) 3px 3px 2px inset, rgba(255, 255, 255, 0.2) -1px -1px 0 inset;
+  box-shadow: rgba(0, 0, 0, 0.17) 3px 3px 2px inset, rgba(255, 255, 255, 0.2) -1px -1px 0 inset;
+  text-shadow: rgba(255, 255, 255, 0.2) 1px 1px 0;
+  background: #842002;
+}
+
+/* line 1, ../../app/stylesheets/_content.scss */
+body {
+  background: #e5e5dd url("/images/bg.png") repeat fixed 0 0;
+  font-family: "Droid Sans", "Museo Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* line 6, ../../app/stylesheets/_content.scss */
+h1 {
+  font-family: "Steelfish", Impact, sans-serif;
+  font-size: 32px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #4a4a43;
+  line-height: 1.5;
+  margin: 0 auto;
+  text-shadow: #e5e5dd 1px 1px 0, #cdcdcd 3px 3px 0;
+}
+/* line 13, ../../app/stylesheets/_content.scss */
+h1 > a {
+  text-decoration: none;
+  color: inherit;
+}
+/* line 18, ../../app/stylesheets/_content.scss */
+#logo h1 {
+  text-shadow: none;
+}
+
+/* line 24, ../../app/stylesheets/_content.scss */
+a {
+  color: #bd3b13;
+  text-decoration: none;
+}
+/* line 28, ../../app/stylesheets/_content.scss */
+a:hover, a:focus {
+  color: #ed7049;
+}
+/* line 32, ../../app/stylesheets/_content.scss */
+.content-body a:active {
+  background: #bd3b13;
+  color: white;
+}
+
+/* line 38, ../../app/stylesheets/_content.scss */
+.content-body {
+  font-family: "Droid Serif", "Museo Serif", "Times New Roman", serif;
+  color: #333333;
+}
+/* line 42, ../../app/stylesheets/_content.scss */
+.content-body h1, .content-body h2, .content-body h3 {
+  color: #000;
+}
+
+/* line 47, ../../app/stylesheets/_content.scss */
+.avatar {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: #f7f7f3;
+  border: 1px solid #d2d2cb;
+  padding: 1px;
+}
+
+/* line 56, ../../app/stylesheets/_content.scss */
+.avatar:not([width]) {
+  width: 50px;
+  height: 50px;
+}
+
+/* line 61, ../../app/stylesheets/_content.scss */
+.actions {
+  display: block;
+  list-style: none;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  font-size: 0.9em;
+  text-align: right;
+}
+/* line 26, ../../app/stylesheets/master.scss */
+.actions > li {
+  display: inline-block;
+}
+/* line 66, ../../app/stylesheets/_content.scss */
+.actions > li + li {
+  margin-left: 0.5em;
+}
+/* line 71, ../../app/stylesheets/_content.scss */
+.actions.as-buttons a {
+  font-family: "Steelfish", Impact, sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  -moz-box-shadow: rgba(189, 59, 19, 0.4) 3px 3px 0;
+  -webkit-box-shadow: rgba(189, 59, 19, 0.4) 3px 3px 0;
+  -o-box-shadow: rgba(189, 59, 19, 0.4) 3px 3px 0;
+  box-shadow: rgba(189, 59, 19, 0.4) 3px 3px 0;
+  text-shadow: rgba(0, 0, 0, 0.47) 0 -1px 0;
+  background: #bd3b13;
+  color: white;
+  display: inline-block;
+  padding: 0.5em 1.5em;
+  text-decoration: none;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 48, ../../app/stylesheets/master.scss */
+.actions.as-buttons a:active {
+  -moz-box-shadow: rgba(0, 0, 0, 0.17) 3px 3px 2px inset, rgba(255, 255, 255, 0.2) -1px -1px 0 inset;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.17) 3px 3px 2px inset, rgba(255, 255, 255, 0.2) -1px -1px 0 inset;
+  -o-box-shadow: rgba(0, 0, 0, 0.17) 3px 3px 2px inset, rgba(255, 255, 255, 0.2) -1px -1px 0 inset;
+  box-shadow: rgba(0, 0, 0, 0.17) 3px 3px 2px inset, rgba(255, 255, 255, 0.2) -1px -1px 0 inset;
+  text-shadow: rgba(255, 255, 255, 0.2) 1px 1px 0;
+  background: #842002;
+}
+/* line 78, ../../app/stylesheets/_content.scss */
+.actions.as-bullets > li + li {
+  margin-left: 1em;
+}
+/* line 81, ../../app/stylesheets/_content.scss */
+.actions.as-bullets > li + li:before {
+  color: #999;
+  display: inline-block;
+  content: '\00B7';
+  margin: 0 0.5em 0 -0.5em;
+}
+
+/* line 91, ../../app/stylesheets/_content.scss */
+.contact-list {
+  padding-left: 0;
+  margin: 0;
+}
+/* line 95, ../../app/stylesheets/_content.scss */
+.contact-list > li {
+  list-style: none;
+}
+/* line 97, ../../app/stylesheets/_content.scss */
+.contact-list > li:empty {
+  display: none;
+}
+/* line 98, ../../app/stylesheets/_content.scss */
+.contact-list > li:before {
+  color: #999;
+  display: block;
+  float: left;
+  margin-right: 4px;
+  text-align: right;
+  width: 24px;
+}
+/* line 107, ../../app/stylesheets/_content.scss */
+.contact-list > li.twitter:before {
+  content: '@';
+  width: 28px;
+  margin-right: 0;
+}
+/* line 108, ../../app/stylesheets/_content.scss */
+.contact-list > li.irc:before {
+  content: 'irc:';
+}
+/* line 109, ../../app/stylesheets/_content.scss */
+.contact-list > li.bonjour:before {
+  content: 'im:';
+}
+
+/* line 113, ../../app/stylesheets/_content.scss */
+table {
+  width: 100%;
+}
+/* line 116, ../../app/stylesheets/_content.scss */
+table > thead > tr > th {
+  background: rgba(0, 0, 0, 0.1);
+  border-bottom: 1px double rgba(0, 0, 0, 0.8);
+  color: #000;
+  font-weight: 1.1em;
+  margin-bottom: 3px;
+  padding: 0.25em;
+  text-align: left;
+}
+/* line 127, ../../app/stylesheets/_content.scss */
+table > tbody > tr.odd {
+  background: rgba(189, 59, 19, 0.1);
+}
+/* line 131, ../../app/stylesheets/_content.scss */
+table > tbody td {
+  padding: 2px;
+}
+
+/* line 1, ../../app/stylesheets/jquery/_disgustingness.scss */
+.fg-toolbar {
+  margin: 0.5em;
+  padding: 0.5em;
+}
+
+/* line 3, ../../app/stylesheets/models/_time.scss */
+.time-gem {
+  -moz-border-radius: 34.5px;
+  -webkit-border-radius: 34.5px;
+  -o-border-radius: 34.5px;
+  -ms-border-radius: 34.5px;
+  -khtml-border-radius: 34.5px;
+  border-radius: 34.5px;
+  display: block;
+  line-height: 63px;
+  height: 63px;
+  text-align: center;
+  vertical-align: middle;
+  width: 63px;
+  background: #bcbcb3;
+  color: white;
+  display: inline-block;
+  line-height: 1;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  margin-top: -31.5px;
+}
+/* line 14, ../../app/stylesheets/models/_time.scss */
+.time-gem time {
+  margin-top: -18px;
+  position: absolute;
+  top: 50%;
+  width: 63px;
+  left: 0;
+  right: 0;
+}
+/* line 23, ../../app/stylesheets/models/_time.scss */
+.time-gem .value {
+  font-family: "Droid Sans", "Museo Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 26px;
+  font-weight: bold;
+  line-height: 1;
+}
+/* line 30, ../../app/stylesheets/models/_time.scss */
+.time-gem i, .time-gem .units {
+  font-family: "Droid Serif", "Museo Serif", "Times New Roman", serif;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 0.8;
+}
+/* line 38, ../../app/stylesheets/models/_time.scss */
+.time-gem .value, .time-gem .units {
+  display: block;
+}
+/* line 43, ../../app/stylesheets/models/_time.scss */
+.time-gem.future > i:first-child {
+  display: none;
+  position: absolute;
+  top: 8px;
+}
+/* line 51, ../../app/stylesheets/models/_time.scss */
+.time-gem.past > i:last-child {
+  position: absolute;
+  bottom: 8px;
+}
+/* line 57, ../../app/stylesheets/models/_time.scss */
+.time-gem[data-unit=mins] {
+  background: #bc6e53;
+}
+
+/* line 63, ../../app/stylesheets/models/_time.scss */
+.with-time-gem.event, .with-time-gem.talk {
+  padding-right: 73px;
+}
+
+/* TODO: These styles could be made more generic -- CSS table layout pattern. Rewrite them using generic pattern. */
+/* line 2, ../../app/stylesheets/models/_expandable.scss */
+.expandable-list {
+  position: relative;
+}
+/* line 5, ../../app/stylesheets/models/_expandable.scss */
+.expandable-list > .list-panel {
+  margin-right: 10px;
+  width: 470px;
+}
+/* line 10, ../../app/stylesheets/models/_expandable.scss */
+.expandable-list .item-detail-panel {
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -o-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -khtml-border-radius: 2px;
+  border-radius: 2px;
+  background: #fafaf5;
+  border: 1px solid #d2d2cb;
+}
+/* line 15, ../../app/stylesheets/models/_expandable.scss */
+> .expandable-list .item-detail-panel {
+  position: absolute;
+  top: 0;
+  width: 410px;
+}
+/* line 21, ../../app/stylesheets/models/_expandable.scss */
+.expandable-list .item-detail-panel > .placeholder {
+  display: block;
+  padding: 2em 0.5em;
+}
+/* line 26, ../../app/stylesheets/models/_expandable.scss */
+.expandable-list .item-detail-panel > article, .expandable-list .item-detail-panel > div, .expandable-list .item-detail-panel > .placeholder {
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -o-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -khtml-border-radius: 2px;
+  border-radius: 2px;
+  background: #ecece6;
+  border: 5px solid #f7f7f3;
+  margin: 0;
+}
+
+/* line 35, ../../app/stylesheets/models/_expandable.scss */
+.summary-list {
+  list-style: none;
+  padding-left: 0;
+}
+/* line 39, ../../app/stylesheets/models/_expandable.scss */
+.summary-list > li + li {
+  margin-top: 8px;
+}
+
+/* line 44, ../../app/stylesheets/models/_expandable.scss */
+#portamento_container {
+  position: absolute;
+  right: 40px;
+  top: 0;
+}
+/* line 49, ../../app/stylesheets/models/_expandable.scss */
+#portamento_container .item-detail-panel {
+  width: 410px;
+}
+/* line 52, ../../app/stylesheets/models/_expandable.scss */
+#portamento_container .item-detail-panel.fixed {
+  position: fixed;
+}
+
+/* line 4, ../../app/stylesheets/models/_thought.scss */
+.thought {
+  background: rgba(146, 146, 134, 0.1);
+  color: #333333;
+  padding: 10px 10px 44px 10px;
+  position: relative;
+  width: 300px;
+  margin: 0 20px 20px 0;
+}
+/* line 12, ../../app/stylesheets/models/_thought.scss */
+.thought > .description {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px 26px 20px;
+  position: relative;
+  margin-right: 57px;
+}
+/* line 18, ../../app/stylesheets/models/_thought.scss */
+.thought > .description p {
+  margin: 0;
+  padding: 0;
+}
+/* line 23, ../../app/stylesheets/models/_thought.scss */
+.thought > .description:before, .thought > .description:after {
+  color: #999;
+  display: block;
+  position: absolute;
+  font-size: 30px;
+  line-height: 1;
+  height: 20px;
+}
+/* line 31, ../../app/stylesheets/models/_thought.scss */
+.thought > .description:before {
+  content: '\201C';
+  top: 0;
+  left: 0px;
+}
+/* line 32, ../../app/stylesheets/models/_thought.scss */
+.thought > .description:after {
+  content: '\201E';
+  bottom: 30px;
+  right: 10px;
+}
+/* line 35, ../../app/stylesheets/models/_thought.scss */
+.thought > .mastermind {
+  font-size: 0.9em;
+  height: 24px;
+  position: absolute;
+  bottom: 10px;
+}
+/* line 41, ../../app/stylesheets/models/_thought.scss */
+.thought > .mastermind > a {
+  display: block;
+  height: 24px;
+}
+/* line 42, ../../app/stylesheets/models/_thought.scss */
+.thought > .mastermind img {
+  height: 24px;
+  vertical-align: middle;
+}
+/* line 43, ../../app/stylesheets/models/_thought.scss */
+.thought > .mastermind .name {
+  display: inline-block;
+  height: 24px;
+}
+/* line 49, ../../app/stylesheets/models/_thought.scss */
+.thought > .upvotes {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+/* line 54, ../../app/stylesheets/models/_thought.scss */
+.thought > .upvotes .upvote-gem {
+  -moz-border-radius: 21.5px;
+  -webkit-border-radius: 21.5px;
+  -o-border-radius: 21.5px;
+  -ms-border-radius: 21.5px;
+  -khtml-border-radius: 21.5px;
+  border-radius: 21.5px;
+  display: block;
+  line-height: 37px;
+  height: 37px;
+  text-align: center;
+  vertical-align: middle;
+  width: 37px;
+  background: #bcbcb3;
+  color: white;
+}
+/* line 59, ../../app/stylesheets/models/_thought.scss */
+.thought > .upvotes .upvote-gem[data-count="0"] {
+  display: none;
+}
+/* line 63, ../../app/stylesheets/models/_thought.scss */
+.thought > .upvotes .upvote-gem .value:before {
+  content: '+';
+}
+/* line 69, ../../app/stylesheets/models/_thought.scss */
+.thought footer {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  line-height: 24px;
+}
+/* line 75, ../../app/stylesheets/models/_thought.scss */
+.thought footer .actions a {
+  display: inline-block;
+  height: 24px;
+}
+
+/* line 83, ../../app/stylesheets/models/_thought.scss */
+#add .thought {
+  width: 480px;
+}
+
+/* line 4, ../../app/stylesheets/models/_event.scss */
+.event {
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -o-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -khtml-border-radius: 4px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  min-height: 50px;
+  padding: 10px;
+  position: relative;
+}
+/* line 12, ../../app/stylesheets/models/_event.scss */
+.event > header > .title {
+  line-height: 1;
+  margin: 0;
+}
+/* line 18, ../../app/stylesheets/models/_event.scss */
+.event > header > .where > .place:before {
+  content: "\2014";
+}
+/* line 24, ../../app/stylesheets/models/_event.scss */
+.event.with-avatar {
+  padding-left: 70px;
+}
+/* line 28, ../../app/stylesheets/models/_event.scss */
+.event.with-avatar > header .avatar {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+/* line 37, ../../app/stylesheets/models/_event.scss */
+.summary-list .event:hover, .summary-list .event:focus {
+  background: #ecece6;
+  cursor: pointer;
+}
+/* line 42, ../../app/stylesheets/models/_event.scss */
+.summary-list .event.selected {
+  background: #f7f7f3;
+  border-color: #d2d2cb;
+}
+
+/* line 3, ../../app/stylesheets/models/_talk.scss */
+.talk > header > .title {
+  font-family: "Steelfish", Impact, sans-serif;
+  font-size: 22px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+/* line 10, ../../app/stylesheets/models/_talk.scss */
+.summary-list .talk > .description {
+  display: none;
+}
+/* line 15, ../../app/stylesheets/models/_talk.scss */
+.item-detail-panel .talk {
+  background: none;
+}
+
+/* line 2, ../../app/stylesheets/pages/_welcome.scss */
+#welcome .layout-group {
+  border-spacing: 2em;
+}
+/* line 5, ../../app/stylesheets/pages/_welcome.scss */
+#welcome .layout-group > .layout-item {
+  position: relative;
+}
+/* line 10, ../../app/stylesheets/pages/_welcome.scss */
+#welcome .notices {
+  width: 400px;
+  margin-left: 20px;
+}
+/* line 11, ../../app/stylesheets/pages/_welcome.scss */
+#welcome .events {
+  width: 440px;
+}
+/* line 14, ../../app/stylesheets/pages/_welcome.scss */
+#welcome .content-body section {
+  margin-bottom: 2em;
+}
+/* line 20, ../../app/stylesheets/pages/_welcome.scss */
+#welcome .actions a {
+  font-family: "Steelfish", Impact, sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  -moz-box-shadow: rgba(189, 59, 19, 0.4) 3px 3px 0;
+  -webkit-box-shadow: rgba(189, 59, 19, 0.4) 3px 3px 0;
+  -o-box-shadow: rgba(189, 59, 19, 0.4) 3px 3px 0;
+  box-shadow: rgba(189, 59, 19, 0.4) 3px 3px 0;
+  text-shadow: rgba(0, 0, 0, 0.47) 0 -1px 0;
+  background: #bd3b13;
+  color: white;
+  display: inline-block;
+  padding: 0.5em 1.5em;
+  text-decoration: none;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 48, ../../app/stylesheets/master.scss */
+#welcome .actions a:active {
+  -moz-box-shadow: rgba(0, 0, 0, 0.17) 3px 3px 2px inset, rgba(255, 255, 255, 0.2) -1px -1px 0 inset;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.17) 3px 3px 2px inset, rgba(255, 255, 255, 0.2) -1px -1px 0 inset;
+  -o-box-shadow: rgba(0, 0, 0, 0.17) 3px 3px 2px inset, rgba(255, 255, 255, 0.2) -1px -1px 0 inset;
+  box-shadow: rgba(0, 0, 0, 0.17) 3px 3px 2px inset, rgba(255, 255, 255, 0.2) -1px -1px 0 inset;
+  text-shadow: rgba(255, 255, 255, 0.2) 1px 1px 0;
+  background: #842002;
+}

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120109110831) do
+ActiveRecord::Schema.define(:version => 20120114064434) do
 
   create_table "attendances", :force => true do |t|
     t.integer  "camp_id"
@@ -52,6 +52,15 @@ ActiveRecord::Schema.define(:version => 20120109110831) do
     t.integer  "camp_id"
     t.string   "type"
   end
+
+  create_table "likes", :force => true do |t|
+    t.integer  "thought_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "likes", ["user_id", "thought_id"], :name => "index_likes_on_user_id_and_thought_id", :unique => true
 
   create_table "notices", :force => true do |t|
     t.string   "title"
@@ -113,6 +122,7 @@ ActiveRecord::Schema.define(:version => 20120109110831) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "likes_count"
   end
 
   create_table "users", :force => true do |t|

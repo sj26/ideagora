@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   has_many :camps, :through => :attendances
   has_many :projects, :dependent => :destroy
   has_many :notices
+  has_many :thoughts
+  has_many :likes
   
   validates_presence_of :first_name, :email
   validates_uniqueness_of :email

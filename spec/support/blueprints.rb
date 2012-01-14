@@ -65,3 +65,7 @@ end
 Discussion.blueprint do
   # Attributes here
 end
+
+Thought.blueprint do
+  # Attributes here
+end

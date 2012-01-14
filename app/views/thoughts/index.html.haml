@@ -1,0 +1,25 @@
+-content_for :title do
+  Thoughts
+
+-content_for :content_header do
+  #actions
+    %ul.actions.as-buttons
+      %li=link_to "Add a thought", "#add"
+
+%section
+  %h2 The ideas so far...
+  - if @thoughts.empty?
+    %p
+      Nobody has any thoughts?! Inconceivable!
+      = link_to "You better add one!", "#add"
+  - else
+    - @thoughts.each do |thought|
+      = render thought
+
+%section.thoughts#add
+  %h2 Got an idea?
+  %p Jot it down here!
+  = semantic_form_for Thought.new do |f|
+    = f.input :description, :hint => 'Textile supported'
+
+    = f.buttons

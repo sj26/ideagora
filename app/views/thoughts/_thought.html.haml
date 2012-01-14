@@ -1,0 +1,16 @@
+%article.thought
+  .description
+    = textilize(thought.description).try(:html_safe)
+  .mastermind
+    %a{:href => user_path(thought.user) }
+      = user_avatar(thought.user, 24)
+      %span.name= thought.user
+  .upvotes
+    %span.upvote-gem{:"data-count" => thought.likes.count}
+      %span.value= thought.likes.count
+  %footer
+    %ul.actions
+      -if thought.liked_by? current_user
+        %li= link_to "unlike", thought_unlike_path(thought), :"data-action" => "like"
+      - else
+        %li= link_to "like", thought_like_path(thought), :"data-action" => "unlike"

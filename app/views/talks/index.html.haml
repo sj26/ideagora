@@ -4,7 +4,7 @@
 - content_for :content_header do
   - if current_user
     #actions
-      %ul.actions
+      %ul.actions.as-buttons
         %li= link_to 'Add a talk', calendar_talks_path
 
 %section.expandable-list
@@ -30,3 +30,11 @@
 
   %div.item-detail-panel
     %p.placeholder Click a talk for more details.
+
+%section.thoughts
+  %h2 Got an idea for a talk?
+  %p If you've got something you'd like to talk about or would like to hear, jot it down here!
+  = semantic_form_for Thought.new do |f|
+    = f.input :description, :hint => 'Textile supported'
+
+    = f.buttons

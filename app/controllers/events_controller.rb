@@ -8,16 +8,20 @@ class EventsController < InheritedResources::Base
     @upcoming = Hash[@upcoming.map { |key, val| [Time.zone.at(key * 6.hours - Time.zone.utc_offset - 1.hour), val] }]
     index!
   end
-
+  
   def new
     @event = Event.new
     @event.user = current_user if current_user
-    @event.start_at = 1.hour.from_now
+    @event.start_at = 5.minutes.from_now
     @event.end_at = @event.start_at + 1.hour
     new!
   end
 
 private
+  def begin_of_association_chain
+    current_camp
+  end
+  
   def current_camp
     @camp = Camp.current
   end

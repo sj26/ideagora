@@ -5,8 +5,9 @@ class Event < ActiveRecord::Base
   belongs_to :venue
   belongs_to :camp #denormalized from venue because talks start off w/out a venue when a camp is created
 
-  validates_presence_of :user_id
-  validates_presence_of :venue_id
+  validates_presence_of :camp
+  validates_presence_of :user
+  validates_presence_of :venue
 
   scope :after, lambda { |time| where("start_at >= :time", :time => time) }
   scope :before, lambda { |time| where("start_at <= :time", :time => time) }

@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'ruby-debug'
 
 describe User do
   it { should validate_presence_of(:first_name) }

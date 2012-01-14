@@ -14,7 +14,7 @@ Ideagora::Application.routes.draw do
     get 'message_board', :on => :member
   end
   
-  resources :thoughts, :only => :create
+  resources :thoughts, :only => [:create, :index]
   resources :notices
   resources :discussions
   resources :sessions

@@ -4,6 +4,6 @@ class ThoughtsController < InheritedResources::Base
   def create
     @thought = Thought.new(params[:thought])
     @thought.user = current_user
-    create!(:notice => "Thanks for the food for thought!") { talks_url }
+    create!(:notice => "Thanks for the food for thought!")
   end
 end

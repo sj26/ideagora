@@ -6,4 +6,8 @@ class ThoughtsController < InheritedResources::Base
     @thought.user = current_user
     create!(:notice => "Thanks for the food for thought!")
   end
+
+  def end_of_association_chain
+    super.includes(:likes)
+  end
 end

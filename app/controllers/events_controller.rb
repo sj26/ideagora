@@ -1,4 +1,4 @@
-class EventsController < InheritedResources::Base
+class EventsController < AuthenticatedController
   before_filter :details
 
   def index

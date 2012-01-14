@@ -1,5 +1,4 @@
-class ThoughtsController < InheritedResources::Base
-  before_filter :requires_login, :except => [:index, :show]
+class ThoughtsController < AuthenticatedController
 
   def create
     @thought = Thought.new(params[:thought])

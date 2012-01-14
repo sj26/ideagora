@@ -1,5 +1,4 @@
-class LikesController < InheritedResources::Base
-  before_filter :requires_login
+class LikesController < AuthenticatedController
   
   def create
     @like = Like.new(:user => current_user, :thought_id => params[:thought_id])

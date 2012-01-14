@@ -1,4 +1,5 @@
 class TalksController < AuthenticatedController
+  before_filter :details
 
   def index
     @in_progress = current_camp.talks.in_progress
@@ -27,15 +28,12 @@ class TalksController < AuthenticatedController
     edit!
   end
 
-  def create
-    @talk = Talk.new(params[:talk])
-    @talk.user = current_user
-    create!
+private
+  def begin_of_association_chain
+    current_camp
   end
 
-private
   def details
-    current_camp
     @day = best_day
     @venues = current_camp.venues
     @talk_days = current_camp.talk_days

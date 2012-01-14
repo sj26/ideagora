@@ -19,7 +19,4 @@
 %section.thoughts#add
   %h2 Got an idea?
   %p Jot it down here!
-  = semantic_form_for Thought.new do |f|
-    = f.input :description, :hint => 'Textile supported'
-
-    = f.buttons
+  = render :partial => 'form'

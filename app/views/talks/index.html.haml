@@ -34,7 +34,4 @@
 %section.thoughts
   %h2 Got an idea for a talk?
   %p If you've got something you'd like to talk about or would like to hear, jot it down here!
-  = semantic_form_for Thought.new do |f|
-    = f.input :description, :hint => 'Textile supported'
-
-    = f.buttons
+  = render :partial => 'thoughts/form'

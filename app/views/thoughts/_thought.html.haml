@@ -1,2 +1,3 @@
 %article.thought
   = textilize(thought.description).try(:html_safe)
+  = link_to "like", thought_like_path(thought)

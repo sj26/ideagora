@@ -14,7 +14,11 @@ Ideagora::Application.routes.draw do
     get 'message_board', :on => :member
   end
   
-  resources :thoughts, :only => [:create, :index]
+  resources :thoughts, :only => [:create, :index] do
+    resources :likes, :only => [:create, :destroy]
+    get 'like' => "likes#create", :as => 'like'
+    get 'unlike' => "likes#destroy", :as => 'unlike'
+  end
   resources :notices
   resources :discussions
   resources :sessions

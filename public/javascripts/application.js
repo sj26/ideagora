@@ -71,8 +71,10 @@
 	$.fn.ready(function() {
 		$(".event").each(function(i, el) {
 			var talk = $(el),
-				time = talk.find("time[datetime]");
-			talk.append(timeGem(time.attr("datetime"))).addClass("with-time-gem");
+				time = talk.attr("data-start"),
+				timestamp = parseInt(time,10)*1000,
+				date = new Date(timestamp);
+			talk.append(timeGem(date)).addClass("with-time-gem");
 		});
 	});
 }(jQuery));

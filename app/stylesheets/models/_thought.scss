@@ -55,6 +55,14 @@ $userLabelHeight: 24px;
 			@include circle($countGemWidth);
 			background: $timeGemBackground;
 			color: $timeGemColor;
+			
+			&[data-count="0"] {
+				display: none;
+			}
+			
+			.value:before {
+				content: '+';
+			}
 		}
 	}
 	

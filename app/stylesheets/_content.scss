@@ -44,6 +44,14 @@ a {
 	}
 }
 
+.avatar {
+	@include box-sizing("border-box");
+	overflow: hidden;
+	background: $panelBackground;
+	border: 1px solid $panelBorder;
+	padding: 1px;
+}
+
 // Set a default size for avatars that haven't specified one.
 .avatar:not([width]) {
 	width: 50px;

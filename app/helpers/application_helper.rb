@@ -10,6 +10,6 @@ module ApplicationHelper
   end
   
   def user_avatar(user, size = 50)
-    image_tag(get_gravatar(user, size), :title => user.full_name, :class => "avatar", :width => size, :height => size)
+    image_tag(get_gravatar(user, size), :title => user.full_name, :alt => user.first_name, :class => "avatar", :width => size, :height => size)
   end
 end

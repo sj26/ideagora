@@ -5,7 +5,10 @@ class LikesController < InheritedResources::Base
     @like = Like.new(:user => current_user, :thought_id => params[:thought_id])
     create! do |success, failure|
       success.html { redirect_to thoughts_path }
-      failure.html { redirect_to thoughts_path }
+      failure.html {
+        flash[:error] = resource.errors.on :thought_id
+        redirect_to thoughts_path
+      }
     end
   end
   

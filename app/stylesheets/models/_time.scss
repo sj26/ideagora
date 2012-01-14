@@ -11,22 +11,25 @@ $gemDiameter: 63px;
 	top: 50%;
 	margin-top: -($gemDiameter/2);
 	
+	time {
+		@include alt-font;
+		font-size: 26px;
+		font-weight: bold;
+		position: absolute;
+		top: 50%;
+		margin-top: -18px;
+	}
+	
 	i, .units {
-		font-family: "Droid Serif";
+		@include body-font;
 		font-style: italic;
+		font-weight: normal;
 		font-size: 10px;
 		line-height: 0.8;
 	}
 	
 	.units {
 		display: block;
-	}
-	
-	time {
-		font-size: 26px;
-		position: absolute;
-		top: 50%;
-		margin-top: -18px;
 	}
 	
 	&.future {

@@ -9,17 +9,17 @@ class Camp < ActiveRecord::Base
   has_many :events
 
   validates_presence_of :name, :current, :time_zone
-  
+
   # TODO if one camp is enabled, all others should be disabled
 
   def to_s
     name
   end
-  
+
   def current?
     !! current
   end
-  
+
   def self.current
     where(:current => true).take(1).first
   end

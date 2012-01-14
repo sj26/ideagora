@@ -50,7 +50,7 @@ describe 'User\'s projects', :type => :request do
         
         attrs = { 
           :name => 'Happy campers',
-          :description => 'App for railscamps',
+          :description => 'App for railscamps'
         }
       
         attrs.each do |attr, value|

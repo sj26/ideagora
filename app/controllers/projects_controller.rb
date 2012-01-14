@@ -1,6 +1,6 @@
 class ProjectsController < InheritedResources::Base
   before_filter :requires_login, :except => [:all, :index, :show]
-  before_filter :requires_owner, :only => [:update, :destroy, :complete, :cancel, :restart]
+  before_filter :requires_owner, :only => [:edit, :update, :destroy, :complete, :cancel, :restart]
   
   belongs_to :user
   

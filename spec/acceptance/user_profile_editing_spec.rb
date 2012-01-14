@@ -42,7 +42,7 @@ describe 'A user viewing and editing their profile', :type => :request do
         fill_in attr.to_s.humanize, :with => new_value
       end
 
-      page.click_button 'Save changes'
+      page.click_button 'Update User'
 
       #redirected back on edit page?
       current_path.should == my_profile_path

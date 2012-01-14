@@ -1,6 +1,4 @@
-class TalksController < InheritedResources::Base
-  before_filter :details
-  before_filter :requires_login, :except => [:index, :show]
+class TalksController < AuthenticatedController
 
   def index
     @in_progress = @camp.talks.in_progress

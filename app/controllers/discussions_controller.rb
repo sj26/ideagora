@@ -1,5 +1,4 @@
-class DiscussionsController < InheritedResources::Base
-  before_filter :requires_login
+class DiscussionsController < AuthenticatedController
 
   def update
     update! { @discussion.path }

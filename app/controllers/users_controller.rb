@@ -1,7 +1,5 @@
-class UsersController < InheritedResources::Base
+class UsersController < AuthenticatedController
   actions :index, :update
-  before_filter :requires_login, :except => [:index, :show]
-
   helper :projects
 
   def show

@@ -1,5 +1,4 @@
-class NoticesController < InheritedResources::Base
-  before_filter :requires_login, :except => [:index, :show]
+class NoticesController < AuthenticatedController
   before_filter :requires_organiser, :except => [:index, :show]
   
   def create

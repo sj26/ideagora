@@ -35,6 +35,7 @@ end
 Talk.blueprint do
   name     { Faker::Lorem.words((rand * 10).floor).join(" ") }
   description { Faker::Lorem.sentences }
+  camp     { object.camp || Camp.current || Camp.make! }
   venue    { Venue.all.sample }
   user     { User.all.sample }
   start_at do

@@ -1,9 +1,9 @@
 %article.thought
   .description
     = textilize(thought.description).try(:html_safe)
-  .presenter
+  .mastermind
     %a{:href => user_path(thought.user) }
-      = user_avatar(thought.user)
+      = user_avatar(thought.user, 24)
       %span.name= thought.user
   %footer
     %ul.actions

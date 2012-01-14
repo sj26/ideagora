@@ -32,12 +32,27 @@ Project.blueprint do
   owner         { User.make! }
 end
 
-Talk.blueprint do
-  name     { Faker::Lorem.words((rand * 10).floor).join(" ") }
+Event.blueprint do
+  name     { Faker::Lorem.words((rand * 8).floor+2).join(" ") }
   description { Faker::Lorem.sentences }
   camp     { object.camp || Camp.current || Camp.make! }
-  venue    { Venue.all.sample }
-  user     { User.all.sample }
+  venue    { Venue.all.sample || Venue.make! }
+  user     { User.all.sample || User.make! }
+  start_at do
+    starting = Camp.current.start_at.to_time
+    ending = Camp.current.end_at.to_time
+    timestamp = (starting.to_i..ending.to_i).step(3600).sample
+    Time.at(timestamp) + (rand * 360).floor.minutes
+  end
+  end_at   { object.start_at + 1.hour }
+end
+
+Talk.blueprint do
+  name     { Faker::Lorem.words((rand * 8).floor+2).join(" ") }
+  description { Faker::Lorem.sentences }
+  camp     { object.camp || Camp.current || Camp.make! }
+  venue    { Venue.all.sample || Venue.make! }
+  user     { User.all.sample || User.make! }
   start_at do
     starting = Camp.current.start_at.to_time
     ending = Camp.current.end_at.to_time

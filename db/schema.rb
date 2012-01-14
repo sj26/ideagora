@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120114031934) do
+ActiveRecord::Schema.define(:version => 20120114040204) do
 
   create_table "attendances", :force => true do |t|
     t.integer  "camp_id"
@@ -59,6 +59,8 @@ ActiveRecord::Schema.define(:version => 20120114031934) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "likes", ["user_id", "thought_id"], :name => "index_likes_on_user_id_and_thought_id", :unique => true
 
   create_table "notices", :force => true do |t|
     t.string   "title"

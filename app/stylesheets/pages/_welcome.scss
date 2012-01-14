@@ -4,14 +4,11 @@
 		
 		> .layout-item {
 			position: relative;
-			
-			footer {
-				position: absolute;
-				bottom: 0;
-				right: 0;
-			}
 		}
 	}
+	
+	.notices { width: 400px; margin-left: 20px; }
+	.events { width: 440px; }
 	
 	.content-body {
 		section  {

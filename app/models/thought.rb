@@ -4,7 +4,13 @@ class Thought < ActiveRecord::Base
   has_many :likes
   has_many :fans, :through => :likes, :source => :user
   
+  validates_presence_of :description, :message => "Surely you have something on your mind?"
+  
   def liked_by?(user)
     fans.exists? user
+  end
+  
+  before_validation do |thought|
+    thought.description.strip!
   end
 end

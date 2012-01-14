@@ -4,7 +4,16 @@ class ThoughtsController < InheritedResources::Base
   def create
     @thought = Thought.new(params[:thought])
     @thought.user = current_user
-    create!(:notice => "Thanks for the food for thought!")
+    create! do |success, failure|
+      success.html {
+        flash[:notice] = "Thanks for the food for thought!"
+        redirect_to thoughts_path
+      }
+      failure.html {
+        flash[:error] = @thought.errors.on :description
+        redirect_to thoughts_path
+      }
+    end
   end
 
   def end_of_association_chain

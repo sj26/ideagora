@@ -54,7 +54,8 @@
 			el.append("<i>in </i>");
 			el.addClass("future");
 		}
-		t = $("<time>").html(time).attr("datetime", date);
+		t = $("<time>").attr("datetime", date);
+		t.append($("<span class='value'>").html(time));
 		t.append($("<span class='units'>").html(" " + relative.unit));
 		el.append(t);
 		el.attr("data-unit", relative.unit);

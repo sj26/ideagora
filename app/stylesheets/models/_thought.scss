@@ -46,6 +46,18 @@ $userLabelHeight: 24px;
 		}
 	}
 	
+	> .upvotes {
+		position: absolute;
+		right: 10px;
+		top: 10px;
+		
+		.upvote-gem {
+			@include circle($countGemWidth);
+			background: $timeGemBackground;
+			color: $timeGemColor;
+		}
+	}
+	
 	footer {
 		position: absolute;
 		bottom: 10px;

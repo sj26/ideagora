@@ -5,6 +5,9 @@
     %a{:href => user_path(thought.user) }
       = user_avatar(thought.user, 24)
       %span.name= thought.user
+  .upvotes
+    %span.upvote-gem
+      %span.value= thought.likes.count
   %footer
     %ul.actions
       -if thought.liked_by? current_user

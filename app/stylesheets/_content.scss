@@ -1,3 +1,8 @@
+body {
+	@include fixed-background;
+	@include alt-font;
+}
+
 h1 {
 	@include title-font($h1Size);
 	color: $headingColor;

@@ -40,3 +40,7 @@ $h1Line: 1.5;
 @mixin body-font {
 	font-family: "Droid Serif", "Museo Serif", "Times New Roman", serif;
 }
+
+@mixin alt-font {
+	font-family: "Droid Sans", "Museo Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}

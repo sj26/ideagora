@@ -29,8 +29,8 @@ class TalksController < AuthenticatedController
   end
 
 private
-  def begin_of_association_chain
-    current_camp
+  def end_of_association_chain
+    super.where(camp_id: current_camp.id)
   end
 
   def details

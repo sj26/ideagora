@@ -33,9 +33,6 @@ module Ideagora
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-    # JavaScript files you want as :defaults (application.js is always included).
-    config.action_view.javascript_expansions[:defaults] = %w(jquery-1.6.1.min.js underscore-1.1.6.min.js portamento-1.1.1.js).map { |path| File.join("vendor", path) }
-
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 
@@ -54,8 +51,5 @@ module Ideagora
 
     # Version of your assets, change this if you want to expire all your assets  
     config.assets.version = '1.0'
-    
-    # config.sass.load_paths << "#{Gem.loaded_specs['compass'].full_gem_path}/frameworks/compass/stylesheets"
-    # config.sass.load_paths << "#{Gem.loaded_specs['compass'].full_gem_path}/frameworks/blueprint/stylesheets"
   end
 end

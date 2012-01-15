@@ -7,19 +7,12 @@
 		}
 	}
 	
-	.notices { width: 400px; margin-left: 20px; }
-	.events { width: 440px; }
+	.events, .talks { width: 400px; }
+	.notices, .projects { width: 480px; margin-left: 80px; }
 	
 	.content-body {
 		section  {
-			margin-bottom: 2em;
-		}
-	}
-	
-	.actions {
-		a {
-			@include action-button;
-			@include box-sizing("border-box");
+			margin-bottom: 1em;
 		}
 	}
 }

@@ -38,12 +38,9 @@ $userLabelHeight: 24px;
 		position: absolute;
 		bottom: 10px;
 		
-		> a { display: block; height: $userLabelHeight; }
-		img { height: $userLabelHeight; vertical-align: middle; }
-		.name {
-			display: inline-block;
-			height: $userLabelHeight;
-		}
+		> .userlink { height: $userLabelHeight; }
+		img { height: $userLabelHeight; }
+		.name { height: $userLabelHeight; }
 	}
 	
 	> .upvotes {
@@ -79,8 +76,6 @@ $userLabelHeight: 24px;
 	}
 }
 
-#add {
-	.thought {
-		width: 480px;
-	}
+form.thought {
+	min-width: 480px;
 }

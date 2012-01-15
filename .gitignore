@@ -9,4 +9,4 @@ log/*.log
 tmp/
 Thumbs.db
 config/database.yml
-public/stylesheets/partials/
+public/stylesheets/*

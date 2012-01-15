@@ -13,6 +13,6 @@ class Thought < ActiveRecord::Base
   end
   
   before_validation do |thought|
-    thought.description.strip!
+    thought.description.try(:strip!)
   end
 end

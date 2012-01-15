@@ -75,6 +75,14 @@ a {
 	}
 
 	&.as-bullets {
+		a {
+			background: none;
+			border: 0;
+			display: inline-block;
+			margin: 0;
+			padding: 0;
+		}
+		
 		> li + li {
 			margin-left: 1em;
 			
@@ -101,12 +109,30 @@ a {
 			float: left;
 			margin-right: 4px;
 			text-align: right;
+			text-wrap: nowrap;
 			width: 24px;
 		}
 
 		&.twitter:before { content: '@'; width: 28px; margin-right: 0; }
 		&.irc:before { content: 'irc:'; }
 		&.bonjour:before { content: 'im:'; }
+	}
+}
+
+.userlink {
+	@include display-box;
+	@include box-orient(horizontal);
+	@include box-align(center);
+	@include box-pack(start);
+	@include box-lines(single);
+
+	> img {
+		display: block;
+		vertical-align: middle;
+	}
+	> .name {
+		margin-left: 4px;
+		
 	}
 }
 
@@ -120,6 +146,7 @@ table {
 		font-weight: 1.1em;
 		margin-bottom: 3px;
 		padding: 0.25em;
+		padding-left: 4px;
 		text-align: left;
 	}
 	
@@ -129,7 +156,7 @@ table {
 		}
 		
 		td {
-			padding: 2px;
+			padding: 4px 8px;
 		}
 	}
 }

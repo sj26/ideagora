@@ -7,5 +7,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
+//= require underscore-1.1.6.min
+//= require portamento-1.1.1
+//= require date.extensions
 //= require_tree .
-

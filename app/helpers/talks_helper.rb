@@ -1,6 +1,6 @@
 module TalksHelper
   def casual_day_description(date)
-    today = Time.now.to_date
+    today = Time.zone.now.to_date
     day_diff = date - today
     if day_diff < 0 
       case day_diff.abs
@@ -18,11 +18,11 @@ module TalksHelper
   end
   
   def mini_day_description(date)
-    date.to_time.strftime('%A')
+    Time.zone.utc_to_local(date.to_time).strftime('%A')
   end
 
   def hour_of(date)
-    date.to_time.getlocal.strftime("%l:%M %P")
+    Time.zone.utc_to_local(date.to_time).strftime("%l:%M %P")
   end
 
   def talk_description(talk)

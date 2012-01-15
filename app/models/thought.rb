@@ -6,6 +6,8 @@ class Thought < ActiveRecord::Base
   
   validates_presence_of :description, :message => "Surely you have something on your mind?"
   
+  scope :upvoted, lambda { |count| where('likes_count >= :count', :count => count || 1) }
+  
   default_scope order('likes_count desc')
   
   def liked_by?(user)

@@ -1,5 +1,11 @@
 class ThoughtsController < AuthenticatedController
 
+  def index
+    @thoughts = Thought.all
+    @voted, @unvoted = @thoughts.partition { |t| t.likes.count > 0 }
+    @unvoted.sort_by &:created_at
+  end
+
   def create
     @thought = Thought.new(params[:thought])
     @thought.user = current_user

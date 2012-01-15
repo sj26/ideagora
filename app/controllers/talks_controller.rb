@@ -20,6 +20,7 @@ class TalksController < AuthenticatedController
     @end_at = @start_at + 1.hour
     @venue = Venue.find(params[:venue_id])
     @talk = Talk.new(:start_at => @start_at, :end_at => @end_at, :venue => @venue, :user => current_user)
+    @thoughts = Thought.upvoted(1)
     new!
   end
 

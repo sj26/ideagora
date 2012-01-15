@@ -79,3 +79,14 @@ $userLabelHeight: 24px;
 form.thought {
 	min-width: 480px;
 }
+
+.layout-group.with-thoughts {
+	> .layout-item {
+		&:first-child {
+			width: 520px;
+		}
+		+ .layout-item {
+			padding-left: 40px;
+		}
+	}
+}

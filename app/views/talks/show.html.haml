@@ -1,6 +1,12 @@
 - content_for :title do
   = @talk.name
 
+- content_for :content_header do
+  - if current_user && organiser? || (@talk.user == current_user)
+    #actions
+      %ul.actions.as-buttons
+        %li= link_to "Change this talk", edit_talk_path(@talk)
+
 = render :partial => 'users/user_card', :locals => {:user => @talk.user}
 
 .main

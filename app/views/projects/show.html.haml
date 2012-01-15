@@ -3,7 +3,7 @@
 
 - content_for :content_header do
   #actions
-    %ul.actions
+    %ul.actions.as-buttons
       - if is_owner?
         %li= link_to 'Edit project', edit_user_project_path(@project.owner)
 

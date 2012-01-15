@@ -4,4 +4,10 @@
     #{talk.venue.name}
   %p.when
     %span When
-    #{casual_day_description(talk.start_at.to_date)} from #{talk.start_at.strftime("%H:%M")} to #{talk.end_at.strftime("%H:%M")}
+    = casual_day_description(talk.start_at)
+    from
+    %time{:datetime => talk.start_at}
+      = hour_of(talk.start_at)
+    to
+    %time{:datetime => talk.end_at}
+      = hour_of(talk.end_at)

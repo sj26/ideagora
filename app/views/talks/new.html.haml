@@ -1,3 +1,8 @@
 %h2 New Talk
 
-= render 'form'
+.layout-group.with-thoughts
+  .layout-item
+    = render 'form'
+  - if @thoughts.any?
+    .layout-item
+      = render :partial => 'thoughts/looking_for_ideas'

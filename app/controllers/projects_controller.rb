@@ -17,6 +17,11 @@ class ProjectsController < InheritedResources::Base
     @project = Project.find(params[:id])
   end
   
+  def new
+    @thoughts = Thought.upvoted(1)
+    new!
+  end
+  
   def create
     @project = Project.new(params[:project])
     @project.owner = current_user

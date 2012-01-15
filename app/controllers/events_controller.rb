@@ -14,6 +14,7 @@ class EventsController < AuthenticatedController
     @event.user = current_user if current_user
     @event.start_at = 5.minutes.from_now
     @event.end_at = @event.start_at + 1.hour
+    @thoughts = Thought.upvoted(1)
     new!
   end
 

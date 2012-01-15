@@ -1,10 +1,11 @@
 -content_for :title do
   Events
 
--content_for :content_header do
-  #actions
-    %ul.actions.as-buttons
-      %li=link_to "Create new event", new_event_path
+- content_for :content_header do
+  - if current_user
+    #actions
+      %ul.actions.as-buttons
+        %li=link_to "Create new event", new_event_path
 
 %section.expandable-list
   %div.list-panel

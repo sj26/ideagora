@@ -1,8 +1,8 @@
-- semantic_form_for @notice do |f|
+= semantic_form_for @notice do |f|
   = f.semantic_errors
 
-  - f.inputs do
+  = f.inputs do
     = f.input :title
     = f.input :content, :hint => 'Textile supported'
-  
+
   = f.buttons

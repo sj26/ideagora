@@ -1,12 +1,12 @@
 = semantic_form_for @event do |f|
   = f.semantic_errors
 
-  - f.inputs do
+  = f.inputs do
     = f.input :name, :label => 'Event Title'
     = f.input :user, :as => :select, :label => 'Organiser', :collection => @users, :label_method => :full_name
     = f.input :description, :hint => 'Textile supported'
     = f.input :start_at, :label => 'Starts at'
     = f.input :end_at, :label => 'Ends at'
     = f.input :venue_id, :as => :select, :label => 'Location', :collection => Venue.all
-  
+
   = f.buttons

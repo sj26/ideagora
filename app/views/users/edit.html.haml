@@ -1,34 +1,31 @@
-%h2 Edit my details
-
 - content_for :header do
   :javascript
     window.skills_tags_objs = #{@skills_tags_json};
     window.interests_tags_objs = #{@interests_tags_json};
 
-
-
+%h2 Edit my details
 
 = semantic_form_for @user, :url => user_path(@user) do |f|
   = f.semantic_errors
 
-  - f.inputs "You" do
+  = f.inputs "You" do
     = f.input :first_name
     = f.input :last_name
     = f.input :email
 
-  - f.inputs do
+  = f.inputs do
     = f.input :bio, :hint => 'Textile supported'
 
-  - f.inputs "Contactability" do
+  = f.inputs "Contactability" do
     = f.input :twitter
     = f.input :bonjour
     = f.input :irc
 
-  - f.inputs "Skills" do
+  = f.inputs "Skills" do
     = f.input :skill_list, :input_html => { :value => @user.skill_list.sort }, :hint => 'enter tags, comma separated (Ex: javascript, rspec, rails)'
     = f.input :interest_list, :input_html => { :value => @user.interest_list.sort }, :hint => 'enter tags, comma separated (Ex: javascript, rspec, rails)'
 
-  - f.buttons do
+  = f.buttons do
     %li.cancel= link_to 'Cancel', @user, :class => 'cancel'
     = f.commit_button
 

@@ -24,27 +24,28 @@
       %ul.actions.as-buttons
         %li.more= link_to 'view all messages', message_board_camp_path(current_camp)
 
-%section.talks.summary-list
-  %header
-    %h1= link_to "Upcoming talks", talks_path, :title => 'view all talks'
+.layout-group
+  %section.talks.summary-list.layout-item
+    %header
+      %h1= link_to "Upcoming talks", talks_path, :title => 'view all talks'
 
-  - @talks.each do |talk|
-    = render talk
+    - @talks.each do |talk|
+      = render talk
 
-  %footer
-    %ul.actions.as-buttons
-      %li.more= link_to 'view all talks', talks_path
+    %footer
+      %ul.actions.as-buttons
+        %li.more= link_to 'view all talks', talks_path
 
-%section.projects.summary-list
-  %header
-    %h1= link_to 'Random project', projects_path, :title => 'view all projects'
+  %section.projects.summary-list.layout-item
+    %header
+      %h1= link_to 'Random project', projects_path, :title => 'view all projects'
 
-  - if @project
-    = render @project
-  - else
-    %p there are no projects!
+    - if @project
+      = render @project
+    - else
+      %p there are no projects!
 
-  %footer
-    %ul.actions.as-buttons
-      %li.more= link_to 'view all projects', projects_path
+    %footer
+      %ul.actions.as-buttons
+        %li.more= link_to 'view all projects', projects_path
 

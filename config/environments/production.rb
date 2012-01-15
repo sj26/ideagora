@@ -55,5 +55,4 @@ Ideagora::Application.configure do
 
   # Generate digests for assets URLs  
   config.assets.digest = true
-  Sass::Plugin.options[:style] = :compressed
 end

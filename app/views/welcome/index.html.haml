@@ -9,7 +9,7 @@
       = render event
 
     %footer
-      %ul.actions
+      %ul.actions.as-buttons
         %li.more= link_to 'view all events', events_path
 
   %section.notices.summary-list.layout-item
@@ -21,7 +21,7 @@
       = textilize(@latest_notice.content).try(:html_safe)
 
     %footer
-      %ul.actions
+      %ul.actions.as-buttons
         %li.more= link_to 'view all messages', message_board_camp_path(current_camp)
 
 %section.talks.summary-list
@@ -32,7 +32,7 @@
     = render talk
 
   %footer
-    %ul.actions
+    %ul.actions.as-buttons
       %li.more= link_to 'view all talks', talks_path
 
 %section.projects.summary-list
@@ -45,6 +45,6 @@
     %p there are no projects!
 
   %footer
-    %ul.actions
+    %ul.actions.as-buttons
       %li.more= link_to 'view all projects', projects_path
 

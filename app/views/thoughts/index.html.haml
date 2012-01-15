@@ -13,8 +13,15 @@
       Nobody has any thoughts?! Inconceivable!
       = link_to "You better add one!", "#add"
   - else
-    - @thoughts.each do |thought|
-      = render thought
+    .layout-group
+      .unvoted.layout-item
+        %h3 Fresh
+        - @unvoted.each do |thought|
+          = render thought
+      .voted.layout-item
+        %h3 Popular
+        - @voted.each do |thought|
+          = render thought
 
 %section.thoughts#add
   %h2 Got an idea?

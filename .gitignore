@@ -10,3 +10,4 @@ tmp/
 Thumbs.db
 config/database.yml
 public/stylesheets/*
+public/assets

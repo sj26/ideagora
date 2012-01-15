@@ -2,6 +2,11 @@
   = @user.full_name
   %small (That's you!)
 
+- content_for :content_header do # huzzah for implicit ownership
+  #actions
+    %ul.actions.as-buttons
+      %li= link_to "Edit my profile", edit_user_path(@user)
+
 = render :partial => 'user_card', :locals => {:user => @user}
 
 .main

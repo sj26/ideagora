@@ -22,7 +22,7 @@ module TalksHelper
   end
 
   def hour_of(date)
-    date.to_time.strftime("%l:%M %P")
+    date.to_time.getlocal.strftime("%l:%M %P")
   end
 
   def talk_description(talk)

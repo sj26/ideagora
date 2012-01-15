@@ -2,7 +2,7 @@
   .description
     = textilize(thought.description).try(:html_safe)
   .mastermind
-    %a{:href => user_path(thought.user) }
+    %a.userlink{:href => user_path(thought.user)}
       = user_avatar(thought.user, 24)
       %span.name= thought.user
   .upvotes

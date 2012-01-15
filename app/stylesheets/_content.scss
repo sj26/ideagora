@@ -110,6 +110,15 @@ a {
 	}
 }
 
+.userlink {
+	> img {
+		vertical-align: middle;
+	}
+	.name {
+		display: inline-block;
+	}
+}
+
 table {
 	width: 100%;
 	

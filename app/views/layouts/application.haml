@@ -20,11 +20,11 @@
             %ul
               %li#logo
                 %h1=link_to current_camp.name, root_path
-              %li= link_to 'Campers', users_path
               %li= link_to 'The ideas', thoughts_path
               %li= link_to 'Projects', projects_path
               %li= link_to 'All Events', events_path
               %li= link_to 'Talks', talks_path
+              %li= link_to 'Campers', users_path
           .secondary
             = render :partial => 'common/user_nav'
         %nav.local{:role => "navigation"}

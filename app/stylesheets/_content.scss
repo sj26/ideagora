@@ -111,11 +111,19 @@ a {
 }
 
 .userlink {
+	@include display-box;
+	@include box-orient(horizontal);
+	@include box-align(center);
+	@include box-pack(start);
+	@include box-lines(single);
+
 	> img {
+		display: block;
 		vertical-align: middle;
 	}
-	.name {
-		display: inline-block;
+	> .name {
+		margin-left: 4px;
+		
 	}
 }
 

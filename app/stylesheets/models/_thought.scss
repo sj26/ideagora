@@ -38,7 +38,7 @@ $userLabelHeight: 24px;
 		position: absolute;
 		bottom: 10px;
 		
-		> .userlink { display: block; height: $userLabelHeight; }
+		> .userlink { height: $userLabelHeight; }
 		img { height: $userLabelHeight; }
 		.name { height: $userLabelHeight; }
 	}

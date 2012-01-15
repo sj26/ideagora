@@ -4,8 +4,7 @@
   :javascript
     window.skills_tags_objs = #{@skills_tags_json};
     window.interests_tags_objs = #{@interests_tags_json};
-  
-  = javascript_include_tag 'users/edit'
+
 
 
 
@@ -19,7 +18,7 @@
 
   - f.inputs do
     = f.input :bio, :hint => 'Textile supported'
-  
+
   - f.inputs "Contactability" do
     = f.input :twitter
     = f.input :bonjour

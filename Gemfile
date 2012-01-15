@@ -1,14 +1,12 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.6'
+gem 'rails', '3.1'
 gem 'unicorn'
 gem 'pg'
 
 gem 'acts-as-taggable-on'
 gem 'capistrano'
 gem 'haml'
-gem 'sass'
-gem 'compass'
 gem 'formtastic'
 gem 'heroku'
 gem 'hirb'
@@ -17,6 +15,17 @@ gem 'rake', '0.9.2'
 gem 'simple_form'
 gem 'state_machine'
 gem 'RedCloth'
+
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  gem 'sass-rails', " ~> 3.1.0"
+  gem 'coffee-rails', " ~> 3.1.0"
+  gem 'uglifier'
+  gem 'compass'
+end
+
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'autotest'

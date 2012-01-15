@@ -6,10 +6,9 @@
 
     %title Railscamp Ideagora
 
-    = stylesheet_link_tag 'normalize', 'formtastic', 'master'
+    = stylesheet_link_tag 'master'
 
-    = javascript_include_tag :defaults
-    = javascript_include_tag 'vendor/date.extensions.js'
+    = javascript_include_tag 'application', 'underscore-1.1.6.min', 'date.extensions'
     = csrf_meta_tag
 
     = yield :header

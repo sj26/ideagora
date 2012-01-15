@@ -32,11 +32,11 @@ $logoDiameter: 139px;
 		left: 0;
 		position: absolute;
 		top: -($logoDiameter/4);
-		
+
 		> h1 {
 			@include circle($logoDiameter - 10px);
 			background: $logoBackground;
-			@include box-sizing("border-box");
+      @include box-sizing("border-box");
 			font-size: 24px;
 			margin: 5px;
 			padding: 5px;
@@ -67,13 +67,13 @@ $logoDiameter: 139px;
 	> ul {
 		@include global-menu();
 		position: relative;
-		
+
 		> li {
 			font-weight: 900;
 			font-size: 22px;
 			height: 60px;
 			line-height: 1;
-			
+
 			a {
 				border: 1px solid transparent;
 				@include border-radius(4px);
@@ -82,7 +82,7 @@ $logoDiameter: 139px;
 				margin: 10px 0 0;
 				height: 40px;
 				padding: 8px 12px 10px;
-				
+
 				&:hover, &:focus {
 					background: $menuSelectedBackground;
 					border: 1px solid;
@@ -99,14 +99,14 @@ $logoDiameter: 139px;
 	position: relative;
 	top: -($topGap + $menuGap);
 	height: $secondMenuHeight;
-	
+
 	> ul {
 		@include global-menu;
 		font-size: 0.9em;
-		
+
 		> li + li {
 			margin-left: 1em;
-			
+
 			&:before {
 				color: #999;
 				display: inline-block;
@@ -126,7 +126,7 @@ $logoDiameter: 139px;
 		position: relative;
 		text-align: center;
 		width: $pageWidth;
-		
+
 		> h1 {
 			@include fixed-background(); // allows for clobbering the line-through
 			display: inline-block;       // ...but only around the text.
@@ -139,7 +139,7 @@ $logoDiameter: 139px;
 .content-body {
 	margin: 0 auto;
 	width: $pageWidth;
-	
+
 	section {
 		> footer {
 			margin-top: 1em;
@@ -156,7 +156,7 @@ $logoDiameter: 139px;
 .layout-group {
 	display: table;
 	width: 100%;
-	
+
 	> .layout-item {
 		display: table-cell;
 	}
@@ -166,12 +166,12 @@ $logoDiameter: 139px;
 	color: lighten($textColor, 30%);
 	font-size: 0.75em;
 	margin-top: 3em;
-	
+
 	p {
 		margin: 0.25em 0;
 		font-style: italic;
 	}
-	
+
 	.footer-body {
 		margin: 0 auto;
 		text-align: center;

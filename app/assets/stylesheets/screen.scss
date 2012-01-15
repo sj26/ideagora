@@ -1,6 +1,6 @@
 @import 'compass/css3';
-@import 'colours';
-@import 'fonts';
+@import 'screen/general/colours';
+@import 'screen/general/fonts';
 
 @mixin fixed-background {
 	background: $pageBackground url('/images/bg.png') repeat fixed 0 0;
@@ -44,7 +44,7 @@
 	display: inline-block;
 	padding: 0.5em 1.5em;
 	text-decoration: none;
-	
+
 	&:active {
 		@include box-shadow($menuShadow 3px 3px 2px inset, $menuHighlight -1px -1px 0 inset);
 		@include text-shadow($menuHighlight 1px 1px 0);
@@ -52,17 +52,17 @@
 	}
 }
 
-@import 'layout';
-@import 'forms';
-@import 'content';
+@import 'screen/general/layout';
+@import 'screen/general/forms';
+@import 'screen/general/content';
 
-@import 'jquery/disgustingness';
+/*@import 'jquery/disgustingness';*/
 
-@import 'models/time';
-@import 'models/expandable';
-@import 'models/thought';
-@import 'models/event';
-@import 'models/talk';
+@import 'screen/models/time';
+@import 'screen/models/expandable';
+@import 'screen/models/thought';
+@import 'screen/models/event';
+@import 'screen/models/talk';
 
 // Page-specific content overrides
-@import 'pages/welcome';
+@import 'screen/pages/welcome';

@@ -19,6 +19,7 @@ group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'uglifier'
+  gem 'autoprefixer-rails'
 end
 
 gem 'jquery-rails'

@@ -26,16 +26,11 @@ gem 'jquery-rails'
 
 group :development, :test do
   gem 'capybara', '~> 1.0'
-  gem 'database_cleaner'
   gem 'faker'
-  gem 'itslog'
-  gem 'launchy' # for save_and_open_page
   gem 'machinist', '~> 2.0'
   gem 'rspec-rails'
   gem 'rspec-collection_matchers'
   gem 'shoulda'
-  gem 'spork'
   gem 'steak'
-  gem 'fuubar'
   gem 'timecop'
 end

@@ -10,7 +10,6 @@ gem 'formtastic'
 gem 'hirb'
 gem 'inherited_resources'
 gem 'rake', '0.9.2'
-gem 'simple_form'
 gem 'state_machine'
 gem 'RedCloth'
 

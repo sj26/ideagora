@@ -166,9 +166,6 @@ GEM
     shoulda-context (1.2.2)
     shoulda-matchers (2.8.0)
       activesupport (>= 3.0.0)
-    simple_form (1.5.2)
-      actionpack (~> 3.0)
-      activemodel (~> 3.0)
     sprockets (2.2.3)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -214,7 +211,6 @@ DEPENDENCIES
   rspec-rails
   sass-rails
   shoulda
-  simple_form
   state_machine
   steak
   timecop

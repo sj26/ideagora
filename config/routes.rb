@@ -15,7 +15,6 @@ Ideagora::Application.routes.draw do
   end
   
   resources :thoughts, :only => [:create, :index] do
-    resources :likes, :only => [:create, :destroy]
     get 'like' => "likes#create", :as => 'like'
     get 'unlike' => "likes#destroy", :as => 'unlike'
   end

@@ -11,7 +11,7 @@ describe 'users CRUDing talks', :type => :request do
     venue = Venue.make!(:camp => @camp)
     talk = venue.talks.create(:name => 'Sample Talk', :venue => venue, :user => @user, :start_at => @camp.start_at.to_date + 1.day + 10.hours, :end_at => @camp.start_at.to_date + 1.day + 11.hours)
 
-    viewing_day = @camp.talks.order(:start_at).first.day
+    viewing_day = @camp.talks.order(:start_at).first.start_date.to_date
     visit talks_path(:day => viewing_day)
 
     # Do we see the details for each talk on this day?

@@ -41,7 +41,7 @@ describe 'message board notices', :type => :request do
 
     context 'when new notice' do
       it "should not create a notice without valid attrs" do
-        pending
+        skip
         visit new_notice_path
         page.should have_content('Create a new notice')
       
@@ -52,7 +52,7 @@ describe 'message board notices', :type => :request do
       end
       
       it 'creates and sets current_user as owner' do
-        pending
+        skip
         visit new_notice_path
         
         attrs = { 
@@ -77,7 +77,7 @@ describe 'message board notices', :type => :request do
     
     context 'with existing notice' do
       it "can edit" do
-        pending
+        skip
         visit notices_path
         page.should have_content('All notices')
         find("li#notice_#{@notice_.id}").click_link('Edit')
@@ -90,7 +90,7 @@ describe 'message board notices', :type => :request do
       end
       
       it "can delete notice" do
-        pending
+        skip
         visit notices_path
         find("li#notice_#{@notice_.id}").click_link('Delete')
         Notice.count == 1

@@ -5,7 +5,7 @@ describe WelcomeController do
     let(:camp) { Camp.current || Camp.make! }
         
     it "collects talks and groups them by venue" do
-      pending 'changed in rcx version'
+      skip 'changed in rcx version'
       library = Venue.make! :camp => camp
       Talk.make! :camp => camp, :venue => library, :start_at => Time.zone.now
       Talk.make! :camp => camp, :venue => library, :start_at => 1.minute.from_now

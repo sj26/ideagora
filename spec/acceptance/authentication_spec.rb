@@ -27,7 +27,7 @@ feature "Authentication", %q{
   end
   
   scenario "peep from a previous camp" do
-    pending
+    skip
   end
   
   scenario "other person" do

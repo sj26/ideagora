@@ -120,6 +120,16 @@ $logoDiameter: 139px;
 #content {
 	padding-top: 2em;
 
+	> .flash {
+		@include body-font;
+		margin: 0 auto;
+		width: $pageWidth;
+
+		background: $darkPanelBackground;
+		color: $darkPanelColor;
+		padding: 10px;
+	}
+
 	> header {
 		background: url('/images/header-bg-linethrough.png') 0 50% repeat-x;
 		margin: 0 auto;

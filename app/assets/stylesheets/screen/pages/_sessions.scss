@@ -1,0 +1,16 @@
+form.sessions {
+  max-width: 480px;
+  margin: 2em auto;
+  display: flex;
+
+  input[type="text"] {
+    flex-grow: 1;
+    margin-right: 10px;
+    font-size: 16px;
+  }
+
+  input[type="submit"] {
+    @include action-button;
+    border: 0;
+  }
+}

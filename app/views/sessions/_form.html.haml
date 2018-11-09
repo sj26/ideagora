@@ -1,9 +1,3 @@
-= form_tag sessions_path, :class => "formtastic" do
-  %fieldset.inputs
-    %ol
-      %li.string.input.required.stringish
-        = text_field_tag :details, nil, :placeholder => 'Enter email or twitter username'
-  %fieldset.actions.as-buttons
-    %ol
-      %li.action.input_action
-        = submit_tag 'Let me in'
+= form_tag sessions_path, :class => "sessions" do
+  = text_field_tag :details, nil, :placeholder => 'Enter email or twitter username'
+  = submit_tag 'Let me in'

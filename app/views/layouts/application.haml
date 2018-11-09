@@ -34,7 +34,9 @@
             .secondary= yield :local_secondary_nav
 
       %section#content{:role => "main"}
-        = flash_helper.html_safe
+        - [:error, :warning, :notice, :message, :alert].each do |key|
+          - if flash[key].present?
+            %p.flash{:class => key}= flash[key]
         %header
           - if content_for? :title
             %h1= yield :title

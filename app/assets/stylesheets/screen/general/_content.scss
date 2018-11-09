@@ -8,7 +8,7 @@ h1 {
 	color: $headingColor;
 	line-height: $h1Line;
 	margin: 0 auto;
-	@include text-shadow($pageBackground 1px 1px 0, $headingShadow 3px 3px 0);
+	text-shadow: $pageBackground 1px 1px 0, $headingShadow 3px 3px 0;
 	
 	> a {
 		text-decoration: none;
@@ -45,7 +45,7 @@ a {
 }
 
 .avatar {
-	@include box-sizing("border-box");
+	box-sizing: border-box;
 	overflow: hidden;
 	background: $panelBackground;
 	border: 1px solid $panelBorder;
@@ -70,7 +70,7 @@ a {
 	&.as-buttons {
 		a {
 			@include action-button;
-			@include box-sizing("border-box");
+			box-sizing: border-box;
 		}
 	}
 
@@ -120,11 +120,11 @@ a {
 }
 
 .userlink {
-	@include display-box;
-	@include box-orient(horizontal);
-	@include box-align(center);
-	@include box-pack(start);
-	@include box-lines(single);
+	display: box;
+	box-orient: horizontal;
+	box-align: center;
+	box-pack: start;
+	box-lines: single;
 
 	> img {
 		display: block;

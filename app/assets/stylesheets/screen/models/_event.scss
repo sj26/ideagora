@@ -2,7 +2,7 @@ $avatar_size: 50px;
 $gap: 10px;
 
 .event {
-	@include border-radius(4px);
+	border-radius: 4px;
 	border: 1px solid transparent;
 	min-height: $avatar_size;
 	padding: $gap;

@@ -1,4 +1,3 @@
-@import 'compass/css3';
 @import 'screen/general/colours';
 @import 'screen/general/fonts';
 
@@ -7,7 +6,7 @@
 }
 
 @mixin circle($diameter) {
-	@include border-radius(($diameter/2)+3);
+	border-radius: (($diameter/2)+3);
 	display: block;
 	line-height: $diameter;
 	height: $diameter;
@@ -37,8 +36,8 @@
 
 @mixin action-button {
 	@include title-font(18px);
-	@include box-shadow(transparentize($menuBackground, 0.6) 3px 3px 0);
-	@include text-shadow(opacify($menuShadow, 0.3) -0 -1px 0);
+	box-shadow: transparentize($menuBackground, 0.6) 3px 3px 0;
+	text-shadow: opacify($menuShadow, 0.3) -0 -1px 0;
 	background: $menuBackground;
 	color: $menuColor;
 	display: inline-block;
@@ -46,8 +45,8 @@
 	text-decoration: none;
 
 	&:active {
-		@include box-shadow($menuShadow 3px 3px 2px inset, $menuHighlight -1px -1px 0 inset);
-		@include text-shadow($menuHighlight 1px 1px 0);
+		box-shadow: $menuShadow 3px 3px 2px inset, $menuHighlight -1px -1px 0 inset;
+		text-shadow: $menuHighlight 1px 1px 0;
 		background: $menuSelectedBackground;
 	}
 }

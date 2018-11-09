@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1'
-gem 'pg'
+gem 'rails', '~> 3.1'
+gem 'pg', '~> 0.11'
 
 gem 'acts-as-taggable-on'
 gem 'capistrano'

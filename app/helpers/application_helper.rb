@@ -5,7 +5,7 @@ module ApplicationHelper
     end.join
   end
 	
-	def textilize(text)
+  def textilize(text)
     RedCloth.new(text).to_html
   end
 end

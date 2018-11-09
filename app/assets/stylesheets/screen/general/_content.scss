@@ -120,19 +120,16 @@ a {
 }
 
 .userlink {
-	display: box;
-	box-orient: horizontal;
-	box-align: center;
-	box-pack: start;
-	box-lines: single;
+	display: flex;
+	align-items: center;
 
 	> img {
 		display: block;
-		vertical-align: middle;
 	}
 	> .name {
+		display: block;
+		flex: 1;
 		margin-left: 4px;
-		
 	}
 }
 

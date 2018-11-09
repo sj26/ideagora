@@ -70,17 +70,15 @@ describe User do
     end
     
     it "should be organiser?" do
-      pending
-      a = Attendance.make!
-      u = a.user
+      camp = Camp.make!(:current => true)
+      user = User.make!
+      attendance = Attendance.make!(:camp => camp, :user => user)
       User.organisers.count == 0
-      u.organiser?.should be_false
+      user.should_not be_organiser
       
-      a.update_attribute(:organiser, true)
+      attendance.update_attribute(:organiser, true)
       User.organisers(true).count == 1
-      puts User.organisers(true)
-      puts User.first.organiser?
-      u.organiser?.should be_true
+      user.should be_organiser
     end
   end
 end

@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
   end
   
   def organiser?
-    User.organisers.include?(self)
+    attendances.exists?(camp_id: Camp.current, organiser: true)
   end
   
   def self.authenticate(param)

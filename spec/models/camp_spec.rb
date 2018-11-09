@@ -15,10 +15,11 @@ describe Camp do
   describe '#talks_by_time_and_venue_for_day(day)' do
     before do
       @camp = Camp.make!
-      venue = Venue.make!(:camp => @camp)
+      venue = @camp.venues.make!
+      user = @camp.users.make!
       user = User.make! #Why won't @camp.users.make! work? I wish I knew Machinist2...
       @camp.users << user
-      talk = venue.talks.create(:name => 'Sample Talk', :venue => venue, :user => user, :start_at => @camp.start_at.to_date + 1.day + 10.hours, :end_at => @camp.start_at.to_date + 1.day + 11.hours)
+      Talk.make!(:name => 'Sample Talk', :camp => @camp, :venue => venue, :user => user, :start_at => @camp.start_at.to_date + 1.day + 10.hours, :end_at => @camp.start_at.to_date + 1.day + 11.hours)
     end
 
     it 'returns an OrderedHash in the form of { :time => { :venue => :talk } }' do

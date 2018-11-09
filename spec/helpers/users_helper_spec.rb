@@ -18,7 +18,7 @@ describe UsersHelper do
 
     it 'returns an expected image url to gravatar with correctly hashed email' do
       email_md5 = Digest::MD5.hexdigest(@user.email).to_s
-      url = "http://www.gravatar.com/avatar/" + email_md5 + "?s=" + '80'
+      url = "http://www.gravatar.com/avatar/" + email_md5 + ".jpg?s=" + '80'
 
       get_gravatar(@user, 80).should == url
     end

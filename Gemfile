@@ -5,7 +5,7 @@ gem 'pg'
 
 gem 'acts-as-taggable-on'
 gem 'capistrano'
-gem 'haml'
+gem 'haml', '4.0.4'
 gem 'formtastic'
 gem 'hirb'
 gem 'inherited_resources'

@@ -234,3 +234,6 @@ DEPENDENCIES
   steak
   timecop
   uglifier
+
+BUNDLED WITH
+   1.17.1

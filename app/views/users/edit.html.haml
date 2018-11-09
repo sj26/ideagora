@@ -25,6 +25,6 @@
     = f.input :skill_list, :input_html => { :value => @user.skill_list.sort.join(", ") }, :hint => 'enter tags, comma separated (Ex: javascript, rspec, rails)'
     = f.input :interest_list, :input_html => { :value => @user.interest_list.sort.join(", ") }, :hint => 'enter tags, comma separated (Ex: javascript, rspec, rails)'
 
-  = f.buttons do
-    %li.cancel= link_to 'Cancel', @user, :class => 'cancel'
-    = f.commit_button
+  = f.actions :class => ["actions", "as-buttons"] do
+    = f.action :cancel, :as => :link, :label => "Cancel", :url => @user, :class => "cancel"
+    = f.action :submit

@@ -25,10 +25,10 @@ end
 gem 'jquery-rails'
 
 group :development, :test do
-  gem 'capybara', '~> 1.0'
+  gem 'capybara'
   gem 'faker'
   gem 'machinist', '~> 2.0'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '< 3'
   gem 'rspec-collection_matchers'
   gem 'shoulda'
   gem 'steak'

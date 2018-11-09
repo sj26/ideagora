@@ -1,7 +1,6 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1'
-gem 'unicorn'
 gem 'pg'
 
 gem 'acts-as-taggable-on'

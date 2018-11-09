@@ -30,7 +30,7 @@ group :development, :test do
   gem 'faker'
   gem 'itslog'
   gem 'launchy' # for save_and_open_page
-  gem 'machinist', '>= 2.0.0.beta2'
+  gem 'machinist', '~> 2.0'
   gem 'rspec-rails'
   gem 'rspec-collection_matchers'
   gem 'shoulda'

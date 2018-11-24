@@ -23,6 +23,7 @@ class ProjectsController < InheritedResources::Base
   end
   
   def create
+    @thoughts = Thought.upvoted(1)
     @project = Project.new(params[:project])
     @project.owner = current_user
     create! { user_path(current_user) }

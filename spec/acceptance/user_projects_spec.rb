@@ -1,6 +1,6 @@
-require 'acceptance/acceptance_helper'
+require "acceptance/acceptance_helper"
 
-describe 'User\'s projects', :type => :request do
+feature "User's projects" do
   before do
     clear_db
     @c = Camp.make!

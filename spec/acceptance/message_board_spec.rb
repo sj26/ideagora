@@ -1,6 +1,6 @@
-require 'acceptance/acceptance_helper'
+require "acceptance/acceptance_helper"
 
-describe 'message board notices', :type => :request do
+feature 'message board notices' do
   before do
     clear_db
     @c = Camp.current || Camp.make!

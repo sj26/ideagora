@@ -1,6 +1,6 @@
-require 'acceptance/acceptance_helper'
+require "acceptance/acceptance_helper"
 
-describe 'Viewing and setting a project\'s status', :type => :request do
+feature "Viewing and setting a project's status" do
   before do
     clear_db
     @c = Camp.make!

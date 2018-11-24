@@ -1,6 +1,6 @@
-require 'acceptance/acceptance_helper'
+require "acceptance/acceptance_helper"
 
-describe 'A user viewing and editing their profile', :type => :request do
+feature 'A user viewing and editing their profile' do
   before do
     @c = Camp.make!
     @u = @c.users.make!

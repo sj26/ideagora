@@ -1,6 +1,6 @@
-require 'acceptance/acceptance_helper'
+require_relative "acceptance_helper"
 
-describe 'users CRUDing talks', :type => :request do
+feature 'users CRUDing talks' do
   before do
     @camp = Camp.current || Camp.make!
     @user = @camp.users.make!

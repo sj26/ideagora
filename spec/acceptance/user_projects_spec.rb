@@ -101,7 +101,7 @@ feature "User's projects" do
       
       it "can delete own project" do
         visit user_path(@u)
-        find("li#project_#{@p.id}").click_link('Delete')
+        find("article#project_#{@p.id}").click_link('Delete')
         @u.projects.count == 0
       end
     end

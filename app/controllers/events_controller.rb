@@ -18,9 +18,14 @@ class EventsController < AuthenticatedController
     new!
   end
 
-private
+  private
+
   def end_of_association_chain
     super.where(camp_id: current_camp.id)
+  end
+
+  def event_params
+    params.require(:event).permit(:name, :description, :start_at, :end_at, :user_id, :venue_id)
   end
 
   def details

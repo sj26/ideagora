@@ -19,12 +19,13 @@ class TalksController < AuthenticatedController
     @start_at = Time.parse(params[:start_at])
     @end_at = @start_at + 1.hour
     @venue = Venue.find(params[:venue_id])
-    @talk = Talk.new(:start_at => @start_at, :end_at => @end_at, :venue => @venue, :user => current_user)
+    @talk = current_user.talks.build(:start_at => @start_at, :end_at => @end_at, :venue => @venue)
     @thoughts = Thought.upvoted(1)
     new!
   end
 
   def create
+    @users = current_camp.users.order(:first_name)
     @thoughts = Thought.upvoted(1)
     create!
   end
@@ -34,9 +35,20 @@ class TalksController < AuthenticatedController
     edit!
   end
 
-private
+  def update
+    @users = current_camp.users.order(:first_name)
+    @thoughts = Thought.upvoted(1)
+    update!
+  end
+
+  private
+
   def end_of_association_chain
     super.where(camp_id: current_camp.id)
+  end
+
+  def talk_params
+    params.require(:talk).permit(:name, :description, :user_id, :venue_id, :start_at, :end_at)
   end
 
   def details

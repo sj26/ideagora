@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :notices
   has_many :thoughts
   has_many :likes
+  has_many :talks
   
   validates_presence_of :first_name, :email
   validates_uniqueness_of :email

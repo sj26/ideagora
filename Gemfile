@@ -10,6 +10,7 @@ gem 'hirb'
 gem 'inherited_resources'
 gem 'rake', '0.9.2'
 gem 'state_machine'
+gem 'strong_parameters'
 gem 'RedCloth'
 
 # Assets

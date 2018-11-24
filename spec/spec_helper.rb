@@ -1,5 +1,6 @@
 ENV["RAILS_ENV"] ||= 'test'
 require_relative "../config/environment"
+require "database_cleaner"
 require "rspec/rails"
 
 # Requires supporting ruby files with custom matchers and macros, etc,
@@ -12,4 +13,12 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
 
   config.infer_spec_type_from_file_location!
+
+  config.before(:suite) do
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
 end

@@ -24,6 +24,7 @@ end
 gem 'jquery-rails'
 
 group :development, :test do
+  gem 'database_cleaner'
   gem 'capybara'
   gem 'faker'
   gem 'machinist', '~> 2.0'

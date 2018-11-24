@@ -2,7 +2,6 @@ require "acceptance/acceptance_helper"
 
 feature 'message board notices' do
   before do
-    clear_db
     @c = Camp.current || Camp.make!
     @u = User.make!
     Attendance.make!(:camp => @c, :user => @u)

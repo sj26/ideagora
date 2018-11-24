@@ -2,7 +2,6 @@ require "acceptance/acceptance_helper"
 
 feature "Viewing and setting a project's status" do
   before do
-    clear_db
     @c = Camp.make!
     @u = User.make!
     @c.users << @u

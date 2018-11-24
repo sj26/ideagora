@@ -2,7 +2,6 @@ require "acceptance/acceptance_helper"
 
 feature "User's projects" do
   before do
-    clear_db
     @c = Camp.make!
     @u = User.make!
     @c.users << @u

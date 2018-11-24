@@ -14,7 +14,8 @@ feature 'A user viewing and editing their profile' do
       #showing all our attributes in editable fields?
       profile_attrs = %w(first_name last_name email bio twitter bonjour irc)
       profile_attrs.each do |attr|
-        page.should have_field(attr.humanize, :with => @u.send(attr))
+        expect(page).to have_field(attr.humanize)
+        expect(first(:field, attr.humanize).value).to eql(@u.send(attr))
       end
 
       page.should have_field('Skill list',    :with => @u.skill_list.sort.join(', '))

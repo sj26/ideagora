@@ -1,42 +1,49 @@
 require_relative "acceptance_helper"
 
-feature 'users CRUDing talks' do
+feature "users CRUDing talks" do
   before do
-    @camp = Camp.current || Camp.make!
-    @user = @camp.users.make!
+    @camp = Camp.make!(start_at: "2018-11-23 15:00:00 UTC+11", end_at: "2018-11-26 09:00:00 UTC+11")
+    @user = User.make!
+    @attendance = Attendance.create!(camp: @camp, user: @user)
+    @venue = Venue.make!(:camp => @camp)
     sign_in_as(@user)
   end
 
-  it 'lets users view the talks' do
-    venue = Venue.make!(:camp => @camp)
-    talk = venue.talks.create(:name => 'Sample Talk', :venue => venue, :user => @user, :start_at => @camp.start_at.to_date + 1.day + 10.hours, :end_at => @camp.start_at.to_date + 1.day + 11.hours)
+  it "lets users view the talks" do
+    talk = Talk.make!(:camp => @camp, :venue => @venue, :name => "Sample Talk", :user => @user,
+                      :start_at => "2018-11-24 09:00:00 UTC+11", :end_at => "2018-11-24 10:00:00 UTC+11")
 
-    viewing_day = @camp.talks.order(:start_at).first.start_date.to_date
-    visit talks_path(:day => viewing_day)
+    viewing_day = Date.new(2018, 11, 24)
+    Timecop.freeze(viewing_day) do
+      visit talks_path
 
-    # Do we see the details for each talk on this day?
-    @camp.talks.for_day(viewing_day).each do |talk|
-      page.should have_content talk.name
-    end
+      # Do we see the details for each talk on this day?
+      @camp.talks.for_day(viewing_day).each do |talk|
+        page.should have_content talk.name
+      end
 
-    #We should have links for the other talk days
-    @camp.talks.collect(&:day).uniq.each do |day|
-      page.should have_link day.strftime("%A") unless day == viewing_day
+      #We should have links for the other talk days
+      @camp.talks.collect(&:day).uniq.each do |day|
+        page.should have_link day.strftime("%A") unless day == viewing_day
+      end
     end
   end
 
-  it 'lets a user create a new talk' do
-    visit talks_path(:day => @camp.start_at.to_date + 1.day)
-    click_link 'Add Talk'
+  it "lets a user create a new talk" do
+    visit talks_path
 
-    fill_in :name, :with => 'New Title'
+    click_link "Add a talk"
 
-    click_button 'Create Talk'
+    first(:link, "Add Talk").click
 
-    #saved flash?
-    page.should have_content 'Talk was successfully created.'
+    fill_in "Talk Title", with: "New Title"
+    fill_in "Description", with: "A fantastic talk full of fantastic things"
 
-    #new values saved?
-    page.should have_content 'New Title'
+    click_button "Create Talk"
+
+    page.should have_content "Talk was successfully created"
+
+    page.should have_content "New Title"
+    page.should have_content "A fantastic talk full of fantastic things"
   end
 end

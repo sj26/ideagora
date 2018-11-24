@@ -4,7 +4,6 @@ gem 'rails', '3.2.22.5'
 gem 'pg', '~> 0.11'
 
 gem 'acts-as-taggable-on'
-gem 'capistrano'
 gem 'haml', '4.0.4'
 gem 'formtastic'
 gem 'hirb'

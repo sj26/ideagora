@@ -36,7 +36,7 @@
 
       %section#content{:role => "main"}
         - [:error, :warning, :notice, :message, :alert].each do |key|
-          - if flash[key].present?
+          - if flash.key?(key)
             %p.flash{:class => key}= flash[key]
         %header
           - if content_for? :title

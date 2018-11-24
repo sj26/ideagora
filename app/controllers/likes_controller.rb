@@ -1,11 +1,10 @@
 class LikesController < AuthenticatedController
-  
   def create
     @like = Like.new(:user => current_user, :thought_id => params[:thought_id])
     create! do |success, failure|
       success.html { redirect_to thoughts_path }
       failure.html {
-        flash[:error] = resource.errors.on :thought_id
+        flash[:error] = resource.errors[:thought_id].join
         redirect_to thoughts_path
       }
     end
@@ -21,5 +20,4 @@ class LikesController < AuthenticatedController
       }
     end
   end
-
 end

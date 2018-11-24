@@ -14,7 +14,7 @@ class ThoughtsController < AuthenticatedController
         redirect_to thoughts_path
       }
       failure.html {
-        flash[:error] = @thought.errors.on :description
+        flash[:error] = @thought.errors[:description].join
         redirect_to thoughts_path
       }
     end

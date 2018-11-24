@@ -13,7 +13,7 @@
   = render :partial => 'where_and_when', :locals => { :talk => @talk }
 
   - if @talk.description
-    = textilize(@talk.description).try(:html_safe)
+    = raw textilize(@talk.description)
 
   - if @talk.user == current_user
     %ul.actions

@@ -12,7 +12,7 @@
 .main
   - if @project.description
     .description
-      = textilize(@project.description).try(:html_safe)
+      = raw textilize(@project.description)
 
   %p.status
     %b Status:

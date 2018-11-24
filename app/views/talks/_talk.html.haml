@@ -12,4 +12,4 @@
       %span.place
         = talk.venue
   %div.description
-    = textilize(talk.description).try(:html_safe)
+    = raw textilize(talk.description)

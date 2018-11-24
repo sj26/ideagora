@@ -3,4 +3,4 @@
 
 - @notices.each do |notice|
   %h2= notice.title
-  = textilize(notice.content).try(:html_safe)
+  = raw textilize(notice.content)

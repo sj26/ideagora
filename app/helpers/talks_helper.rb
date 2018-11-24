@@ -25,12 +25,4 @@ module TalksHelper
   def hour_of(date)
     Time.zone.utc_to_local(date.to_time).strftime("%l:%M %P")
   end
-
-  def talk_description(talk)
-    html = <<-END
-      #{talk.try(:name)} <br/>
-      #{talk.try(:user).try(:full_name)}
-    END
-    html.html_safe
-  end
 end

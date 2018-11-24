@@ -18,7 +18,7 @@
 
     - if @latest_notice
       %h2= @latest_notice.title
-      = textilize(@latest_notice.content).try(:html_safe)
+      = raw textilize(@latest_notice.content)
 
     %footer
       %ul.actions.as-buttons
@@ -48,4 +48,3 @@
     %footer
       %ul.actions.as-buttons
         %li.more= link_to 'view all projects', projects_path
-

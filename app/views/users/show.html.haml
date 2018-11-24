@@ -8,7 +8,7 @@
     - if @user.bio
       %article.bio
         %h2 About me
-        = textilize(@user.bio).try(:html_safe)
+        = raw textilize(@user.bio)
 
     %p.skills Skills: #{@user.skill_list.join(', ')}
 

@@ -37,7 +37,7 @@ Ideagora::Application.routes.draw do
       end
     end
   end
-  resource :dev
+  resource :mirrors
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

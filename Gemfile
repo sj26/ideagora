@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
-gem 'rails', '~> 4.1.0'
-gem 'pg', '~> 0.11'
+gem 'rails', '~> 4.2.0'
+gem 'pg', '~> 0.15'
 
 gem 'acts-as-taggable-on'
 gem 'haml'

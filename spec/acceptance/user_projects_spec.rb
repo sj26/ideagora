@@ -91,7 +91,7 @@ feature "User's projects" do
       it "can edit own projects" do
         visit user_path(@u)
         page.should have_content('My projects')
-        find("li#project_#{@p.id}").click_link('Edit')
+        find("article#project_#{@p.id}").click_link('Edit this project')
         
         fill_in 'Name', :with => 'new name'
         page.click_button 'Update Project'

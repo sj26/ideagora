@@ -63,6 +63,8 @@ private
       redirect_to :back
       flash[:alert] = 'You cannot edit projects that are not yours'
     end
+  rescue ActionController::RedirectBackError
+    redirect_to root_path
   end
   
   def is_owner?

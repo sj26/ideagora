@@ -24,6 +24,11 @@ class TalksController < AuthenticatedController
     new!
   end
 
+  def create
+    @thoughts = Thought.upvoted(1)
+    create!
+  end
+
   def edit
     @users = current_camp.users.order(:first_name)
     edit!

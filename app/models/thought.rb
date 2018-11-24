@@ -11,7 +11,7 @@ class Thought < ActiveRecord::Base
   default_scope { order('likes_count desc') }
   
   def liked_by?(user)
-    fans.exists? user
+    fans.include? user
   end
   
   before_validation do |thought|

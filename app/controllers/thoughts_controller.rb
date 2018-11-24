@@ -27,6 +27,6 @@ class ThoughtsController < AuthenticatedController
   end
 
   def thought_params
-    params.require(:thought).permit(:thought)
+    params.require(:thought).permit(:description)
   end
 end

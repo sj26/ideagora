@@ -17,9 +17,6 @@ module Ideagora
     # Custom directories with classes and modules you want to be autoloadable.
     config.autoload_paths += %W(#{config.root}/lib/mixins)
 
-    # Disable because strong_parameters
-    config.active_record.whitelist_attributes = false
-
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
     config.time_zone = 'Sydney'

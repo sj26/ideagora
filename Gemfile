@@ -20,7 +20,7 @@ gem 'autoprefixer-rails'
 gem 'jquery-rails'
 
 group :development, :test do
-  gem 'rspec-rails', '< 3'
+  gem 'rspec-rails'
 end
 
 group :test do

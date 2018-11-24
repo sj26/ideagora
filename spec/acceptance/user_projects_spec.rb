@@ -71,7 +71,7 @@ feature "User's projects" do
       it "cannot edit else's project" do
         @other = User.make!
         @other_project = Project.make!(:owner => @other)
-        visit root_url
+        visit root_path
         visit edit_user_project_path(@other, @other_project)
         expect(current_path).to eql(root_path)
         expect(page).to have_content('You cannot edit projects that are not yours')

@@ -160,6 +160,7 @@ GEM
     thread_safe (0.3.6)
     tilt (2.0.8)
     timecop (0.9.1)
+    truncate_html (0.9.3)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     uglifier (4.1.20)
@@ -194,6 +195,7 @@ DEPENDENCIES
   state_machine
   steak
   timecop
+  truncate_html
   uglifier
 
 BUNDLED WITH

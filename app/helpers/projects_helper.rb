@@ -1,6 +1,6 @@
 module ProjectsHelper
   def smart_description(project)
-    truncate(textilize(project.try(:description)), :length => 100).try(:html_safe)
+    raw truncate_html(textilize(project.description), length: 100)
   end
   
   def is_owner?(project)

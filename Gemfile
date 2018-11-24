@@ -9,8 +9,9 @@ gem 'formtastic'
 gem 'hirb'
 gem 'inherited_resources'
 gem 'rake'
-gem 'state_machine'
 gem 'RedCloth'
+gem 'state_machine'
+gem 'truncate_html'
 
 # Assets
 gem 'sass-rails'

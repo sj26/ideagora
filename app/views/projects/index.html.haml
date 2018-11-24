@@ -23,5 +23,5 @@
             .description
               = smart_description(project)
         %td= link_to project.owner, user_path(project.owner)
-        %td= project.needs_help? && "Yes" || nil
+        %td= "Yes" if project.help?
         %td= project.status

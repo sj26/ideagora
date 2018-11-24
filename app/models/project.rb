@@ -24,10 +24,6 @@ class Project < ActiveRecord::Base
     state :done, :value => "DONE!"
     state :fail, :value => "Canned"
   end
-
-  def needs_help?
-    !!help
-  end
   
   def self.random
     if count > 0

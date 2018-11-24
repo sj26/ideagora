@@ -5,7 +5,7 @@
       %p
         by
         = link_to project.owner.full_name, user_path(project.owner)
-    - if project.needs_help?
+    - if project.help?
       %p.help Could use help with this one
 
 

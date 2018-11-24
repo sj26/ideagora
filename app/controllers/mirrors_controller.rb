@@ -1,4 +1,4 @@
-class MirrorsController < ActionController::Base
+class MirrorsController < ApplicationController
 	def show
 	end
 end

@@ -74,9 +74,8 @@ feature "User's projects" do
         @other_project = Project.make!(:owner => @other)
         visit root_url
         visit edit_user_project_path(@other, @other_project)
-        
-        current_path.should == root_path
-        page.should have_content('You cannot edit projects that are not yours')
+        expect(current_path).to eql(root_path)
+        expect(page).to have_content('You cannot edit projects that are not yours')
       end
       
       it "when on other camper's page, should not see edit or delete links" do

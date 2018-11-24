@@ -51,5 +51,7 @@ module Ideagora
 
     # Version of your assets, change this if you want to expire all your assets  
     config.assets.version = '1.0'
+
+    config.assets.precompile << "jquery.dataTables-1.7.6.min.js"
   end
 end

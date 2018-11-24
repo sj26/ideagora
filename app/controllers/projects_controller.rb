@@ -60,8 +60,8 @@ class ProjectsController < InheritedResources::Base
 private
   def requires_owner
     unless is_owner?
-      redirect_to :back
       flash[:alert] = 'You cannot edit projects that are not yours'
+      redirect_to :back
     end
   rescue ActionController::RedirectBackError
     redirect_to root_path

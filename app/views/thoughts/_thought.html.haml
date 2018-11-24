@@ -1,6 +1,6 @@
 %article.thought
   .description
-    = raw textilize(thought.description)
+    = textilize(thought.description)
   .mastermind
     %a.userlink{:href => user_path(thought.user)}
       = user_avatar(thought.user, 24)

@@ -1,5 +1,5 @@
 module ApplicationHelper
   def textilize(text)
-    RedCloth.new(text).to_html
+    raw RedCloth.new(text).to_html
   end
 end

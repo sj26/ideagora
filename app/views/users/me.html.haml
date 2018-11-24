@@ -14,7 +14,7 @@
     - if @user.bio
       %article.bio
         %h2 About me
-        = raw textilize(@user.bio)
+        = textilize(@user.bio)
 
     %p.skills Skills: #{@user.skill_list.join(', ')}
 

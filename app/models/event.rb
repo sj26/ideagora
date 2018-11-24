@@ -14,7 +14,7 @@ class Event < ActiveRecord::Base
   scope :for_day, lambda { |day| self.after(day.beginning_of_day).before(day.end_of_day) }
   scope :in_progress, lambda { self.before(Time.now).where("end_at > :time", :time => Time.now) }
 
-  default_scope order(:start_at)
+  default_scope { order(:start_at) }
 
   def self.for_venue(venue)
     where(:venue_id => venue.id)

@@ -1,5 +1,7 @@
 require 'spec_helper'
 
 describe Talk do
-  it_should_behave_like "timeboxed", Talk.make
+  subject(:talk) { Talk.make }
+
+  it_should_behave_like "timeboxed"
 end

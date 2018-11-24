@@ -9,19 +9,22 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20181109123110) do
+ActiveRecord::Schema.define(version: 20181109123339) do
 
-  create_table "attendances", :force => true do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "attendances", force: true do |t|
     t.integer  "camp_id"
     t.integer  "user_id"
-    t.boolean  "organiser",  :default => false
+    t.boolean  "organiser",  default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "camps", :force => true do |t|
+  create_table "camps", force: true do |t|
     t.string   "name"
     t.string   "location"
     t.boolean  "current"
@@ -32,7 +35,7 @@ ActiveRecord::Schema.define(:version => 20181109123110) do
     t.datetime "end_at"
   end
 
-  create_table "discussions", :force => true do |t|
+  create_table "discussions", force: true do |t|
     t.string   "path"
     t.integer  "camp_id"
     t.string   "title"
@@ -41,7 +44,7 @@ ActiveRecord::Schema.define(:version => 20181109123110) do
     t.datetime "updated_at"
   end
 
-  create_table "events", :force => true do |t|
+  create_table "events", force: true do |t|
     t.integer  "venue_id"
     t.integer  "user_id"
     t.string   "name"
@@ -54,16 +57,16 @@ ActiveRecord::Schema.define(:version => 20181109123110) do
     t.string   "type"
   end
 
-  create_table "likes", :force => true do |t|
+  create_table "likes", force: true do |t|
     t.integer  "thought_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "likes", ["user_id", "thought_id"], :name => "index_likes_on_user_id_and_thought_id", :unique => true
+  add_index "likes", ["user_id", "thought_id"], name: "index_likes_on_user_id_and_thought_id", unique: true, using: :btree
 
-  create_table "notices", :force => true do |t|
+  create_table "notices", force: true do |t|
     t.string   "title"
     t.text     "content"
     t.integer  "user_id"
@@ -73,7 +76,7 @@ ActiveRecord::Schema.define(:version => 20181109123110) do
     t.datetime "updated_at"
   end
 
-  create_table "projects", :force => true do |t|
+  create_table "projects", force: true do |t|
     t.string   "name"
     t.text     "description"
     t.integer  "user_id"
@@ -85,14 +88,14 @@ ActiveRecord::Schema.define(:version => 20181109123110) do
     t.string   "status"
   end
 
-  create_table "statuses", :force => true do |t|
+  create_table "statuses", force: true do |t|
     t.string   "type"
     t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "taggings", :force => true do |t|
+  create_table "taggings", force: true do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
     t.string   "taggable_type"
@@ -102,17 +105,24 @@ ActiveRecord::Schema.define(:version => 20181109123110) do
     t.datetime "created_at"
   end
 
-  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], :name => "taggings_idx", :unique => true
-  add_index "taggings", ["taggable_id", "taggable_type", "context"], :name => "index_taggings_on_taggable_id_and_taggable_type_and_context"
+  add_index "taggings", ["context"], name: "index_taggings_on_context", using: :btree
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
+  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
+  add_index "taggings", ["taggable_id", "taggable_type", "tagger_id", "context"], name: "taggings_idy", using: :btree
+  add_index "taggings", ["taggable_id"], name: "index_taggings_on_taggable_id", using: :btree
+  add_index "taggings", ["taggable_type"], name: "index_taggings_on_taggable_type", using: :btree
+  add_index "taggings", ["tagger_id", "tagger_type"], name: "index_taggings_on_tagger_id_and_tagger_type", using: :btree
+  add_index "taggings", ["tagger_id"], name: "index_taggings_on_tagger_id", using: :btree
 
-  create_table "tags", :force => true do |t|
+  create_table "tags", force: true do |t|
     t.string  "name"
-    t.integer "taggings_count", :default => 0
+    t.integer "taggings_count", default: 0
   end
 
-  add_index "tags", ["name"], :name => "index_tags_on_name", :unique => true
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
-  create_table "talks", :force => true do |t|
+  create_table "talks", force: true do |t|
     t.integer  "venue_id"
     t.integer  "user_id"
     t.string   "name"
@@ -124,14 +134,14 @@ ActiveRecord::Schema.define(:version => 20181109123110) do
     t.integer  "camp_id"
   end
 
-  create_table "thought_processes", :force => true do |t|
+  create_table "thought_processes", force: true do |t|
     t.integer  "thought_id"
     t.integer  "evolution_id"
     t.string   "evolution_type"
     t.datetime "evolved_at"
   end
 
-  create_table "thoughts", :force => true do |t|
+  create_table "thoughts", force: true do |t|
     t.text     "description"
     t.boolean  "dead"
     t.integer  "ancestor_id"
@@ -141,7 +151,7 @@ ActiveRecord::Schema.define(:version => 20181109123110) do
     t.integer  "likes_count"
   end
 
-  create_table "users", :force => true do |t|
+  create_table "users", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
@@ -155,7 +165,7 @@ ActiveRecord::Schema.define(:version => 20181109123110) do
     t.string   "avatar"
   end
 
-  create_table "venues", :force => true do |t|
+  create_table "venues", force: true do |t|
     t.string   "name"
     t.integer  "camp_id"
     t.datetime "created_at"

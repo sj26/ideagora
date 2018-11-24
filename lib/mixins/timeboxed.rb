@@ -1,6 +1,5 @@
 module Timeboxed
   module InstanceMethods
-
     def duration
       end_at - start_at
     end
@@ -26,6 +25,4 @@ module Timeboxed
     base.validates_presence_of :start_at, :end_at
     base.validate :start_at_is_less_than_end_at
   end
-
-
 end

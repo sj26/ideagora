@@ -1,5 +1,7 @@
 require 'spec_helper'
 
-describe Event do
-  it_should_behave_like "timeboxed", Event.make
+RSpec.describe Event do
+  subject(:event) { Event.make }
+
+  it_should_behave_like "timeboxed"
 end

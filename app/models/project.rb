@@ -31,8 +31,7 @@ class Project < ActiveRecord::Base
   
   def self.random
     if count > 0
-      offset = rand(count)
-      first(:offset => offset)
+      offset(rand(count)).first
     end
   end
 end

@@ -22,7 +22,7 @@ end
 
 Notice.blueprint do
   title         { Faker::Name.name }
-  content       { Faker::Lorem.sentences }
+  content       { Faker::Lorem.paragraph }
   user          { User.make! }
   camp          { Camp.make! }
 end
@@ -34,36 +34,34 @@ end
 
 Event.blueprint do
   name     { Faker::Lorem.words((rand * 8).floor+2).join(" ") }
-  description { Faker::Lorem.sentences }
+  description { Faker::Lorem.paragraph }
   camp     { object.camp || Camp.current || Camp.make! }
   venue    { Venue.all.sample || Venue.make! }
   user     { User.all.sample || User.make! }
   start_at do
     starting = Camp.current.start_at.to_time
     ending = Camp.current.end_at.to_time
-    timestamp = (starting.to_i..ending.to_i).step(3600).sample
-    Time.at(timestamp) + (rand * 360).floor.minutes
+    (starting + (ending - starting) * rand).beginning_of_hour
   end
   end_at   { object.start_at + 1.hour }
 end
 
 Talk.blueprint do
   name     { Faker::Lorem.words((rand * 8).floor+2).join(" ") }
-  description { Faker::Lorem.sentences }
+  description { Faker::Lorem.paragraph }
   camp     { object.camp || Camp.current || Camp.make! }
   venue    { Venue.all.sample || Venue.make! }
   user     { User.all.sample || User.make! }
   start_at do
     starting = Camp.current.start_at.to_time
     ending = Camp.current.end_at.to_time
-    timestamp = (starting.to_i..ending.to_i).step(3600).sample
-    Time.at(timestamp) + (rand * 360).floor.minutes
+    (starting + (ending - starting) * rand).beginning_of_hour
   end
   end_at   { object.start_at + 1.hour }
 end
 
 Venue.blueprint do
-  name { Faker::Lorem.words(1) }
+  name { Faker::Lorem.word }
   camp { object.camp || Camp.current || Camp.make! }
 end
 

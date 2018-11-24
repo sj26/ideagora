@@ -8,7 +8,7 @@ class Thought < ActiveRecord::Base
   
   scope :upvoted, lambda { |count| where('likes_count >= :count', :count => count || 1) }
   
-  default_scope order('likes_count desc')
+  default_scope { order('likes_count desc') }
   
   def liked_by?(user)
     fans.exists? user

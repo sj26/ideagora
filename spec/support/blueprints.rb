@@ -30,6 +30,7 @@ end
 Project.blueprint do
   name          { Faker::Company.name }
   owner         { User.make! }
+  status        { :active }
 end
 
 Event.blueprint do

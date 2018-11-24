@@ -16,6 +16,7 @@ feature "Viewing and setting a project's status" do
     context 'when viewing an active project' do
       it "should show the status as active" do
         visit projects_path
+
         find("table tbody tr:first-child").should have_content(@p.name)
         find("table tbody tr:first-child").should have_content("Active")
         
@@ -34,8 +35,8 @@ feature "Viewing and setting a project's status" do
       
       click_link 'Can it!'
       
-      current_path.should == user_project_path(@u, @p)
-      
+      expect(current_path).to eql(user_project_path(@u, @p))
+
       page.should have_content('Status: Canned')
       page.should have_content('Start it up again?')
       

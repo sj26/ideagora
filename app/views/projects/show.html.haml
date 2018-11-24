@@ -16,7 +16,7 @@
 
   %p.status
     %b Status:
-    = @project.status
+    = @project.human_status_name
 
   - if is_owner?
     %ul.actions

@@ -24,4 +24,4 @@
               = smart_description(project)
         %td= link_to project.owner, user_path(project.owner)
         %td= "Yes" if project.help?
-        %td= project.status
+        %td= project.human_status_name

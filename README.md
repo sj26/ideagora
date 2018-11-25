@@ -51,3 +51,4 @@ Credits
 * Written by Elle Meredith and Gabe Hollombe
 * With interface design and coding by Chris Darroch
 * Additional contributions from Ganesh Shankar
+* Upgraded by Samuel Cochran and Keith Pitty

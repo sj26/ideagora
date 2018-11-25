@@ -20,8 +20,9 @@ gem 'autoprefixer-rails'
 gem 'jquery-rails'
 
 group :development, :test do
-  gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'listen'
+  gem 'rspec-rails'
 end
 
 group :test do

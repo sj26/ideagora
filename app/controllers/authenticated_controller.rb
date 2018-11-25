@@ -1,3 +1,3 @@
 class AuthenticatedController < InheritedResources::Base
-  before_filter :requires_login, :except => [:index, :show]
+  before_action :requires_login, :except => [:index, :show]
 end

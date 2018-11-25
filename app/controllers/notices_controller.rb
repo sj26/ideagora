@@ -1,5 +1,5 @@
 class NoticesController < AuthenticatedController
-  before_filter :requires_organiser, :except => [:index, :show]
+  before_action :requires_organiser, :except => [:index, :show]
   
   def create
     @notice = current_user.notices.build(notice_params)

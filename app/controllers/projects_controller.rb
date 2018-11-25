@@ -1,6 +1,6 @@
 class ProjectsController < InheritedResources::Base
-  before_filter :requires_login, :except => [:all, :index, :show]
-  before_filter :requires_owner, :only => [:edit, :update, :destroy, :complete, :cancel, :restart]
+  before_action :requires_login, :except => [:all, :index, :show]
+  before_action :requires_owner, :only => [:edit, :update, :destroy, :complete, :cancel, :restart]
 
   belongs_to :user
 
@@ -65,10 +65,8 @@ private
   def requires_owner
     unless is_owner?
       flash[:alert] = 'You cannot edit projects that are not yours'
-      redirect_to :back
+      redirect_back(fallback_location: root_path)
     end
-  rescue ActionController::RedirectBackError
-    redirect_to root_path
   end
 
   def is_owner?

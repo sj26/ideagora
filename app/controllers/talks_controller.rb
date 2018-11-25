@@ -1,5 +1,5 @@
 class TalksController < AuthenticatedController
-  before_filter :details
+  before_action :details
 
   def index
     @in_progress = current_camp.talks.in_progress

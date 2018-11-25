@@ -1,5 +1,5 @@
 class EventsController < AuthenticatedController
-  before_filter :details
+  before_action :details
 
   def index
     @in_progress = current_camp.events.in_progress

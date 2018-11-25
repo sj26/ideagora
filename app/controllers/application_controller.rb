@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :current_user, :requires_login, :organiser?
-  before_filter :set_time_zone
+  before_action :set_time_zone
   
   private  
   def current_user

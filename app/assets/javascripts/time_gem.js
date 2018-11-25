@@ -24,7 +24,7 @@
 	}
 	
 	$.fn.ready(function() {
-		$(".event").each(function(i, el) {
+		$(":not(form).event").each(function(i, el) {
 			var talk = $(el),
 				time = talk.attr("data-start"),
 				timestamp = parseInt(time,10)*1000,

@@ -23,6 +23,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'listen'
   gem 'rspec-rails'
+  gem 'spring'
 end
 
 group :test do

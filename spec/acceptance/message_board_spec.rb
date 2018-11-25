@@ -1,99 +1,77 @@
 require "acceptance/acceptance_helper"
 
-feature 'message board notices' do
-  before do
-    @c = Camp.current || Camp.make!
-    @u = User.make!
-    Attendance.make!(:camp => @c, :user => @u)
-    
-    @organiser = User.make!
-    Attendance.make!(:camp => @c, :user => @organiser, :organiser => true)
-    
-    User.all.count == 2
-    User.organisers == 1
-    
-    # puts @organiser.attendances.first.organiser
-    # @organiser.organiser?.should be_true
-    
-    @notice = Notice.make!(:camp => @c, :user => @organiser)
-  end
+feature "message board notices" do
+  let!(:camp) { create(:camp) }
+  let!(:user) { create(:user).tap { |user| create(:attendance, camp: camp, user: user) } }
+  let!(:organiser) { create(:user).tap { |user| create(:attendance, camp: camp, user: user, organiser: true) } }
+  let!(:notice) { create(:notice, camp: camp, user: organiser) }
 
-  context 'when not logged in' do
-    it 'can see /camps/:id/message_board' do
-      visit message_board_camp_path(@c)
-      page.should have_content(@notice.title)
+  context "when not logged in" do
+    it "can see /camps/:id/message_board" do
+      visit message_board_camp_path(camp)
+      expect(page).to have_content(notice.title)
     end
   end
     
-  context 'when logged in user' do
-    it 'cannot access /notices/new' do
-      sign_in_as(@u)
+  context "when logged in user" do
+    it "cannot access /notices/new" do
+      sign_in_as(user)
       visit new_notice_path
       assert_unauthorised
     end
   end
 
-  context 'when logged in organiser' do
+  context "when logged in organiser" do
     before do
-      sign_in_as(@organiser)
+      sign_in_as(organiser)
     end
 
-    context 'when new notice' do
-      it "should not create a notice without valid attrs" do
-        skip
-        visit new_notice_path
-        page.should have_content('Create a new notice')
-      
-        page.click_button 'Create Notice'
-        
-        current_path.should == new_notice_path
-        page.should have_content "can't be blank"
-      end
-      
-      it 'creates and sets current_user as owner' do
-        skip
-        visit new_notice_path
-        
-        attrs = { 
-          :title => 'Welcome',
-          :content => 'Lorem ipsum',
-        }
-      
-        attrs.each do |attr, value|
-          fill_in attr.to_s.humanize, :with => value
-        end
-      
-        page.click_button 'Create Notice'
-      
-        current_path.should == notices_path
-        page.should have_content('Welcome')
+    it "can create a new notice" do
+      visit new_notice_path
+      expect(page).to have_content("Create a new notice")
 
-        # check flash
-        @c.notices.count.should == 2
-        Notice.last.user == @organiser
-      end
+      click_button "Create Notice"
+
+      expect(page).to have_content("Create a new notice")
+      expect(page).to have_content("can't be blank")
+
+      save_page
+
+      fill_in "Title", with: "Welcome"
+      fill_in "Content", with: "Lorem ipsum"
+
+      click_button "Create Notice"
+
+      expect(page).to have_content("All Notices")
+      expect(page).to have_content("Notice was successfully created")
+      expect(page).to have_content("Welcome")
+      expect(page).to have_content("Lorem ipsum")
     end
-    
-    context 'with existing notice' do
-      it "can edit" do
-        skip
-        visit notices_path
-        page.should have_content('All notices')
-        find("li#notice_#{@notice_.id}").click_link('Edit')
-        
-        fill_in 'Title', :with => 'new title'
-        page.click_button 'Update Notice'
-        
-        current_path.should == notices_path
-        page.should have_content('new title')
-      end
-      
-      it "can delete notice" do
-        skip
-        visit notices_path
-        find("li#notice_#{@notice_.id}").click_link('Delete')
-        Notice.count == 1
-      end
+
+    it "can edit an existing notice" do
+      visit notices_path
+      expect(page).to have_content("All Notices")
+      expect(page).to have_content(notice.title)
+
+      find("li#notice_#{notice.id}").click_link("Edit")
+
+      fill_in "Title", with: "New Title"
+      click_button "Update Notice"
+
+      expect(page).to have_content("All Notices")
+      expect(page).to have_content("Notice was successfully updated")
+      expect(page).to have_content("New Title")
+    end
+
+    it "can delete notice" do
+      visit notices_path
+      expect(page).to have_content("All Notices")
+      expect(page).to have_content(notice.title)
+
+      find("li#notice_#{notice.id}").click_link("Delete")
+      expect(page).to have_content("All Notices")
+      expect(page).to have_content("Notice was successfully destroyed")
+      expect(page).not_to have_content(notice.title)
     end
   end
 end

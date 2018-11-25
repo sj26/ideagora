@@ -7,8 +7,8 @@ module HelperMethods
   end
 
   def assert_unauthorised
-    current_path.should == root_path
-    page.should have_content('Unauthorised!')
+    expect(current_path).to eql(root_path)
+    expect(page).to have_content('Unauthorised!')
   end
 end
 

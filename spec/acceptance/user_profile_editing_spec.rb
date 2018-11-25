@@ -1,11 +1,10 @@
 require "acceptance/acceptance_helper"
 
 feature 'A user viewing and editing their profile' do
-  before do
-    @c = Camp.make!
-    @u = @c.users.make!
-    sign_in_as(@u)
-  end
+  let!(:camp) { create(:camp) }
+  let!(:user) { create(:user).tap { |user| create(:attendance, camp: camp, user: user) } }
+
+  before { sign_in_as(user) }
 
   context 'when a user views their profile page' do
     it 'shows them their profile info' do
@@ -15,11 +14,11 @@ feature 'A user viewing and editing their profile' do
       profile_attrs = %w(first_name last_name email bio twitter bonjour irc)
       profile_attrs.each do |attr|
         expect(page).to have_field(attr.humanize)
-        expect(first(:field, attr.humanize).value).to eql(@u.send(attr))
+        expect(first(:field, attr.humanize).value).to eql(user.send(attr))
       end
 
-      page.should have_field('Skill list',    :with => @u.skill_list.sort.join(', '))
-      page.should have_field('Interest list', :with => @u.interest_list.sort.join(', '))
+      expect(page).to have_field('Skill list',    :with => user.skill_list.sort.join(', '))
+      expect(page).to have_field('Interest list', :with => user.interest_list.sort.join(', '))
     end
   end
 
@@ -40,17 +39,17 @@ feature 'A user viewing and editing their profile' do
       }
 
       new_attrs.each do |attr, new_value|
-        fill_in attr.to_s.humanize, :with => new_value
+        fill_in attr.to_s.humanize, with: new_value
       end
 
       page.click_button 'Update User'
 
       #redirected back on edit page?
-      current_path.should == my_profile_path
+      expect(current_path).to eql(my_profile_path)
 
       #new values saved?
       new_attrs.each do |attr, new_value|
-        page.should have_field(attr.to_s.humanize, :with => new_value)
+        expect(page).to have_field(attr.to_s.humanize, with: new_value)
       end
     end
   end

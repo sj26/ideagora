@@ -21,13 +21,13 @@ gem 'jquery-rails'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
 
 group :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'faker'
-  gem 'machinist', '~> 2.0'
   gem 'rspec-collection_matchers'
   gem 'shoulda-matchers'
   gem 'steak'

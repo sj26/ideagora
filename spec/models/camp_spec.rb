@@ -13,17 +13,14 @@ describe Camp do
   it { should have_many(:venues) }
 
   describe '#talks_by_time_and_venue_for_day(day)' do
-    before do
-      @camp = Camp.make!
-      venue = @camp.venues.make!
-      user = @camp.users.make!
-      user = User.make! #Why won't @camp.users.make! work? I wish I knew Machinist2...
-      @camp.users << user
-      Talk.make!(:name => 'Sample Talk', :camp => @camp, :venue => venue, :user => user, :start_at => @camp.start_at.to_date + 1.day + 10.hours, :end_at => @camp.start_at.to_date + 1.day + 11.hours)
-    end
+    subject(:camp) { create(:camp) }
+    let!(:venue) { create(:venue, camp: camp) }
+    let!(:user) { create(:user) }
+    let!(:attendance) { create(:attendance, camp: camp, user: user) }
+    let!(:talk) { create(:talk, camp: camp, user: user, venue: venue, start_at: camp.start_at + 1.day + 6.hours) }
 
     it 'returns an OrderedHash in the form of { :time => { :venue => :talk } }' do
-      talks = @camp.talks_by_time_and_venue_for_day(@camp.start_at.to_date + 1.days)
+      talks = camp.talks_by_time_and_venue_for_day(camp.start_at.to_date + 1.day)
 
       talks.should be_a_kind_of ActiveSupport::OrderedHash
       talks.keys.first.should be_a_kind_of Time

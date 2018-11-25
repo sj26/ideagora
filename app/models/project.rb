@@ -22,8 +22,6 @@ class Project < ActiveRecord::Base
   end
 
   def self.random
-    if count > 0
-      offset(rand(count)).first
-    end
+    order("random()").first
   end
 end

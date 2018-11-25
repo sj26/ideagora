@@ -9,38 +9,38 @@ describe User do
   it { should have_many(:notices) }
   
   it 'has skills tags' do
-    user = User.make!
+    user = create(:user)
     user.update_attribute(:skill_list, 'rspec, javascript')
-    user.skill_list.should include('rspec', 'javascript')
+    expect(user.skill_list).to include('rspec', 'javascript')
   end
 
   it 'has interests tags' do
-    user = User.make!
+    user = create(:user)
     user.update_attribute(:interest_list, 'running, game-dev')
-    user.interest_list.should include('running', 'game-dev')
+    expect(user.interest_list).to include('running', 'game-dev')
   end
  
   context 'full_name' do
-    subject(:user) { User.make!(:first_name => 'elmo', :last_name => nil) }
-    specify { user.full_name.should == 'elmo' }
+    subject(:user) { create(:user, first_name: 'elmo', last_name: nil) }
+    specify { expect(user.full_name).to eql('elmo') }
     
     it "should concat first and last name" do
       user.update_attribute(:last_name, 'smith')
-      user.full_name.should == 'elmo smith'
+      expect(user.full_name).to eql('elmo smith')
     end
   end
   
   context 'organiser' do
     it "should be organiser?" do
-      camp = Camp.make!(:current => true)
-      user = User.make!
-      attendance = Attendance.make!(:camp => camp, :user => user)
+      camp = create(:camp)
+      user = create(:user)
+      attendance = create(:attendance, camp: camp, user: user)
       User.organisers.count == 0
-      user.should_not be_organiser
+      expect(user).not_to be_organiser
       
-      attendance.update_attribute(:organiser, true)
+      attendance.update!(organiser: true)
       User.organisers.count == 1
-      user.should be_organiser
+      expect(user).to be_organiser
     end
   end
 end

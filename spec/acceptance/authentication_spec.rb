@@ -5,39 +5,40 @@ feature "Authentication", %q{
   As a rails peep
   I want to be able to log in
 } do
-  
-  background do
-    @c = Camp.make!
-    @u = @c.users.make
-    @u.update_attribute(:twitter, @u.first_name)
-    visit sign_in
-    page.should have_content('Sign in')
-  end
+  let!(:camp) { create(:camp) }
+  let!(:user) { create(:user).tap { |user| create(:attendance, camp: camp, user: user) } }
 
   scenario "current railscamp peep with email" do
-    fill_in 'details', :with => @u.email
+    visit sign_in
+    expect(page).to have_content('Sign in')
+
+    fill_in 'details', :with => user.email
     click_button 'Let me in'
-    page.should have_content('Logged in!')
+    expect(page).to have_content('Logged in!')
   end
-  
+
   scenario "current railscamp peep with twitter username" do
-    fill_in 'details', :with => @u.twitter
+    visit sign_in
+    expect(page).to have_content('Sign in')
+
+    fill_in 'details', :with => user.twitter
     click_button 'Let me in'
-    page.should have_content('Logged in!')
+    expect(page).to have_content('Logged in!')
   end
-  
-  scenario "peep from a previous camp" do
-    skip
-  end
-  
-  scenario "other person" do
-    other = User.make
-    fill_in 'details', :with => other.email
+
+  scenario "an unregistered email" do
+    visit sign_in
+    expect(page).to have_content('Sign in')
+
+    fill_in 'details', with: Faker::Internet.email
     click_button 'Let me in'
-    page.should have_content('Cannot log you in.')
+    expect(page).to have_content('Cannot log you in.')
   end
-  
-  scenario "not logged in, trying to access @u profile page" do
+
+  scenario "not logged in, trying to access user profile page" do
+    visit sign_in
+    expect(page).to have_content('Sign in')
+
     visit my_profile_path
     assert_unauthorised
   end

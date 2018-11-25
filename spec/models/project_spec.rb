@@ -19,7 +19,7 @@ describe Project do
     end
 
     context "cancelled projects" do
-      subject(:project) { Project.make! }
+      subject(:project) { create(:project) }
       before { project.cancel }
 
       it "begins with a fail status" do
@@ -32,7 +32,7 @@ describe Project do
     end
 
     context "completed projects" do
-      subject(:project) { Project.make! }
+      subject(:project) { create(:project) }
       before { project.complete }
 
       it "has a done status" do

@@ -22,14 +22,14 @@ describe Camp do
     it 'returns an OrderedHash in the form of { :time => { :venue => :talk } }' do
       talks = camp.talks_by_time_and_venue_for_day(camp.start_at.to_date + 1.day)
 
-      talks.should be_a_kind_of ActiveSupport::OrderedHash
-      talks.keys.first.should be_a_kind_of Time
+      expect(talks).to be_a_kind_of ActiveSupport::OrderedHash
+      expect(talks.keys.first).to be_a_kind_of Time
 
       talks_for_time = talks[talks.keys.first]
-      talks_for_time.keys.first.should be_a_kind_of Venue
+      expect(talks_for_time.keys.first).to be_a_kind_of Venue
 
       talk = talks_for_time[talks_for_time.keys.first]
-      talk.should be_a_kind_of Talk
+      expect(talk).to be_a_kind_of Talk
     end
   end
 end

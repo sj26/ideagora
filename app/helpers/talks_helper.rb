@@ -22,7 +22,7 @@ module TalksHelper
     Time.zone.utc_to_local(date.to_time).strftime('%A')
   end
 
-  def hour_of(date)
-    Time.zone.utc_to_local(date.to_time).strftime("%l:%M %P")
+  def hour_of(time)
+    time.strftime("%l:%M %P")
   end
 end
